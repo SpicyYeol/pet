@@ -10,7 +10,8 @@ See docs/pose/POSE_CLASSIFIER_DESIGN.md for the full design and calibration log.
 from __future__ import annotations
 
 from collections import Counter
-from dataclasses import dataclass, field
+from dataclasses import dataclass
+from pathlib import Path
 
 import numpy as np
 import pandas as pd
@@ -25,6 +26,18 @@ POSTURES = [
     "hunched_abdominal_pain", "orthopnea_resp_distress", "seizure_or_tremor",
     "uncertain",
 ]
+
+# numeric features exposed for the optional ML classifier (order matters)
+FEATURE_COLUMNS = [
+    "vertical_separation", "back_curvature", "spine_tilt", "neck_extension",
+    "head_height", "front_paw_spread", "body_elongation", "motion_energy",
+    "tremor_index",
+]
+
+# rule labels the model is NOT allowed to override (emergencies / no-data)
+_MODEL_KEEP_RULE = {"uncertain", "seizure_or_tremor"}
+
+_DEFAULT_MODEL = Path(__file__).resolve().parents[1] / "models" / "pose_rf.joblib"
 
 
 @dataclass
@@ -52,6 +65,9 @@ class PoseConfig:
     # behavior flags
     immobile_motion: float = 0.015
     prolonged_immobile_sec: float = 120.0
+    # optional ML model (trained by tools/train_pose_model.py). None -> auto-detect
+    # the default path; "" -> force rules-only.
+    model_path: str | None = None
 
 
 @dataclass
@@ -76,6 +92,23 @@ class PoseAnalyzer(Analyzer):
 
     def __init__(self, cfg: PoseConfig | None = None):
         self.cfg = cfg or PoseConfig()
+        self._bundle = self._load_model()
+
+    def _load_model(self):
+        mp = self.cfg.model_path
+        if mp == "":
+            return None
+        path = Path(mp) if mp else _DEFAULT_MODEL
+        if not path.exists():
+            return None
+        try:
+            import joblib
+            return joblib.load(path)
+        except Exception:
+            return None
+
+    def feature_vector(self, f: "Features") -> list[float]:
+        return [getattr(f, c) for c in FEATURE_COLUMNS]
 
     # ── feature extraction ────────────────────────────────────────
     def _features(self, frame: dict) -> Features:
@@ -265,10 +298,34 @@ class PoseAnalyzer(Analyzer):
         return summary, ews, reasons
 
     # ── public API ────────────────────────────────────────────────
+    def _classify_all(self, feats: list["Features"]) -> tuple[list[str], str]:
+        """Per-frame raw labels. Uses the ML model for postures when available,
+        always keeping rule decisions for emergencies / no-data frames."""
+        rules = [self._classify(f) for f in feats]
+        if self._bundle is None:
+            return rules, "rules"
+        model = self._bundle["model"]
+        medians = self._bundle.get("medians", {})
+        cols = self._bundle.get("features", FEATURE_COLUMNS)
+        rows, idx = [], []
+        for i, (f, rule) in enumerate(zip(feats, rules)):
+            if rule in _MODEL_KEEP_RULE:
+                continue
+            vec = [getattr(f, c) if np.isfinite(getattr(f, c)) else medians.get(c, 0.0)
+                   for c in cols]
+            rows.append(vec)
+            idx.append(i)
+        out = list(rules)
+        if rows:
+            preds = model.predict(np.array(rows, dtype=float))
+            for i, p in zip(idx, preds):
+                out[i] = str(p)
+        return out, "ml"
+
     def analyze(self, session: Session) -> AnalyzerResult:
         feats = [self._features(fr) for fr in session.frames]
         self._add_dynamics(session.frames, feats)
-        raw = [self._classify(f) for f in feats]
+        raw, source = self._classify_all(feats)
         smoothed = self._suppress_short_seizures(self._smooth(raw))
 
         def r(v, nd):
@@ -292,5 +349,6 @@ class PoseAnalyzer(Analyzer):
             })
         per_frame = pd.DataFrame(rows)
         summary, ews, reasons = self._summarize(per_frame, session.fps)
+        summary["classifier"] = source
         return AnalyzerResult(name=self.name, per_frame=per_frame, summary=summary,
                               ews_subscore=ews, ews_reasons=reasons)

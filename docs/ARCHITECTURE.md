@@ -137,8 +137,10 @@ sub-score automatically.
 | HR/RR (rPPG) | `analyzers/rppg.py` | ✅ HR=캐시된 해부학 파이프라인 결과, RR=키포인트 흉부운동 / HR from cached pipeline, RR from keypoints |
 | HRV | `analyzers/hrv.py` | ✅ 캐시된 BVP 맥파에서 SDNN/RMSSD / SDNN/RMSSD from cached BVP pulse |
 | 섭식 (#3) | `analyzers/feeding.py` | ✅ v0 구강활동 프록시(머리숙임+턱움직임); 그릇 ROI는 향후 / oral-activity proxy, bowl ROI = future |
-| IR 체온·SpO₂ | `analyzers/*.py` | 🔜 동일 패턴 / same pattern |
-| 통합 EWS (#4) | `ews/fusion.py` + UI | ✅ pose+rppg+hrv+feeding 융합, React `EwsView`에 표시 / fuses all four, shown in the UI |
+| SpO₂ | `analyzers/spo2.py` | ✅ 외부 센서/레퍼런스 입력(`reports/manual_vitals/<stem>.json`) / external sensor input |
+| 체온 / temperature | `analyzers/temperature.py` | ✅ 열화상/레퍼런스 입력 / thermal-camera or reference input |
+| 통합 EWS (#4) | `ews/fusion.py` + UI | ✅ 6개 분석기 융합, React `EwsView`에 표시 / fuses all six, shown in the UI |
+| pose ML 분류기 | `tools/train_pose_model.py` + `analyzers/pose.py` | 🟡 파이프라인 완성, 라벨 부족(LOCO 0.24)으로 규칙 기본 유지 / pipeline ready, data-limited |
 
 ---
 

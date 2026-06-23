@@ -424,13 +424,17 @@ assets into **behavior + vitals signals**:
    ```
 4. **HRV 분석기 / HRV analyzer** ✅ — 캐시된 rPPG 맥파에서 SDNN/RMSSD 산출 ([`petvitals/analyzers/hrv.py`](petvitals/analyzers/hrv.py)).
 5. **섭식/구강활동 분석기 / Feeding (oral-activity) analyzer** ✅ v0 — 머리 숙임+턱 움직임 프록시 ([`petvitals/analyzers/feeding.py`](petvitals/analyzers/feeding.py)). 그릇 ROI는 향후.
-6. **행동+생리 통합 EWS / Combined early-warning score** ✅ — 자세·HR·RR·HRV·구강활동이 하나의 EWS로 융합되어
-   **React UI의 "Vitals EWS" 탭**에 환자별 카드로 표시됨. 예: stem 1 → HR 201(빈맥)+RR 8(서호흡) → EWS "watch".
+6. **SpO₂ / 체온 분석기 / SpO₂ + temperature analyzers** ✅ — 이 RGB 데이터로는 산출 불가하므로
+   **외부 센서/레퍼런스 입력**(`reports/manual_vitals/<stem>.json`)을 받아 EWS에 합류 (펄스옥시미터·열화상).
+   ([`spo2.py`](petvitals/analyzers/spo2.py), [`temperature.py`](petvitals/analyzers/temperature.py))
+7. **자세 ML 분류기 / Pose ML classifier** 🟡 파이프라인 완성 — 동일 feature로 학습([`tools/train_pose_model.py`](tools/train_pose_model.py)),
+   모델 있으면 자동 사용·없으면 규칙. 현재는 라벨 부족(LOCO CV 0.24)으로 **규칙을 기본 유지**(데이터 한계, 코드 아님).
+8. **행동+생리 통합 EWS / Combined early-warning score** ✅ — 자세·HR·RR·HRV·구강활동·SpO₂·체온 **6개 분석기**가
+   하나의 EWS로 융합되어 **React UI "Vitals EWS" 탭**에 환자별 카드로 표시. 예: stem 1 → HR 201(빈맥)+RR 8(서호흡)+SpO₂ 88(저산소)+40.4°C(고열) → **EWS 8 "critical"**.
    ```bash
    python tools/export_ews_ui.py     # 분석기 실행 → ui/src/generated/petvitalsEws.ts 생성
    cd ui && npm run dev              # "Vitals EWS" 탭에서 확인 / see the "Vitals EWS" tab
    ```
-   (향후 SpO₂·IR 체온 추가 시 자동 합류 / future vitals join automatically.)
 
 > 카메라로 추가 가능한 활력 신호: IR 열화상 체온, 호흡 노력성/무호흡, HRV, 비접촉 SpO₂, 점막색, 다중 카메라 PTT(혈압 대용).
 > Other camera-feasible vitals: IR body temperature, respiratory effort/apnea, HRV,

@@ -7,7 +7,7 @@ export interface EwsPatient {
   severity: string;
   byAnalyzer: Record<string, number>;
   reasons: string[];
-  vitals: { hrBpm: number | null; rrBpm: number | null; pantingIntensity: number | null; sdnnMs: number | null; hrvAvailable: boolean };
+  vitals: { hrBpm: number | null; rrBpm: number | null; pantingIntensity: number | null; sdnnMs: number | null; hrvAvailable: boolean; spo2Pct: number | null; tempC: number | null };
   behavior: { topPosture: string; meanActivity: number | null; oralEvents: number | null };
   flags: string[];
 }
@@ -24,30 +24,38 @@ export const PETVITALS_EWS: PetVitalsEws = {
     "feeding",
     "hrv",
     "pose",
-    "rppg"
+    "rppg",
+    "spo2",
+    "temperature"
   ],
   "patients": [
     {
       "stem": "1",
       "durationSec": 30.0,
-      "ews": 3,
-      "severity": "watch",
+      "ews": 8,
+      "severity": "critical",
       "byAnalyzer": {
         "feeding": 0,
         "hrv": 0,
         "pose": 0,
-        "rppg": 3
+        "rppg": 3,
+        "spo2": 3,
+        "temperature": 2
       },
       "reasons": [
         "[rppg] severe tachycardia (HR 201.0 bpm)",
-        "[rppg] bradypnea (RR 8.1 brpm)"
+        "[rppg] bradypnea (RR 8.1 brpm)",
+        "[spo2] severe hypoxemia (SpO2 88%)",
+        "[temperature] severe hyperthermia (40.4 C)"
       ],
       "vitals": {
         "hrBpm": 201.0,
         "rrBpm": 8.1,
         "pantingIntensity": 1.0,
         "sdnnMs": 221.3,
-        "hrvAvailable": true
+        "hrvAvailable": true,
+        "spo2Pct": 88.0,
+        "tempC": 40.4
       },
       "behavior": {
         "topPosture": "sitting",
@@ -57,6 +65,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
       "flags": [
         "bradypnea",
         "oral_activity_detected",
+        "severe_hyperthermia",
+        "severe_hypoxemia",
         "severe_tachycardia"
       ]
     },
@@ -69,7 +79,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "feeding": 0,
         "hrv": 0,
         "pose": 0,
-        "rppg": 0
+        "rppg": 0,
+        "spo2": 0,
+        "temperature": 0
       },
       "reasons": [],
       "vitals": {
@@ -77,7 +89,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "rrBpm": 28.3,
         "pantingIntensity": 1.0,
         "sdnnMs": 255.3,
-        "hrvAvailable": true
+        "hrvAvailable": true,
+        "spo2Pct": null,
+        "tempC": null
       },
       "behavior": {
         "topPosture": "sitting",
@@ -97,7 +111,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "feeding": 0,
         "hrv": 0,
         "pose": 0,
-        "rppg": 2
+        "rppg": 2,
+        "spo2": 0,
+        "temperature": 0
       },
       "reasons": [
         "[rppg] severe tachycardia (HR 188.1 bpm)"
@@ -107,7 +123,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "rrBpm": 10.4,
         "pantingIntensity": 1.0,
         "sdnnMs": 221.7,
-        "hrvAvailable": true
+        "hrvAvailable": true,
+        "spo2Pct": null,
+        "tempC": null
       },
       "behavior": {
         "topPosture": "sitting",
@@ -128,7 +146,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "feeding": 0,
         "hrv": 0,
         "pose": 0,
-        "rppg": 2
+        "rppg": 2,
+        "spo2": 0,
+        "temperature": 0
       },
       "reasons": [
         "[rppg] severe tachycardia (HR 211.5 bpm)"
@@ -138,7 +158,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "rrBpm": 11.4,
         "pantingIntensity": 1.0,
         "sdnnMs": 203.0,
-        "hrvAvailable": true
+        "hrvAvailable": true,
+        "spo2Pct": null,
+        "tempC": null
       },
       "behavior": {
         "topPosture": "sitting",
@@ -159,7 +181,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "feeding": 0,
         "hrv": 0,
         "pose": 0,
-        "rppg": 3
+        "rppg": 3,
+        "spo2": 0,
+        "temperature": 0
       },
       "reasons": [
         "[rppg] severe tachycardia (HR 185.7 bpm)",
@@ -170,7 +194,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "rrBpm": 8.1,
         "pantingIntensity": 1.0,
         "sdnnMs": 206.3,
-        "hrvAvailable": true
+        "hrvAvailable": true,
+        "spo2Pct": null,
+        "tempC": null
       },
       "behavior": {
         "topPosture": "standing_normal",
@@ -192,7 +218,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "feeding": 0,
         "hrv": 0,
         "pose": 0,
-        "rppg": 1
+        "rppg": 1,
+        "spo2": 0,
+        "temperature": 0
       },
       "reasons": [
         "[rppg] bradypnea (RR 8.5 brpm)"
@@ -202,7 +230,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "rrBpm": 8.5,
         "pantingIntensity": 1.0,
         "sdnnMs": 204.8,
-        "hrvAvailable": true
+        "hrvAvailable": true,
+        "spo2Pct": null,
+        "tempC": null
       },
       "behavior": {
         "topPosture": "sitting",
@@ -223,7 +253,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "feeding": 0,
         "hrv": 0,
         "pose": 0,
-        "rppg": 0
+        "rppg": 0,
+        "spo2": 0,
+        "temperature": 0
       },
       "reasons": [],
       "vitals": {
@@ -231,7 +263,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "rrBpm": 16.7,
         "pantingIntensity": 1.0,
         "sdnnMs": 246.6,
-        "hrvAvailable": true
+        "hrvAvailable": true,
+        "spo2Pct": 98.0,
+        "tempC": 38.6
       },
       "behavior": {
         "topPosture": "sitting",

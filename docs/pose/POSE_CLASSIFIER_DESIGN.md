@@ -208,6 +208,23 @@ Frame-level labels flicker → (1) rolling-mode smoothing over ±0.5 s, then
 single-view ceiling; the right next step is labeling + a small ML classifier (reusing the
 same features) and/or multi-view fusion — not more thresholds.
 
+## 8.7 ML 분류기 파이프라인 (v0) / ML classifier pipeline (v0)
+
+규칙 기반이 단일 시점 한계에 도달(§8.6)해, 동일 feature를 입력으로 쓰는 **ML 분류기 파이프라인**을 구축했다:
+- 라벨: `reports/pose_training/labels.csv` (현재는 **약지도 클립 단위** 라벨, 눈검증 기반)
+- 학습: `tools/train_pose_model.py` — PoseAnalyzer의 feature를 그대로 추출 → RandomForest 학습 →
+  **leave-one-clip-out CV**(같은 개를 학습·평가에 함께 쓰지 않음) → `petvitals/models/pose_rf.joblib` 저장
+- 추론: 모델이 있으면 `PoseAnalyzer`가 자세 분류에 사용(발작·판정불가는 규칙 유지), 없으면 규칙 fallback
+
+**정직한 결과 / Honest result (2026-06-23)**: 6개 클립·클립단위 약라벨로는 leave-one-clip-out
+정확도가 **약 0.24로 규칙보다 나빴다**(클래스당 2클립뿐이라 개체 간 일반화 실패). 따라서 **과소학습
+모델은 배포하지 않고 규칙을 기본값으로 유지**한다. → 한계는 **아키텍처가 아니라 라벨 수**임이 수치로 확인됨.
+The pipeline works end-to-end, but with only 6 weak clip-labels LOCO accuracy was ~0.24
+(worse than rules), so no model is shipped — the blocker is **label quantity, not the code**.
+
+**다음 / next**: 프레임 단위 실제 라벨을 늘리면(특히 측와위/흉와위, 머리 든 기립) 동일 스크립트가
+자동으로 모델을 활성화. 다각도(`dataset_multi`) feature 추가 시 누움 모호성 추가 개선 기대.
+
 ## 9. 한계와 향후 / Limitations & next steps
 
 - v0는 **단일 시점·휴리스틱** → 측와위/엎드림, 기좌호흡 판정은 근사치.

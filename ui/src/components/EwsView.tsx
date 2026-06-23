@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeartPulse, Wind, Activity, Bone, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { HeartPulse, Wind, Activity, Bone, Droplets, Thermometer, AlertTriangle, ShieldCheck } from 'lucide-react';
 import { PETVITALS_EWS, EwsPatient } from '../generated/petvitalsEws';
 
 type Patient = EwsPatient;
@@ -48,6 +48,8 @@ const PatientCard: React.FC<{ p: Patient }> = ({ p }) => {
       <div className="grid grid-cols-2 gap-y-3 gap-x-2 border-t border-outline-variant/15 pt-4">
         <Metric icon={HeartPulse} label="Heart rate" value={p.vitals.hrBpm} unit="bpm" />
         <Metric icon={Wind} label="Respiration" value={p.vitals.rrBpm} unit="brpm" />
+        <Metric icon={Droplets} label="SpO₂" value={p.vitals.spo2Pct} unit="%" />
+        <Metric icon={Thermometer} label="Temp" value={p.vitals.tempC} unit="°C" />
         <Metric icon={Activity} label="HRV SDNN" value={p.vitals.hrvAvailable ? p.vitals.sdnnMs : null} unit="ms" />
         <Metric icon={Bone} label="Posture" value={p.behavior.topPosture.replace(/_/g, ' ')} />
       </div>

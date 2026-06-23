@@ -42,6 +42,8 @@ def build_record(stem: str) -> dict | None:
     rppg = by_name.get("rppg")
     hrv = by_name.get("hrv")
     feeding = by_name.get("feeding")
+    spo2 = by_name.get("spo2")
+    temp = by_name.get("temperature")
     return {
         "stem": stem,
         "durationSec": session.duration_sec,
@@ -55,6 +57,8 @@ def build_record(stem: str) -> dict | None:
             "pantingIntensity": rppg.summary.get("panting_intensity") if rppg else None,
             "sdnnMs": hrv.summary.get("sdnn_ms") if hrv else None,
             "hrvAvailable": bool(hrv.summary.get("hrv_available")) if hrv else False,
+            "spo2Pct": spo2.summary.get("spo2_pct") if spo2 else None,
+            "tempC": temp.summary.get("temp_c") if temp else None,
         },
         "behavior": {
             "topPosture": _top_posture(pose.summary) if pose else "n/a",
@@ -80,7 +84,7 @@ def main() -> None:
         "  stem: string;\n  durationSec: number;\n  ews: number;\n  severity: string;\n"
         "  byAnalyzer: Record<string, number>;\n  reasons: string[];\n"
         "  vitals: { hrBpm: number | null; rrBpm: number | null; pantingIntensity: number | null;"
-        " sdnnMs: number | null; hrvAvailable: boolean };\n"
+        " sdnnMs: number | null; hrvAvailable: boolean; spo2Pct: number | null; tempC: number | null };\n"
         "  behavior: { topPosture: string; meanActivity: number | null; oralEvents: number | null };\n"
         "  flags: string[];\n}\n\n"
         "export interface PetVitalsEws {\n  note: string;\n  analyzers: string[];\n"
