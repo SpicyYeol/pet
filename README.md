@@ -145,7 +145,6 @@ Full algorithm & deployment spec: [`PET_RPPG_ADAPTIVE_ROI_DEPLOYMENT_GUIDE.md`](
 │   ├── rppg_rejection.py                     # rejection scorer / 거부 스코어러
 │   └── evaluate_*.py, experiment_*.py        # eval & ablation / 평가·실험
 ├── docs/pipeline/             # 8 per-stage method docs / 단계별 방법 문서
-├── PET_RPPG_Deploy/           # minimal deployable subset / 최소 배포 패키지
 ├── DogFaceModel_Deploy/       # YOLO dog-face model (best.pt) + demo
 ├── ui/                        # React + Vite clinical HUD (AI Studio / Gemini)
 │                              # 임상 HUD 프런트엔드
@@ -172,7 +171,7 @@ Full algorithm & deployment spec: [`PET_RPPG_ADAPTIVE_ROI_DEPLOYMENT_GUIDE.md`](
 ```bash
 # 1. Environment / 환경 (Python 3.11)
 python -m venv .venv && source .venv/Scripts/activate   # Windows: .venv\Scripts\activate
-pip install -r PET_RPPG_Deploy/requirements.txt
+pip install -r requirements.txt
 #   opencv-python numpy pandas scipy scikit-learn torch ultralytics matplotlib
 
 # 2. Run on a prepared video (DLC probe already generated) / DLC 결과가 준비된 영상 분석
