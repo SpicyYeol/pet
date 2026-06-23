@@ -359,6 +359,7 @@ assets into **behavior + vitals signals**:
    설계: [`docs/pose/POSE_CLASSIFIER_DESIGN.md`](docs/pose/POSE_CLASSIFIER_DESIGN.md) · 코드: [`tools/pose_classifier.py`](tools/pose_classifier.py)
    ```bash
    python tools/pose_classifier.py --stem 3   # → reports/pose_3/{pose_per_frame.csv, pose_session_summary.json}
+   python tools/visualize_pose.py --stem 3    # 라벨+스켈레톤 오버레이 영상/프레임 / annotated video + frames for eyeball check
    ```
 2. **활동량·부동 추적 / Activity & immobility** — 같은 키포인트로 욕창 위험·기력저하 모니터링 (프로토타입에 포함).
 3. **섭식 이벤트 감지 / Feeding-event detection** — 그릇 ROI + 머리 위치(±저울).
