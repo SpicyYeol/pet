@@ -223,14 +223,20 @@ hardest fast-heart clip (Video 7, true 189.5 bpm) the error reached **21.3 bpm**
 
 ```
 .
-├── tools/                  ⭐ 핵심: 파이프라인·실험·평가 Python 50개
-│                              The core: 50 Python scripts (pipeline, experiments, evals)
-│   ├── demo_rejection_anatomical_video4.py   ← 메인 파이프라인 / main pipeline
+├── petvitals/              🧩 모듈형 분석 패키지 (플러그인 구조) / modular analysis package
+│   ├── core/               · Session·키포인트·기하·Analyzer 인터페이스 / session, keypoints, geometry, analyzer ABC
+│   ├── analyzers/          · 플러그인 분석기 (pose 등) / pluggable analyzers (pose, ...)
+│   ├── ews/                · 조기경보점수 융합 / early-warning score fusion
+│   ├── viz/                · 영상 오버레이 / video overlays
+│   └── cli.py              · 통합 CLI: python -m petvitals / unified CLI
+├── tools/                  ⭐ rPPG 파이프라인 + 연구·실험 스크립트 50개 / rPPG pipeline + 50 research scripts
+│   ├── demo_rejection_anatomical_video4.py   ← 메인 rPPG 파이프라인 / main rPPG pipeline
 │   ├── adaptive_roi_selector.py              ← 부위 선택 엔진 / ROI decision engine
-│   ├── analyze_video.py                      ← 가장 쉬운 실행 진입점 / easiest entry point
-│   ├── rppg_rejection.py                     ← 나쁜 구간 거르기 / window rejection
+│   ├── analyze_video.py                      ← rPPG 실행 진입점 / rPPG entry point
+│   ├── pose_classifier.py, visualize_pose.py ← petvitals 호출 shim / shims over petvitals
 │   └── evaluate_*.py, experiment_*.py        ← 평가·실험용 / evaluation & ablations
-├── docs/pipeline/          📘 8단계 각각의 상세 설명 / per-stage method docs
+├── docs/                   📘 ARCHITECTURE.md(구조) · pipeline/(8단계) · pose/(자세 설계)
+│   └── pipeline/           · rPPG 8단계 각각의 상세 설명 / per-stage rPPG method docs
 ├── DogFaceModel_Deploy/    🐕 강아지 얼굴 검출 YOLO 모델 + 데모 / dog-face YOLO model + demo
 ├── ui/                     🖥️ 임상 모니터링 화면 (React + Vite, Gemini API)
 │                              clinic dashboard front-end
@@ -252,6 +258,55 @@ hardest fast-heart clip (Video 7, true 189.5 bpm) the error reached **21.3 bpm**
 > **Not in git** (too large): virtualenvs (~7 GB), caches, `node_modules`, raw `*.mp4`,
 > model weights (`*.pt`, `*.joblib`), intermediate caches. **Get weights and datasets
 > separately** (Git LFS or external storage).
+
+---
+
+## 🏗️ 시스템 아키텍처 / System architecture
+
+코드는 **하나의 공통 입력이 여러 독립 분석기를 통과하는 플러그인 구조**입니다. 새 기능(섭식·IR 체온·rPPG 등)은
+**분석기 파일 하나를 추가**하면 끝 — CLI·EWS 융합·출력은 손대지 않아도 됩니다.
+
+The code is a **plugin pipeline**: one shared input flows through many independent
+analyzers. Adding a capability = adding **one analyzer file**; the CLI, EWS fusion and
+output plumbing need no changes.
+
+```
+ 영상+키포인트 → Session ─┬─→ analyzers.pose      ─┐
+ video+keypoints         ├─→ analyzers.feeding* ─┤→ AnalyzerResult ×N → ews.fuse_ews → 통합 EWS
+                         └─→ analyzers.rppg*    ─┘     (per-frame + summary + 0~3 subscore)   combined EWS
+                                                                   ↓
+                                                    cli (run / viz / list) · viz.overlay
+                                                            (* = 향후 / future)
+```
+
+**두 종류의 파이프라인 / two pipelines in this repo**
+1. **rPPG 신호 파이프라인** (생리 신호, 8단계) — [`tools/`](tools/), 위 [🔬 방법론](#-방법론-어떻게-동작하나요--methodology) 참조.
+2. **행동/활력 분석 파이프라인** (모듈형) — [`petvitals/`](petvitals/), 플러그인 분석기 + EWS 융합.
+
+> 전체 설계와 **새 분석기 추가 3단계 가이드**: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+> Full design + a **3-step "add an analyzer" guide**: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md)
+
+### 📦 모듈 설명 / Module reference
+
+| 모듈 / module | 역할 / role |
+|------|------|
+| [`petvitals/core/session.py`](petvitals/core/session.py) | `Session` — 한 클립의 영상+키포인트+fps를 담는 공통 입력 / shared input unit |
+| [`petvitals/core/keypoints.py`](petvitals/core/keypoints.py) | 키포인트 CSV 로드 + 접근 헬퍼 + 그룹 상수 / keypoint IO, helpers, groups |
+| [`petvitals/core/geometry.py`](petvitals/core/geometry.py) | 스케일 불변 기하 (body_scale, PCA 척추각 등) / scale-invariant geometry |
+| [`petvitals/core/analyzer.py`](petvitals/core/analyzer.py) | **Analyzer 인터페이스 + 결과 타입 + 레지스트리** / analyzer ABC + registry |
+| [`petvitals/analyzers/pose.py`](petvitals/analyzers/pose.py) | 자세/행동/활동 분석기 + `PoseConfig`(임계값) / posture analyzer |
+| [`petvitals/ews/fusion.py`](petvitals/ews/fusion.py) | 분석기 sub-score 통합 EWS / combined early-warning score |
+| [`petvitals/viz/overlay.py`](petvitals/viz/overlay.py) | 자세 라벨+스켈레톤 영상 오버레이 / posture overlay renderer |
+| [`petvitals/cli.py`](petvitals/cli.py) | 통합 CLI (`run` / `viz` / `list`) / unified CLI |
+| [`tools/demo_rejection_anatomical_video4.py`](tools/demo_rejection_anatomical_video4.py) | rPPG 메인 파이프라인 (HR/RR) / main rPPG pipeline |
+| [`tools/adaptive_roi_selector.py`](tools/adaptive_roi_selector.py) | 부위별 ROI 적응형 선택 엔진 / adaptive ROI selector |
+| [`tools/rppg_rejection.py`](tools/rppg_rejection.py) | 저품질 윈도우 거부 스코어러 / window rejection scorer |
+
+```bash
+python -m petvitals list                  # 분석기 목록 / list analyzers
+python -m petvitals run  --stem 3         # 전체 분석기 실행 + EWS / run all + EWS
+python -m petvitals viz  --stem 3         # 자세 오버레이 영상 / posture overlay
+```
 
 ---
 
