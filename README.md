@@ -221,7 +221,11 @@ Views / 화면: **Dashboard** (multi-cam spatial-fusion HUD), **Feasibility**
 
 ## 7. License / 라이선스
 
-No license file is currently present. Add one (e.g. MIT / Apache-2.0) before public
-release. Note third-party components (Ultralytics YOLO = AGPL-3.0, DeepLabCut) carry
-their own licenses. / 현재 라이선스 파일이 없습니다. 공개 전 라이선스를 추가하세요. YOLO(AGPL-3.0),
-DeepLabCut 등 third-party 구성요소는 각자의 라이선스를 따릅니다.
+This project is released under the **MIT License** — see [`LICENSE`](LICENSE).
+Note that third-party components carry their own licenses: **Ultralytics YOLO is
+AGPL-3.0** and DeepLabCut / SuperAnimal have their own terms — review them before
+any commercial or redistributed use.
+
+본 프로젝트는 **MIT 라이선스**로 배포됩니다([`LICENSE`](LICENSE) 참조). 단, third-party
+구성요소는 각자의 라이선스를 따릅니다 — **Ultralytics YOLO는 AGPL-3.0**, DeepLabCut /
+SuperAnimal도 별도 약관이 있으므로 상업적 이용·재배포 전 반드시 확인하세요.
