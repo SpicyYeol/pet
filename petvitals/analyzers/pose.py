@@ -4,7 +4,7 @@ Reuses the DLC keypoints already extracted for rPPG to classify posture
 (standing / sitting / recumbency / abdominal-pain hunch / orthopnea / seizure)
 and activity. Transparent, confidence-aware heuristics + temporal smoothing.
 
-See docs/pose/POSE_CLASSIFIER_DESIGN.md for the full design and calibration log.
+See docs/en/pose-classifier.md (KO: docs/ko/pose-classifier.md) for the full design.
 """
 
 from __future__ import annotations

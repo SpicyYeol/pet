@@ -15,7 +15,7 @@ into clinical signals through pluggable *analyzers*. Adding a new capability
 Drop the file in `petvitals/analyzers/`, import it in `analyzers/__init__.py`,
 and it is immediately available to the CLI and the EWS fusion.
 
-See docs/ARCHITECTURE.md for the full design.
+See docs/en/architecture.md (KO: docs/ko/architecture.md) for the full design.
 """
 
 from .core.session import Session

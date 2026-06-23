@@ -3,6 +3,8 @@ numpy
 pandas
 scipy
 scikit-learn
+joblib
 torch
 ultralytics
 matplotlib
+streamlit
