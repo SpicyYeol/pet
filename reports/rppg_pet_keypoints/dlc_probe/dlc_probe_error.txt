@@ -1,0 +1,50 @@
+Traceback (most recent call last):
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\tools\run_deeplabcut_probe.py", line 136, in main
+    run_deeplabcut(Path(clip["clipPath"]), args.out_dir, args.device)
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\tools\run_deeplabcut_probe.py", line 102, in run_deeplabcut
+    deeplabcut.video_inference_superanimal(
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\deeplabcut\utils\deprecation.py", line 198, in wrapper
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\deeplabcut\modelzoo\video_inference.py", line 431, in video_inference_superanimal
+    pose_model_path = get_super_animal_snapshot_path(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\deeplabcut\pose_estimation_pytorch\modelzoo\utils.py", line 84, in get_super_animal_snapshot_path
+    download_super_animal_snapshot(dataset, model_name)
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\deeplabcut\pose_estimation_pytorch\modelzoo\utils.py", line 145, in download_super_animal_snapshot
+    download_huggingface_model(
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\dlclibrary\dlcmodelzoo\modelzoo_download.py", line 212, in download_huggingface_model
+    downloaded = hf_hub_download(
+                 ^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\huggingface_hub\utils\_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\huggingface_hub\file_download.py", line 1010, in hf_hub_download
+    return _hf_hub_download_to_cache_dir(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\huggingface_hub\file_download.py", line 1143, in _hf_hub_download_to_cache_dir
+    _get_metadata_or_catch_error(
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\huggingface_hub\file_download.py", line 1682, in _get_metadata_or_catch_error
+    metadata = get_hf_file_metadata(
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\huggingface_hub\utils\_validators.py", line 88, in _inner_fn
+    return fn(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\huggingface_hub\file_download.py", line 1604, in get_hf_file_metadata
+    response = _httpx_follow_relative_redirects_with_backoff(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\huggingface_hub\utils\_http.py", line 685, in _httpx_follow_relative_redirects_with_backoff
+    response = http_backoff(
+               ^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\huggingface_hub\utils\_http.py", line 559, in http_backoff
+    return next(
+           ^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\huggingface_hub\utils\_http.py", line 467, in _http_backoff_base
+    response = client.request(method=method, url=url, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\httpx\_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wagon\Downloads\vet-ppg-multi-cam-telemetry-hud\.venv-keypoint\Lib\site-packages\httpx\_client.py", line 901, in send
+    raise RuntimeError("Cannot send a request, as the client has been closed.")
+RuntimeError: Cannot send a request, as the client has been closed.

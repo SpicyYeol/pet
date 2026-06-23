@@ -1,0 +1,10 @@
+method,gr_variance,rough_bpm_green
+baseline_raw,105.86,48.6
+strong_linear_panting,43.15,48.6
+poly2_panting,52.44,48.6
+robust_huber,52.62,48.6
+savgol_time,52.45,48.6
+median_time,60.74,48.6
+exp_smoothing,41.49,48.6
+lms_adaptive,135.6,49.2
+keypoint_motion_comp,105.84,48.6

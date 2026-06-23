@@ -1,0 +1,33 @@
+roi,label,kind,method,peak_bpm,target_bpm,target_abs_error,range_error,within_range,snr,total_ratio,valid_frames,valid_fraction,median_confidence,median_mask_pixels,median_motion_px
+neck,Neck,body,pos,113.672,115.5,1.828,0.0,True,7.805,0.0257,112,0.747,0.704,1009.0,5.647
+nose,Nose bridge,face,pos,118.945,115.5,3.445,0.0,True,3.761,0.013,129,0.86,0.892,441.0,5.741
+earbases,Ear bases,face,green,120.41,115.5,4.91,0.41,False,5.189,0.017,112,0.747,0.566,529.0,8.936
+neck,Neck,body,g_minus_r,110.156,115.5,5.344,0.844,False,6.571,0.0209,112,0.747,0.704,1009.0,5.647
+nose,Nose bridge,face,green,109.863,115.5,5.637,1.137,False,5.67,0.0189,129,0.86,0.892,441.0,5.741
+earbases,Ear bases,face,pos,122.461,115.5,6.961,2.461,False,5.289,0.0179,112,0.747,0.566,529.0,8.936
+neck,Neck,body,green,104.297,115.5,11.203,6.703,False,4.571,0.0157,112,0.747,0.704,1009.0,5.647
+eyes,Eyes,face,g_minus_r,93.75,115.5,21.75,17.25,False,3.39,0.0139,129,0.86,0.893,317.0,5.561
+earbases,Ear bases,face,g_minus_r,93.457,115.5,22.043,17.543,False,5.718,0.0183,112,0.747,0.566,529.0,8.936
+eyes,Eyes,face,green,92.578,115.5,22.922,18.422,False,3.129,0.0125,129,0.86,0.893,317.0,5.561
+nose,Nose bridge,face,chrom,86.133,115.5,29.367,24.867,False,2.944,0.0116,129,0.86,0.892,441.0,5.741
+mouth_artifact,Mouth artifact,artifact,green,84.961,115.5,30.539,26.039,False,5.08,0.0182,120,0.8,0.666,529.0,5.476
+mouth_artifact,Mouth artifact,artifact,g_minus_r,84.961,115.5,30.539,26.039,False,2.553,0.0105,120,0.8,0.666,529.0,5.476
+mouth_artifact,Mouth artifact,artifact,chrom,84.668,115.5,30.832,26.332,False,5.687,0.0162,120,0.8,0.666,529.0,5.476
+neck,Neck,body,chrom,83.789,115.5,31.711,27.211,False,4.062,0.016,112,0.747,0.704,1009.0,5.647
+eyes,Eyes,face,pos,82.031,115.5,33.469,28.969,False,6.243,0.0199,129,0.86,0.893,317.0,5.561
+earbases,Ear bases,face,chrom,81.738,115.5,33.762,29.262,False,4.948,0.0175,112,0.747,0.566,529.0,8.936
+nose,Nose bridge,face,g_minus_r,80.859,115.5,34.641,30.141,False,5.51,0.0171,129,0.86,0.892,441.0,5.741
+mouth_artifact,Mouth artifact,artifact,pos,77.344,115.5,38.156,33.656,False,5.17,0.0169,120,0.8,0.666,529.0,5.476
+eyes,Eyes,face,chrom,76.758,115.5,38.742,34.242,False,4.454,0.0137,129,0.86,0.893,317.0,5.561
+front_paw_artifact,Front paw artifact,artifact,green,,115.5,,,False,,,16,0.107,0.808,0.0,3.917
+front_paw_artifact,Front paw artifact,artifact,g_minus_r,,115.5,,,False,,,16,0.107,0.808,0.0,3.917
+front_paw_artifact,Front paw artifact,artifact,chrom,,115.5,,,False,,,16,0.107,0.808,0.0,3.917
+front_paw_artifact,Front paw artifact,artifact,pos,,115.5,,,False,,,16,0.107,0.808,0.0,3.917
+throat,Throat,body,green,,115.5,,,False,,,26,0.173,0.534,0.0,8.069
+throat,Throat,body,g_minus_r,,115.5,,,False,,,26,0.173,0.534,0.0,8.069
+throat,Throat,body,chrom,,115.5,,,False,,,26,0.173,0.534,0.0,8.069
+throat,Throat,body,pos,,115.5,,,False,,,26,0.173,0.534,0.0,8.069
+upper_body,Upper body,body,green,,115.5,,,False,,,19,0.127,0.501,0.0,21.402
+upper_body,Upper body,body,g_minus_r,,115.5,,,False,,,19,0.127,0.501,0.0,21.402
+upper_body,Upper body,body,chrom,,115.5,,,False,,,19,0.127,0.501,0.0,21.402
+upper_body,Upper body,body,pos,,115.5,,,False,,,19,0.127,0.501,0.0,21.402

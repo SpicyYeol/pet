@@ -1,0 +1,337 @@
+selector,video,pred_bpm,bpm_min,bpm_max,bpm_target,target_abs_error,range_error,within_range,source,selected_method,selected_region,window_count,median_score,harmonic_factor_median,harmonic_adjusted_pct
+consensus_harmonic_aware_viterbi,1.mp4,99.756,170.0,180.0,175.0,75.244,70.244,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c04,9,12.78597,1.0,0.0
+consensus_harmonic_aware_viterbi,3.mp4,99.316,190.0,230.0,210.0,110.684,90.684,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r03_c01,16,13.11957,1.0,0.0
+consensus_harmonic_aware_viterbi,4.mp4,99.316,111.0,120.0,115.5,16.184,11.684,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c05,9,14.09434,1.0,0.0
+consensus_harmonic_aware_viterbi,5.mp4,97.119,130.0,140.0,135.0,37.881,32.881,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c02,9,12.95286,1.0,0.0
+consensus_harmonic_aware_viterbi,6.mp4,99.756,90.0,90.0,90.0,9.756,9.756,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r05_c04,10,13.61735,1.0,0.0
+consensus_harmonic_aware_viterbi,7.mp4,97.559,182.0,197.0,189.5,91.941,84.441,False,harmonic-aware tracker with consensus and motion rejection,pca,face_full,9,12.63726,1.0,0.0
+consensus_harmonic_aware_viterbi,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,14.36008,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c05,9,12.25937,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi,3.mp4,99.316,190.0,230.0,210.0,110.684,90.684,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r03_c01,16,12.72607,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi,4.mp4,99.316,111.0,120.0,115.5,16.184,11.684,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c05,9,13.65484,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi,5.mp4,97.119,130.0,140.0,135.0,37.881,32.881,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c02,9,12.3228,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi,6.mp4,99.756,90.0,90.0,90.0,9.756,9.756,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r05_c04,10,13.16775,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi,7.mp4,98.438,182.0,197.0,189.5,91.062,83.562,False,harmonic-aware tracker with consensus and motion rejection,pca,face_full,9,12.3245,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,13.89822,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,1.mp4,98.517,170.0,180.0,175.0,76.483,71.483,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c05,9,12.25937,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,3.mp4,99.118,190.0,230.0,210.0,110.882,90.882,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r03_c01,16,12.72607,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,4.mp4,99.582,111.0,120.0,115.5,15.918,11.418,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c05,9,13.65484,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,5.mp4,96.671,130.0,140.0,135.0,38.329,33.329,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c02,9,12.3228,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,6.mp4,99.465,90.0,90.0,90.0,9.465,9.465,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r05_c04,10,13.16775,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,7.mp4,96.827,182.0,197.0,189.5,92.673,85.173,False,harmonic-aware tracker with consensus and motion rejection,pca,face_full,9,12.3245,1.0,0.0
+consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,8.mp4,100.152,108.0,113.0,110.5,10.348,7.848,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,13.89822,1.0,0.0
+consensus_motion_reject_top_window,1.mp4,100.635,170.0,180.0,175.0,74.365,69.365,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c05,9,12.25937,1.0,11.11
+consensus_motion_reject_top_window,3.mp4,99.316,190.0,230.0,210.0,110.684,90.684,False,harmonic-aware tracker with consensus and motion rejection,pos,patch_r04_c03,16,12.90843,1.0,12.5
+consensus_motion_reject_top_window,4.mp4,99.316,111.0,120.0,115.5,16.184,11.684,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c05,9,13.65484,1.0,0.0
+consensus_motion_reject_top_window,5.mp4,97.119,130.0,140.0,135.0,37.881,32.881,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c02,9,12.3228,1.0,0.0
+consensus_motion_reject_top_window,6.mp4,99.756,90.0,90.0,90.0,9.756,9.756,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c01,10,13.16775,1.0,10.0
+consensus_motion_reject_top_window,7.mp4,98.438,182.0,197.0,189.5,91.062,83.562,False,harmonic-aware tracker with consensus and motion rejection,pca,face_full,9,12.3245,1.0,0.0
+consensus_motion_reject_top_window,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,13.90645,1.0,0.0
+current_fit_extra_trees_error_regressor_harmonic_tracked,1.mp4,174.902,170.0,180.0,175.0,0.098,0.0,True,current-label fit,chrom,patch_r04_c05,9,-0.098,2.0,88.89
+current_fit_extra_trees_error_regressor_harmonic_tracked,3.mp4,210.058,190.0,230.0,210.0,0.058,0.0,True,current-label fit,chrom,patch_r04_c05,16,-0.058,2.0,100.0
+current_fit_extra_trees_error_regressor_harmonic_tracked,4.mp4,115.576,111.0,120.0,115.5,0.076,0.0,True,current-label fit,chrom,patch_r01_c05,9,-0.076,1.0,0.0
+current_fit_extra_trees_error_regressor_harmonic_tracked,5.mp4,134.912,130.0,140.0,135.0,0.088,0.0,True,current-label fit,g_minus_r,patch_r02_c03,9,-0.088,1.0,11.11
+current_fit_extra_trees_error_regressor_harmonic_tracked,6.mp4,90.088,90.0,90.0,90.0,0.088,0.088,False,current-label fit,green,patch_r03_c04,10,-0.088,1.0,30.0
+current_fit_extra_trees_error_regressor_harmonic_tracked,7.mp4,189.185,182.0,197.0,189.5,0.315,0.0,True,current-label fit,chrom,lower_face,9,-0.3155,1.5,77.78
+current_fit_extra_trees_error_regressor_harmonic_tracked,8.mp4,110.303,108.0,113.0,110.5,0.197,0.0,True,current-label fit,chrom,patch_r02_c02,9,-0.197,1.0,0.0
+current_fit_extra_trees_harmonic_tracked,1.mp4,182.812,170.0,180.0,175.0,7.812,2.812,False,current-label fit,chrom,patch_r04_c02,9,1.0,2.0,88.89
+current_fit_extra_trees_harmonic_tracked,3.mp4,218.848,190.0,230.0,210.0,8.848,0.0,True,current-label fit,chrom,patch_r05_c03,16,1.0,2.0,100.0
+current_fit_extra_trees_harmonic_tracked,4.mp4,119.092,111.0,120.0,115.5,3.592,0.0,True,current-label fit,chrom,mid_face,9,1.0,1.0,0.0
+current_fit_extra_trees_harmonic_tracked,5.mp4,133.154,130.0,140.0,135.0,1.846,0.0,True,current-label fit,chrom,patch_r01_c02,9,1.0,1.0,11.11
+current_fit_extra_trees_harmonic_tracked,6.mp4,94.043,90.0,90.0,90.0,4.043,4.043,False,current-label fit,green,patch_r03_c04,10,1.0,1.0,10.0
+current_fit_extra_trees_harmonic_tracked,7.mp4,199.512,182.0,197.0,189.5,10.012,2.512,False,current-label fit,pos,patch_r05_c04,9,1.0,2.0,100.0
+current_fit_extra_trees_harmonic_tracked,8.mp4,114.697,108.0,113.0,110.5,4.197,1.697,False,current-label fit,chrom,patch_r04_c03,9,1.0,1.0,0.0
+current_fit_extra_trees_harmonic_tracked_kalman_ssm,1.mp4,182.764,170.0,180.0,175.0,7.764,2.764,False,current-label fit,chrom,patch_r04_c02,9,1.0,2.0,88.89
+current_fit_extra_trees_harmonic_tracked_kalman_ssm,3.mp4,218.307,190.0,230.0,210.0,8.307,0.0,True,current-label fit,chrom,patch_r05_c03,16,1.0,2.0,100.0
+current_fit_extra_trees_harmonic_tracked_kalman_ssm,4.mp4,119.287,111.0,120.0,115.5,3.787,0.0,True,current-label fit,chrom,mid_face,9,1.0,1.0,0.0
+current_fit_extra_trees_harmonic_tracked_kalman_ssm,5.mp4,133.154,130.0,140.0,135.0,1.846,0.0,True,current-label fit,chrom,patch_r01_c02,9,1.0,1.0,11.11
+current_fit_extra_trees_harmonic_tracked_kalman_ssm,6.mp4,94.043,90.0,90.0,90.0,4.043,4.043,False,current-label fit,green,patch_r03_c04,10,1.0,1.0,10.0
+current_fit_extra_trees_harmonic_tracked_kalman_ssm,7.mp4,199.415,182.0,197.0,189.5,9.915,2.415,False,current-label fit,pos,patch_r05_c04,9,1.0,2.0,100.0
+current_fit_extra_trees_harmonic_tracked_kalman_ssm,8.mp4,114.697,108.0,113.0,110.5,4.197,1.697,False,current-label fit,chrom,patch_r04_c03,9,1.0,1.0,0.0
+current_fit_histgb_harmonic_tracked,1.mp4,177.32,170.0,180.0,175.0,2.32,0.0,True,current-label fit,g_minus_r,patch_r02_c02,9,0.89924,1.5,88.89
+current_fit_histgb_harmonic_tracked,3.mp4,230.274,190.0,230.0,210.0,20.274,0.274,False,current-label fit,pos,patch_r03_c02,16,0.92401,2.0,100.0
+current_fit_histgb_harmonic_tracked,4.mp4,110.742,111.0,120.0,115.5,4.758,0.258,False,current-label fit,g_minus_r,patch_r01_c01,9,0.761,1.0,0.0
+current_fit_histgb_harmonic_tracked,5.mp4,134.473,130.0,140.0,135.0,0.527,0.0,True,current-label fit,chrom,patch_r03_c04,9,0.87072,1.0,11.11
+current_fit_histgb_harmonic_tracked,6.mp4,92.285,90.0,90.0,90.0,2.285,2.285,False,current-label fit,green,patch_r03_c02,10,0.88674,0.75,50.0
+current_fit_histgb_harmonic_tracked,7.mp4,192.48,182.0,197.0,189.5,2.98,0.0,True,current-label fit,g_minus_r,patch_r04_c01,9,0.89299,1.5,88.89
+current_fit_histgb_harmonic_tracked,8.mp4,108.105,108.0,113.0,110.5,2.395,0.0,True,current-label fit,ica,patch_r05_c04,9,0.85249,1.0,0.0
+current_fit_histgb_harmonic_tracked_kalman_ssm,1.mp4,177.166,170.0,180.0,175.0,2.166,0.0,True,current-label fit,g_minus_r,patch_r02_c02,9,0.89924,1.5,88.89
+current_fit_histgb_harmonic_tracked_kalman_ssm,3.mp4,230.288,190.0,230.0,210.0,20.288,0.288,False,current-label fit,pos,patch_r03_c02,16,0.92401,2.0,100.0
+current_fit_histgb_harmonic_tracked_kalman_ssm,4.mp4,112.595,111.0,120.0,115.5,2.905,0.0,True,current-label fit,g_minus_r,patch_r01_c01,9,0.761,1.0,0.0
+current_fit_histgb_harmonic_tracked_kalman_ssm,5.mp4,134.405,130.0,140.0,135.0,0.595,0.0,True,current-label fit,chrom,patch_r03_c04,9,0.87072,1.0,11.11
+current_fit_histgb_harmonic_tracked_kalman_ssm,6.mp4,91.723,90.0,90.0,90.0,1.723,1.723,False,current-label fit,green,patch_r03_c02,10,0.88674,0.75,50.0
+current_fit_histgb_harmonic_tracked_kalman_ssm,7.mp4,193.008,182.0,197.0,189.5,3.508,0.0,True,current-label fit,g_minus_r,patch_r04_c01,9,0.89299,1.5,88.89
+current_fit_histgb_harmonic_tracked_kalman_ssm,8.mp4,108.105,108.0,113.0,110.5,2.395,0.0,True,current-label fit,ica,patch_r05_c04,9,0.85249,1.0,0.0
+current_fit_rf_direct_hr_regression,1.mp4,175.0,170.0,180.0,175.0,0.0,0.0,True,current-label direct HR fit,g_minus_r,upper_face,9,3.25813,1.0,0.0
+current_fit_rf_direct_hr_regression,3.mp4,209.907,190.0,230.0,210.0,0.093,0.0,True,current-label direct HR fit,ica,lower_face,16,3.52811,1.0,0.0
+current_fit_rf_direct_hr_regression,4.mp4,115.5,111.0,120.0,115.5,0.0,0.0,True,current-label direct HR fit,pca,patch_r01_c05,9,3.35159,1.0,0.0
+current_fit_rf_direct_hr_regression,5.mp4,135.0,130.0,140.0,135.0,0.0,0.0,True,current-label direct HR fit,g_minus_r,mid_face,9,3.29123,1.0,0.0
+current_fit_rf_direct_hr_regression,6.mp4,90.0,90.0,90.0,90.0,0.0,0.0,True,current-label direct HR fit,pca,face_full,10,3.29169,1.0,0.0
+current_fit_rf_direct_hr_regression,7.mp4,189.5,182.0,197.0,189.5,0.0,0.0,True,current-label direct HR fit,pca,face_full,9,3.09369,1.0,0.0
+current_fit_rf_direct_hr_regression,8.mp4,110.859,108.0,113.0,110.5,0.359,0.0,True,current-label direct HR fit,pca,patch_r01_c02,9,3.57531,1.0,0.0
+current_fit_rf_error_regressor_harmonic_tracked,1.mp4,174.902,170.0,180.0,175.0,0.098,0.0,True,current-label fit,chrom,patch_r01_c01,9,-0.35304,2.0,100.0
+current_fit_rf_error_regressor_harmonic_tracked,3.mp4,210.058,190.0,230.0,210.0,0.058,0.0,True,current-label fit,ica,patch_r05_c03,16,-1.02268,2.0,100.0
+current_fit_rf_error_regressor_harmonic_tracked,4.mp4,115.137,111.0,120.0,115.5,0.363,0.0,True,current-label fit,ica,patch_r01_c04,9,-1.03571,1.0,0.0
+current_fit_rf_error_regressor_harmonic_tracked,5.mp4,135.132,130.0,140.0,135.0,0.132,0.0,True,current-label fit,g_minus_r,patch_r03_c05,9,-0.15616,1.5,55.56
+current_fit_rf_error_regressor_harmonic_tracked,6.mp4,90.088,90.0,90.0,90.0,0.088,0.088,False,current-label fit,chrom,patch_r05_c01,10,-0.2594,1.0,20.0
+current_fit_rf_error_regressor_harmonic_tracked,7.mp4,189.843,182.0,197.0,189.5,0.343,0.0,True,current-label fit,chrom,patch_r05_c01,9,-0.50724,1.5,88.89
+current_fit_rf_error_regressor_harmonic_tracked,8.mp4,110.303,108.0,113.0,110.5,0.197,0.0,True,current-label fit,g_minus_r,face_full,9,-0.97556,1.0,0.0
+current_fit_rf_harmonic_tracked,1.mp4,174.024,170.0,180.0,175.0,0.976,0.0,True,current-label fit,green,patch_r02_c02,9,0.92222,1.5,100.0
+current_fit_rf_harmonic_tracked,3.mp4,214.233,190.0,230.0,210.0,4.233,0.0,True,current-label fit,chrom,patch_r01_c02,16,0.96111,2.0,100.0
+current_fit_rf_harmonic_tracked,4.mp4,113.379,111.0,120.0,115.5,2.121,0.0,True,current-label fit,green,patch_r01_c03,9,0.92778,1.0,0.0
+current_fit_rf_harmonic_tracked,5.mp4,132.275,130.0,140.0,135.0,2.725,0.0,True,current-label fit,chrom,patch_r04_c04,9,0.94444,1.5,88.89
+current_fit_rf_harmonic_tracked,6.mp4,91.406,90.0,90.0,90.0,1.406,1.406,False,current-label fit,g_minus_r,face_full,10,0.94444,1.0,30.0
+current_fit_rf_harmonic_tracked,7.mp4,190.722,182.0,197.0,189.5,1.222,0.0,True,current-label fit,green,patch_r04_c03,9,0.94444,2.0,100.0
+current_fit_rf_harmonic_tracked,8.mp4,109.863,108.0,113.0,110.5,0.637,0.0,True,current-label fit,g_minus_r,lower_face,9,0.93333,1.0,0.0
+current_fit_rf_harmonic_tracked_kalman_ssm,1.mp4,173.302,170.0,180.0,175.0,1.698,0.0,True,current-label fit,green,patch_r02_c02,9,0.92222,1.5,100.0
+current_fit_rf_harmonic_tracked_kalman_ssm,3.mp4,215.72,190.0,230.0,210.0,5.72,0.0,True,current-label fit,chrom,patch_r01_c02,16,0.96111,2.0,100.0
+current_fit_rf_harmonic_tracked_kalman_ssm,4.mp4,113.158,111.0,120.0,115.5,2.342,0.0,True,current-label fit,green,patch_r01_c03,9,0.92778,1.0,0.0
+current_fit_rf_harmonic_tracked_kalman_ssm,5.mp4,132.249,130.0,140.0,135.0,2.751,0.0,True,current-label fit,chrom,patch_r04_c04,9,0.94444,1.5,88.89
+current_fit_rf_harmonic_tracked_kalman_ssm,6.mp4,91.167,90.0,90.0,90.0,1.167,1.167,False,current-label fit,g_minus_r,face_full,10,0.94444,1.0,30.0
+current_fit_rf_harmonic_tracked_kalman_ssm,7.mp4,191.295,182.0,197.0,189.5,1.795,0.0,True,current-label fit,green,patch_r04_c03,9,0.94444,2.0,100.0
+current_fit_rf_harmonic_tracked_kalman_ssm,8.mp4,110.04,108.0,113.0,110.5,0.46,0.0,True,current-label fit,g_minus_r,lower_face,9,0.93333,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi,1.mp4,99.756,170.0,180.0,175.0,75.244,70.244,False,harmonic-aware tracker with consensus and motion rejection,pos,patch_r02_c04,9,7.89642,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi,3.mp4,101.074,190.0,230.0,210.0,108.926,88.926,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r03_c02,16,8.44671,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi,4.mp4,99.756,111.0,120.0,115.5,15.744,11.244,False,harmonic-aware tracker with consensus and motion rejection,chrom,patch_r02_c05,9,8.5138,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi,5.mp4,100.195,130.0,140.0,135.0,34.805,29.805,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c02,9,8.00086,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi,6.mp4,99.756,90.0,90.0,90.0,9.756,9.756,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c01,10,8.25259,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi,7.mp4,97.119,182.0,197.0,189.5,92.381,84.881,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c02,9,7.6277,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c03,9,9.19776,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi_kalman_ssm,1.mp4,99.949,170.0,180.0,175.0,75.051,70.051,False,harmonic-aware tracker with consensus and motion rejection,pos,patch_r02_c04,9,7.89642,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi_kalman_ssm,3.mp4,98.174,190.0,230.0,210.0,111.826,91.826,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r03_c02,16,8.44671,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi_kalman_ssm,4.mp4,99.662,111.0,120.0,115.5,15.838,11.338,False,harmonic-aware tracker with consensus and motion rejection,chrom,patch_r02_c05,9,8.5138,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi_kalman_ssm,5.mp4,99.573,130.0,140.0,135.0,35.427,30.427,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c02,9,8.00086,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi_kalman_ssm,6.mp4,99.812,90.0,90.0,90.0,9.812,9.812,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c01,10,8.25259,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi_kalman_ssm,7.mp4,96.758,182.0,197.0,189.5,92.742,85.242,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c02,9,7.6277,1.0,0.0
+dog_panting_texture_reject_harmonic_aware_viterbi_kalman_ssm,8.mp4,100.065,108.0,113.0,110.5,10.435,7.935,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c03,9,9.19776,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi,1.mp4,99.756,170.0,180.0,175.0,75.244,70.244,False,harmonic-aware tracker with consensus and motion rejection,pos,patch_r02_c04,9,7.55024,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi,3.mp4,91.846,190.0,230.0,210.0,118.154,98.154,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r02_c04,16,7.93078,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi,4.mp4,99.756,111.0,120.0,115.5,15.744,11.244,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r02_c03,9,8.39749,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi,5.mp4,100.195,130.0,140.0,135.0,34.805,29.805,False,harmonic-aware tracker with consensus and motion rejection,chrom,patch_r02_c03,9,7.51825,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c01,10,7.92703,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi,7.mp4,97.119,182.0,197.0,189.5,92.381,84.881,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c02,9,7.26846,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,8.64173,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi_kalman_ssm,1.mp4,99.923,170.0,180.0,175.0,75.077,70.077,False,harmonic-aware tracker with consensus and motion rejection,pos,patch_r02_c04,9,7.55024,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi_kalman_ssm,3.mp4,93.875,190.0,230.0,210.0,116.125,96.125,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r02_c04,16,7.93078,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi_kalman_ssm,4.mp4,99.636,111.0,120.0,115.5,15.864,11.364,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r02_c03,9,8.39749,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi_kalman_ssm,5.mp4,99.646,130.0,140.0,135.0,35.354,30.354,False,harmonic-aware tracker with consensus and motion rejection,chrom,patch_r02_c03,9,7.51825,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi_kalman_ssm,6.mp4,100.033,90.0,90.0,90.0,10.033,10.033,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c01,10,7.92703,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi_kalman_ssm,7.mp4,97.239,182.0,197.0,189.5,92.261,84.761,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c02,9,7.26846,1.0,0.0
+dog_upper_mid_mouth_reject_harmonic_aware_viterbi_kalman_ssm,8.mp4,100.037,108.0,113.0,110.5,10.463,7.963,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,8.64173,1.0,0.0
+harmonic_aware_viterbi_quality,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,upper_face,9,5.99564,1.0,0.0
+harmonic_aware_viterbi_quality,3.mp4,100.195,190.0,230.0,210.0,109.805,89.805,False,harmonic-aware tracker with consensus and motion rejection,ica,lower_face,16,6.50418,1.0,0.0
+harmonic_aware_viterbi_quality,4.mp4,99.316,111.0,120.0,115.5,16.184,11.684,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c05,9,6.81545,1.0,0.0
+harmonic_aware_viterbi_quality,5.mp4,100.195,130.0,140.0,135.0,34.805,29.805,False,harmonic-aware tracker with consensus and motion rejection,pca,face_full,9,6.06224,1.0,0.0
+harmonic_aware_viterbi_quality,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,harmonic-aware tracker with consensus and motion rejection,pca,face_full,10,6.64931,1.0,0.0
+harmonic_aware_viterbi_quality,7.mp4,98.877,182.0,197.0,189.5,90.623,83.123,False,harmonic-aware tracker with consensus and motion rejection,pca,face_full,9,6.4789,1.0,0.0
+harmonic_aware_viterbi_quality,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,7.29199,1.0,0.0
+harmonic_sqi_top_window,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,unsupervised signal-quality selector,g_minus_r,upper_face,9,5.99564,1.0,11.11
+harmonic_sqi_top_window,3.mp4,99.316,190.0,230.0,210.0,110.684,90.684,False,unsupervised signal-quality selector,ica,lower_face,16,6.54332,1.0,0.0
+harmonic_sqi_top_window,4.mp4,99.756,111.0,120.0,115.5,15.744,11.244,False,unsupervised signal-quality selector,pca,patch_r01_c05,9,6.81545,1.0,0.0
+harmonic_sqi_top_window,5.mp4,98.877,130.0,140.0,135.0,36.123,31.123,False,unsupervised signal-quality selector,g_minus_r,mid_face,9,6.0863,1.0,11.11
+harmonic_sqi_top_window,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,unsupervised signal-quality selector,pca,face_full,10,6.64931,1.0,10.0
+harmonic_sqi_top_window,7.mp4,98.877,182.0,197.0,189.5,90.623,83.123,False,unsupervised signal-quality selector,pca,face_full,9,6.48997,1.0,11.11
+harmonic_sqi_top_window,8.mp4,101.074,108.0,113.0,110.5,9.426,6.926,False,unsupervised signal-quality selector,pca,patch_r01_c02,9,7.29199,1.0,33.33
+harmonic_sqi_tracked,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,unsupervised signal-quality selector,g_minus_r,upper_face,9,5.99564,1.0,0.0
+harmonic_sqi_tracked,3.mp4,99.316,190.0,230.0,210.0,110.684,90.684,False,unsupervised signal-quality selector,ica,lower_face,16,6.53136,1.0,0.0
+harmonic_sqi_tracked,4.mp4,99.756,111.0,120.0,115.5,15.744,11.244,False,unsupervised signal-quality selector,pca,patch_r01_c05,9,6.81545,1.0,0.0
+harmonic_sqi_tracked,5.mp4,100.195,130.0,140.0,135.0,34.805,29.805,False,unsupervised signal-quality selector,pca,face_full,9,6.06224,1.0,0.0
+harmonic_sqi_tracked,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,unsupervised signal-quality selector,pca,face_full,10,6.64931,1.0,0.0
+harmonic_sqi_tracked,7.mp4,98.877,182.0,197.0,189.5,90.623,83.123,False,unsupervised signal-quality selector,pca,face_full,9,6.4789,1.0,0.0
+harmonic_sqi_tracked,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,unsupervised signal-quality selector,pca,patch_r01_c02,9,7.29199,1.0,0.0
+harmonic_sqi_tracked_kalman_ssm,1.mp4,99.075,170.0,180.0,175.0,75.925,70.925,False,unsupervised signal-quality selector,g_minus_r,upper_face,9,5.99564,1.0,0.0
+harmonic_sqi_tracked_kalman_ssm,3.mp4,98.634,190.0,230.0,210.0,111.366,91.366,False,unsupervised signal-quality selector,ica,lower_face,16,6.53136,1.0,0.0
+harmonic_sqi_tracked_kalman_ssm,4.mp4,99.579,111.0,120.0,115.5,15.921,11.421,False,unsupervised signal-quality selector,pca,patch_r01_c05,9,6.81545,1.0,0.0
+harmonic_sqi_tracked_kalman_ssm,5.mp4,98.943,130.0,140.0,135.0,36.057,31.057,False,unsupervised signal-quality selector,pca,face_full,9,6.06224,1.0,0.0
+harmonic_sqi_tracked_kalman_ssm,6.mp4,99.863,90.0,90.0,90.0,9.863,9.863,False,unsupervised signal-quality selector,pca,face_full,10,6.64931,1.0,0.0
+harmonic_sqi_tracked_kalman_ssm,7.mp4,97.43,182.0,197.0,189.5,92.07,84.57,False,unsupervised signal-quality selector,pca,face_full,9,6.4789,1.0,0.0
+harmonic_sqi_tracked_kalman_ssm,8.mp4,100.073,108.0,113.0,110.5,10.427,7.927,False,unsupervised signal-quality selector,pca,patch_r01_c02,9,7.29199,1.0,0.0
+localized_consensus_harmonic_aware_viterbi,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r04_c01,9,10.22816,1.0,0.0
+localized_consensus_harmonic_aware_viterbi,3.mp4,101.074,190.0,230.0,210.0,108.926,88.926,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r03_c01,16,10.65,1.0,0.0
+localized_consensus_harmonic_aware_viterbi,4.mp4,99.316,111.0,120.0,115.5,16.184,11.684,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r03_c04,9,11.43035,1.0,0.0
+localized_consensus_harmonic_aware_viterbi,5.mp4,97.998,130.0,140.0,135.0,37.002,32.002,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c02,9,10.28355,1.0,0.0
+localized_consensus_harmonic_aware_viterbi,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c01,10,10.83375,1.0,0.0
+localized_consensus_harmonic_aware_viterbi,7.mp4,96.68,182.0,197.0,189.5,92.82,85.32,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r03_c03,9,10.06676,1.0,0.0
+localized_consensus_harmonic_aware_viterbi,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,12.03417,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r04_c01,9,10.22816,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi,3.mp4,101.074,190.0,230.0,210.0,108.926,88.926,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r03_c01,16,10.65,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi,4.mp4,99.316,111.0,120.0,115.5,16.184,11.684,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r03_c04,9,11.43035,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi,5.mp4,97.998,130.0,140.0,135.0,37.002,32.002,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c02,9,10.28355,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c01,10,10.83375,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi,7.mp4,96.68,182.0,197.0,189.5,92.82,85.32,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r03_c03,9,10.06676,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,12.03417,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,1.mp4,99.54,170.0,180.0,175.0,75.46,70.46,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r04_c01,9,10.22816,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,3.mp4,100.853,190.0,230.0,210.0,109.147,89.147,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r03_c01,16,10.65,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,4.mp4,99.178,111.0,120.0,115.5,16.322,11.822,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r03_c04,9,11.43035,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,5.mp4,97.974,130.0,140.0,135.0,37.026,32.026,False,harmonic-aware tracker with consensus and motion rejection,ica,patch_r01_c02,9,10.28355,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,6.mp4,99.923,90.0,90.0,90.0,9.923,9.923,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r01_c01,10,10.83375,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,7.mp4,97.801,182.0,197.0,189.5,91.699,84.199,False,harmonic-aware tracker with consensus and motion rejection,g_minus_r,patch_r03_c03,9,10.06676,1.0,0.0
+localized_consensus_motion_reject_harmonic_aware_viterbi_kalman_ssm,8.mp4,100.115,108.0,113.0,110.5,10.385,7.885,False,harmonic-aware tracker with consensus and motion rejection,pca,patch_r01_c02,9,12.03417,1.0,0.0
+loocv_extra_trees_classifier_consensus_motion_harmonic_aware_viterbi,1.mp4,189.844,170.0,180.0,175.0,14.844,9.844,False,LOOCV classifier with consensus/motion priors,pca,patch_r05_c04,9,0.65082,2.0,77.78
+loocv_extra_trees_classifier_consensus_motion_harmonic_aware_viterbi,3.mp4,117.334,190.0,230.0,210.0,92.666,72.666,False,LOOCV classifier with consensus/motion priors,green,patch_r02_c01,16,0.72665,1.0,31.25
+loocv_extra_trees_classifier_consensus_motion_harmonic_aware_viterbi,4.mp4,187.208,111.0,120.0,115.5,71.708,67.208,False,LOOCV classifier with consensus/motion priors,pca,patch_r01_c03,9,0.66001,2.0,100.0
+loocv_extra_trees_classifier_consensus_motion_harmonic_aware_viterbi,5.mp4,195.996,130.0,140.0,135.0,60.996,55.996,False,LOOCV classifier with consensus/motion priors,g_minus_r,patch_r01_c04,9,0.72538,2.0,100.0
+loocv_extra_trees_classifier_consensus_motion_harmonic_aware_viterbi,6.mp4,195.117,90.0,90.0,90.0,105.117,105.117,False,LOOCV classifier with consensus/motion priors,pca,patch_r05_c03,10,0.73474,1.75,100.0
+loocv_extra_trees_classifier_consensus_motion_harmonic_aware_viterbi,7.mp4,195.996,182.0,197.0,189.5,6.496,0.0,True,LOOCV classifier with consensus/motion priors,ica,patch_r01_c03,9,0.75959,2.0,88.89
+loocv_extra_trees_classifier_consensus_motion_harmonic_aware_viterbi,8.mp4,197.754,108.0,113.0,110.5,87.254,84.754,False,LOOCV classifier with consensus/motion priors,pos,patch_r01_c03,9,0.7763,2.0,100.0
+loocv_extra_trees_classifier_harmonic_tracked,1.mp4,199.512,170.0,180.0,175.0,24.512,19.512,False,LOOCV classifier,chrom,patch_r04_c03,9,0.67823,2.0,100.0
+loocv_extra_trees_classifier_harmonic_tracked,3.mp4,112.939,190.0,230.0,210.0,97.061,77.061,False,LOOCV classifier,g_minus_r,patch_r03_c05,16,0.67646,1.0,0.0
+loocv_extra_trees_classifier_harmonic_tracked,4.mp4,199.072,111.0,120.0,115.5,83.572,79.072,False,LOOCV classifier,chrom,face_full,9,0.73321,2.0,100.0
+loocv_extra_trees_classifier_harmonic_tracked,5.mp4,195.117,130.0,140.0,135.0,60.117,55.117,False,LOOCV classifier,g_minus_r,patch_r01_c01,9,0.71812,2.0,100.0
+loocv_extra_trees_classifier_harmonic_tracked,6.mp4,193.14,90.0,90.0,90.0,103.14,103.14,False,LOOCV classifier,chrom,patch_r01_c01,10,0.69347,2.0,100.0
+loocv_extra_trees_classifier_harmonic_tracked,7.mp4,212.696,182.0,197.0,189.5,23.196,15.696,False,LOOCV classifier,g_minus_r,patch_r01_c04,9,0.69232,2.0,100.0
+loocv_extra_trees_classifier_harmonic_tracked,8.mp4,193.36,108.0,113.0,110.5,82.86,80.36,False,LOOCV classifier,green,upper_face,9,0.75242,2.0,100.0
+loocv_extra_trees_error_regressor_harmonic_tracked,1.mp4,88.33,170.0,180.0,175.0,86.67,81.67,False,LOOCV error_regressor,g_minus_r,mid_face,9,-8.36359,1.0,11.11
+loocv_extra_trees_error_regressor_harmonic_tracked,3.mp4,110.742,190.0,230.0,210.0,99.258,79.258,False,LOOCV error_regressor,ica,patch_r02_c04,16,-15.26131,1.0,0.0
+loocv_extra_trees_error_regressor_harmonic_tracked,4.mp4,202.368,111.0,120.0,115.5,86.868,82.368,False,LOOCV error_regressor,chrom,patch_r03_c05,9,-27.59835,1.5,100.0
+loocv_extra_trees_error_regressor_harmonic_tracked,5.mp4,172.046,130.0,140.0,135.0,37.046,32.046,False,LOOCV error_regressor,pca,patch_r02_c05,9,-17.51438,1.5,100.0
+loocv_extra_trees_error_regressor_harmonic_tracked,6.mp4,176.66,90.0,90.0,90.0,86.66,86.66,False,LOOCV error_regressor,ica,patch_r03_c05,10,-7.82325,2.0,100.0
+loocv_extra_trees_error_regressor_harmonic_tracked,7.mp4,123.267,182.0,197.0,189.5,66.233,58.733,False,LOOCV error_regressor,green,patch_r05_c02,9,-25.68148,1.0,55.56
+loocv_extra_trees_error_regressor_harmonic_tracked,8.mp4,211.816,108.0,113.0,110.5,101.316,98.816,False,LOOCV error_regressor,pos,mid_face,9,-25.54143,2.0,100.0
+loocv_histgb_classifier_consensus_motion_harmonic_aware_viterbi,1.mp4,116.455,170.0,180.0,175.0,58.545,53.545,False,LOOCV classifier with consensus/motion priors,chrom,patch_r03_c01,9,0.86784,1.0,33.33
+loocv_histgb_classifier_consensus_motion_harmonic_aware_viterbi,3.mp4,113.818,190.0,230.0,210.0,96.182,76.182,False,LOOCV classifier with consensus/motion priors,pos,patch_r02_c01,16,0.79449,1.0,37.5
+loocv_histgb_classifier_consensus_motion_harmonic_aware_viterbi,4.mp4,179.296,111.0,120.0,115.5,63.796,59.296,False,LOOCV classifier with consensus/motion priors,g_minus_r,patch_r05_c01,9,0.62269,2.0,100.0
+loocv_histgb_classifier_consensus_motion_harmonic_aware_viterbi,5.mp4,115.576,130.0,140.0,135.0,19.424,14.424,False,LOOCV classifier with consensus/motion priors,chrom,patch_r04_c05,9,0.70467,1.0,33.33
+loocv_histgb_classifier_consensus_motion_harmonic_aware_viterbi,6.mp4,190.503,90.0,90.0,90.0,100.503,100.503,False,LOOCV classifier with consensus/motion priors,g_minus_r,patch_r04_c03,10,0.64461,1.75,100.0
+loocv_histgb_classifier_consensus_motion_harmonic_aware_viterbi,7.mp4,121.729,182.0,197.0,189.5,67.771,60.271,False,LOOCV classifier with consensus/motion priors,pos,patch_r01_c03,9,0.68174,1.0,33.33
+loocv_histgb_classifier_consensus_motion_harmonic_aware_viterbi,8.mp4,89.648,108.0,113.0,110.5,20.852,18.352,False,LOOCV classifier with consensus/motion priors,g_minus_r,patch_r04_c01,9,0.93429,1.0,0.0
+loocv_histgb_classifier_dog_panting_texture_harmonic_aware_viterbi,1.mp4,131.176,170.0,180.0,175.0,43.824,38.824,False,LOOCV classifier with dog panting/texture priors,chrom,patch_r03_c01,9,0.86116,1.5,55.56
+loocv_histgb_classifier_dog_panting_texture_harmonic_aware_viterbi,3.mp4,113.818,190.0,230.0,210.0,96.182,76.182,False,LOOCV classifier with dog panting/texture priors,g_minus_r,patch_r02_c01,16,0.99695,1.0,25.0
+loocv_histgb_classifier_dog_panting_texture_harmonic_aware_viterbi,4.mp4,181.275,111.0,120.0,115.5,65.775,61.275,False,LOOCV classifier with dog panting/texture priors,pca,patch_r02_c04,9,0.61501,2.0,100.0
+loocv_histgb_classifier_dog_panting_texture_harmonic_aware_viterbi,5.mp4,174.902,130.0,140.0,135.0,39.902,34.902,False,LOOCV classifier with dog panting/texture priors,chrom,patch_r01_c02,9,0.72047,2.0,66.67
+loocv_histgb_classifier_dog_panting_texture_harmonic_aware_viterbi,6.mp4,181.934,90.0,90.0,90.0,91.934,91.934,False,LOOCV classifier with dog panting/texture priors,pca,patch_r03_c02,10,0.72863,2.0,100.0
+loocv_histgb_classifier_dog_panting_texture_harmonic_aware_viterbi,7.mp4,121.729,182.0,197.0,189.5,67.771,60.271,False,LOOCV classifier with dog panting/texture priors,pos,patch_r01_c02,9,0.83491,1.0,33.33
+loocv_histgb_classifier_dog_panting_texture_harmonic_aware_viterbi,8.mp4,188.964,108.0,113.0,110.5,78.464,75.964,False,LOOCV classifier with dog panting/texture priors,chrom,patch_r01_c03,9,0.91936,2.0,77.78
+loocv_histgb_classifier_harmonic_tracked,1.mp4,91.846,170.0,180.0,175.0,83.154,78.154,False,LOOCV classifier,g_minus_r,mid_face,9,0.93489,1.0,0.0
+loocv_histgb_classifier_harmonic_tracked,3.mp4,108.105,190.0,230.0,210.0,101.895,81.895,False,LOOCV classifier,g_minus_r,patch_r03_c02,16,0.89713,1.0,0.0
+loocv_histgb_classifier_harmonic_tracked,4.mp4,198.413,111.0,120.0,115.5,82.913,78.413,False,LOOCV classifier,pos,patch_r02_c01,9,0.79582,1.5,100.0
+loocv_histgb_classifier_harmonic_tracked,5.mp4,176.659,130.0,140.0,135.0,41.659,36.659,False,LOOCV classifier,ica,lower_face,9,0.80403,2.0,100.0
+loocv_histgb_classifier_harmonic_tracked,6.mp4,175.782,90.0,90.0,90.0,85.782,85.782,False,LOOCV classifier,green,patch_r03_c02,10,0.9284,1.5,60.0
+loocv_histgb_classifier_harmonic_tracked,7.mp4,221.484,182.0,197.0,189.5,31.984,24.484,False,LOOCV classifier,g_minus_r,patch_r01_c04,9,0.64858,2.0,100.0
+loocv_histgb_classifier_harmonic_tracked,8.mp4,192.48,108.0,113.0,110.5,81.98,79.48,False,LOOCV classifier,chrom,patch_r04_c05,9,0.86897,2.0,100.0
+loocv_histgb_direct_hr_regression,1.mp4,109.372,170.0,180.0,175.0,65.628,60.628,False,LOOCV direct HR regression,g_minus_r,upper_face,9,3.25813,1.0,0.0
+loocv_histgb_direct_hr_regression,3.mp4,118.386,190.0,230.0,210.0,91.614,71.614,False,LOOCV direct HR regression,ica,lower_face,16,3.52811,1.0,0.0
+loocv_histgb_direct_hr_regression,4.mp4,165.031,111.0,120.0,115.5,49.531,45.031,False,LOOCV direct HR regression,pca,patch_r01_c05,9,3.35159,1.0,0.0
+loocv_histgb_direct_hr_regression,5.mp4,160.083,130.0,140.0,135.0,25.083,20.083,False,LOOCV direct HR regression,g_minus_r,mid_face,9,3.29123,1.0,0.0
+loocv_histgb_direct_hr_regression,6.mp4,163.156,90.0,90.0,90.0,73.156,73.156,False,LOOCV direct HR regression,pca,face_full,10,3.29169,1.0,0.0
+loocv_histgb_direct_hr_regression,7.mp4,129.029,182.0,197.0,189.5,60.471,52.971,False,LOOCV direct HR regression,pca,face_full,9,3.09369,1.0,0.0
+loocv_histgb_direct_hr_regression,8.mp4,165.873,108.0,113.0,110.5,55.373,52.873,False,LOOCV direct HR regression,pca,patch_r01_c02,9,3.57531,1.0,0.0
+loocv_histgb_error_regressor_harmonic_tracked,1.mp4,87.451,170.0,180.0,175.0,87.549,82.549,False,LOOCV error_regressor,chrom,patch_r04_c05,9,-1.87179,1.0,22.22
+loocv_histgb_error_regressor_harmonic_tracked,3.mp4,96.24,190.0,230.0,210.0,113.76,93.76,False,LOOCV error_regressor,pos,upper_face,16,-12.3154,1.0,0.0
+loocv_histgb_error_regressor_harmonic_tracked,4.mp4,210.058,111.0,120.0,115.5,94.558,90.058,False,LOOCV error_regressor,chrom,patch_r02_c01,9,-22.13415,2.0,100.0
+loocv_histgb_error_regressor_harmonic_tracked,5.mp4,201.049,130.0,140.0,135.0,66.049,61.049,False,LOOCV error_regressor,pca,lower_face,9,-16.73185,1.5,100.0
+loocv_histgb_error_regressor_harmonic_tracked,6.mp4,183.692,90.0,90.0,90.0,93.692,93.692,False,LOOCV error_regressor,pos,patch_r03_c05,10,-12.80455,2.0,100.0
+loocv_histgb_error_regressor_harmonic_tracked,7.mp4,99.097,182.0,197.0,189.5,90.403,82.903,False,LOOCV error_regressor,g_minus_r,patch_r03_c03,9,-16.65556,0.5,55.56
+loocv_histgb_error_regressor_harmonic_tracked,8.mp4,203.686,108.0,113.0,110.5,93.186,90.686,False,LOOCV error_regressor,chrom,patch_r03_c05,9,-18.89922,2.0,100.0
+loocv_model_ensemble_median,1.mp4,114.591,170.0,180.0,175.0,60.409,55.409,False,median ensemble of LOOCV rankers/regressors,ensemble,ensemble,9,,,22.22
+loocv_model_ensemble_median,3.mp4,108.545,190.0,230.0,210.0,101.455,81.455,False,median ensemble of LOOCV rankers/regressors,ensemble,ensemble,16,,,0.0
+loocv_model_ensemble_median,4.mp4,198.413,111.0,120.0,115.5,82.913,78.413,False,median ensemble of LOOCV rankers/regressors,ensemble,ensemble,9,,,100.0
+loocv_model_ensemble_median,5.mp4,189.185,130.0,140.0,135.0,54.185,49.185,False,median ensemble of LOOCV rankers/regressors,ensemble,ensemble,9,,,100.0
+loocv_model_ensemble_median,6.mp4,189.843,90.0,90.0,90.0,99.843,99.843,False,median ensemble of LOOCV rankers/regressors,ensemble,ensemble,10,,,100.0
+loocv_model_ensemble_median,7.mp4,201.049,182.0,197.0,189.5,11.549,4.049,False,median ensemble of LOOCV rankers/regressors,ensemble,ensemble,9,,,100.0
+loocv_model_ensemble_median,8.mp4,192.48,108.0,113.0,110.5,81.98,79.48,False,median ensemble of LOOCV rankers/regressors,ensemble,ensemble,9,,,100.0
+loocv_rf_classifier_consensus_motion_harmonic_aware_viterbi,1.mp4,138.428,170.0,180.0,175.0,36.572,31.572,False,LOOCV classifier with consensus/motion priors,chrom,patch_r04_c04,9,0.77126,1.5,88.89
+loocv_rf_classifier_consensus_motion_harmonic_aware_viterbi,3.mp4,115.137,190.0,230.0,210.0,94.863,74.863,False,LOOCV classifier with consensus/motion priors,pos,patch_r03_c04,16,0.81344,1.0,37.5
+loocv_rf_classifier_consensus_motion_harmonic_aware_viterbi,4.mp4,187.208,111.0,120.0,115.5,71.708,67.208,False,LOOCV classifier with consensus/motion priors,chrom,patch_r02_c01,9,0.7388,1.5,100.0
+loocv_rf_classifier_consensus_motion_harmonic_aware_viterbi,5.mp4,183.911,130.0,140.0,135.0,48.911,43.911,False,LOOCV classifier with consensus/motion priors,chrom,patch_r02_c03,9,0.75278,1.5,88.89
+loocv_rf_classifier_consensus_motion_harmonic_aware_viterbi,6.mp4,182.594,90.0,90.0,90.0,92.594,92.594,False,LOOCV classifier with consensus/motion priors,chrom,patch_r05_c03,10,0.73408,1.5,100.0
+loocv_rf_classifier_consensus_motion_harmonic_aware_viterbi,7.mp4,191.602,182.0,197.0,189.5,2.102,0.0,True,LOOCV classifier with consensus/motion priors,pca,patch_r01_c03,9,0.74465,1.5,88.89
+loocv_rf_classifier_consensus_motion_harmonic_aware_viterbi,8.mp4,188.086,108.0,113.0,110.5,77.586,75.086,False,LOOCV classifier with consensus/motion priors,g_minus_r,patch_r01_c03,9,0.78726,1.5,66.67
+loocv_rf_classifier_dog_panting_texture_harmonic_aware_viterbi,1.mp4,138.428,170.0,180.0,175.0,36.572,31.572,False,LOOCV classifier with dog panting/texture priors,g_minus_r,patch_r01_c03,9,0.78735,1.5,100.0
+loocv_rf_classifier_dog_panting_texture_harmonic_aware_viterbi,3.mp4,114.697,190.0,230.0,210.0,95.303,75.303,False,LOOCV classifier with dog panting/texture priors,pos,patch_r02_c01,16,0.91161,1.0,37.5
+loocv_rf_classifier_dog_panting_texture_harmonic_aware_viterbi,4.mp4,187.208,111.0,120.0,115.5,71.708,67.208,False,LOOCV classifier with dog panting/texture priors,g_minus_r,patch_r02_c02,9,0.92027,2.0,100.0
+loocv_rf_classifier_dog_panting_texture_harmonic_aware_viterbi,5.mp4,182.812,130.0,140.0,135.0,47.812,42.812,False,LOOCV classifier with dog panting/texture priors,ica,patch_r01_c04,9,0.89184,2.0,88.89
+loocv_rf_classifier_dog_panting_texture_harmonic_aware_viterbi,6.mp4,181.934,90.0,90.0,90.0,91.934,91.934,False,LOOCV classifier with dog panting/texture priors,ica,patch_r03_c04,10,0.80382,2.0,100.0
+loocv_rf_classifier_dog_panting_texture_harmonic_aware_viterbi,7.mp4,193.36,182.0,197.0,189.5,3.86,0.0,True,LOOCV classifier with dog panting/texture priors,pca,patch_r02_c04,9,0.86664,2.0,77.78
+loocv_rf_classifier_dog_panting_texture_harmonic_aware_viterbi,8.mp4,212.696,108.0,113.0,110.5,102.196,99.696,False,LOOCV classifier with dog panting/texture priors,ica,patch_r02_c03,9,0.99742,2.0,100.0
+loocv_rf_classifier_harmonic_tracked,1.mp4,191.822,170.0,180.0,175.0,16.822,11.822,False,LOOCV classifier,g_minus_r,patch_r05_c05,9,0.78958,1.5,100.0
+loocv_rf_classifier_harmonic_tracked,3.mp4,108.545,190.0,230.0,210.0,101.455,81.455,False,LOOCV classifier,chrom,patch_r02_c05,16,0.76733,1.0,0.0
+loocv_rf_classifier_harmonic_tracked,4.mp4,189.185,111.0,120.0,115.5,73.685,69.185,False,LOOCV classifier,g_minus_r,patch_r03_c05,9,0.81923,1.5,100.0
+loocv_rf_classifier_harmonic_tracked,5.mp4,189.185,130.0,140.0,135.0,54.185,49.185,False,LOOCV classifier,chrom,patch_r02_c02,9,0.76322,1.5,100.0
+loocv_rf_classifier_harmonic_tracked,6.mp4,189.843,90.0,90.0,90.0,99.843,99.843,False,LOOCV classifier,g_minus_r,patch_r01_c04,10,0.76069,1.5,100.0
+loocv_rf_classifier_harmonic_tracked,7.mp4,201.049,182.0,197.0,189.5,11.549,4.049,False,LOOCV classifier,g_minus_r,patch_r01_c02,9,0.76837,1.5,100.0
+loocv_rf_classifier_harmonic_tracked,8.mp4,189.185,108.0,113.0,110.5,78.685,76.185,False,LOOCV classifier,chrom,patch_r04_c05,9,0.8118,2.0,100.0
+loocv_rf_classifier_harmonic_tracked_kalman_ssm,1.mp4,192.433,170.0,180.0,175.0,17.433,12.433,False,LOOCV classifier,ica,patch_r05_c04,9,0.7863,1.5,100.0
+loocv_rf_classifier_harmonic_tracked_kalman_ssm,3.mp4,108.206,190.0,230.0,210.0,101.794,81.794,False,LOOCV classifier,ica,patch_r01_c04,16,0.78201,1.0,0.0
+loocv_rf_classifier_harmonic_tracked_kalman_ssm,4.mp4,189.441,111.0,120.0,115.5,73.941,69.441,False,LOOCV classifier,g_minus_r,patch_r03_c05,9,0.81283,1.5,100.0
+loocv_rf_classifier_harmonic_tracked_kalman_ssm,5.mp4,199.246,130.0,140.0,135.0,64.246,59.246,False,LOOCV classifier,chrom,patch_r01_c01,9,0.75586,1.5,100.0
+loocv_rf_classifier_harmonic_tracked_kalman_ssm,6.mp4,196.052,90.0,90.0,90.0,106.052,106.052,False,LOOCV classifier,g_minus_r,patch_r01_c04,10,0.75613,1.5,100.0
+loocv_rf_classifier_harmonic_tracked_kalman_ssm,7.mp4,200.643,182.0,197.0,189.5,11.143,3.643,False,LOOCV classifier,g_minus_r,patch_r01_c04,9,0.77934,1.5,100.0
+loocv_rf_classifier_harmonic_tracked_kalman_ssm,8.mp4,190.509,108.0,113.0,110.5,80.009,77.509,False,LOOCV classifier,green,mid_face,9,0.81381,2.0,100.0
+loocv_rf_classifier_tracked,1.mp4,91.846,170.0,180.0,175.0,83.154,78.154,False,LOOCV classifier,ica,patch_r03_c04,9,0.81539,1.0,0.0
+loocv_rf_classifier_tracked,3.mp4,108.545,190.0,230.0,210.0,101.455,81.455,False,LOOCV classifier,g_minus_r,patch_r02_c02,16,0.81484,1.0,0.0
+loocv_rf_classifier_tracked,4.mp4,107.666,111.0,120.0,115.5,7.834,3.334,False,LOOCV classifier,pca,patch_r04_c05,9,0.71651,1.0,0.0
+loocv_rf_classifier_tracked,5.mp4,110.303,130.0,140.0,135.0,24.697,19.697,False,LOOCV classifier,green,patch_r01_c01,9,0.74626,1.0,0.0
+loocv_rf_classifier_tracked,6.mp4,113.818,90.0,90.0,90.0,23.818,23.818,False,LOOCV classifier,pca,patch_r01_c01,10,0.7688,1.0,0.0
+loocv_rf_classifier_tracked,7.mp4,110.742,182.0,197.0,189.5,78.758,71.258,False,LOOCV classifier,g_minus_r,patch_r01_c01,9,0.75263,1.0,0.0
+loocv_rf_classifier_tracked,8.mp4,113.818,108.0,113.0,110.5,3.318,0.818,False,LOOCV classifier,pca,patch_r01_c02,9,0.66297,1.0,0.0
+loocv_rf_direct_hr_regression,1.mp4,114.591,170.0,180.0,175.0,60.409,55.409,False,LOOCV direct HR regression,g_minus_r,upper_face,9,3.25813,1.0,0.0
+loocv_rf_direct_hr_regression,3.mp4,116.571,190.0,230.0,210.0,93.429,73.429,False,LOOCV direct HR regression,ica,lower_face,16,3.52811,1.0,0.0
+loocv_rf_direct_hr_regression,4.mp4,164.133,111.0,120.0,115.5,48.633,44.133,False,LOOCV direct HR regression,pca,patch_r01_c05,9,3.35159,1.0,0.0
+loocv_rf_direct_hr_regression,5.mp4,154.485,130.0,140.0,135.0,19.485,14.485,False,LOOCV direct HR regression,g_minus_r,mid_face,9,3.29123,1.0,0.0
+loocv_rf_direct_hr_regression,6.mp4,157.632,90.0,90.0,90.0,67.632,67.632,False,LOOCV direct HR regression,pca,face_full,10,3.29169,1.0,0.0
+loocv_rf_direct_hr_regression,7.mp4,131.44,182.0,197.0,189.5,58.06,50.56,False,LOOCV direct HR regression,pca,face_full,9,3.09369,1.0,0.0
+loocv_rf_direct_hr_regression,8.mp4,172.197,108.0,113.0,110.5,61.697,59.197,False,LOOCV direct HR regression,pca,patch_r01_c02,9,3.57531,1.0,0.0
+loocv_rf_direct_hr_regression_kalman_ssm,1.mp4,112.949,170.0,180.0,175.0,62.051,57.051,False,LOOCV direct HR regression,g_minus_r,upper_face,9,3.25813,1.0,0.0
+loocv_rf_direct_hr_regression_kalman_ssm,3.mp4,113.844,190.0,230.0,210.0,96.156,76.156,False,LOOCV direct HR regression,ica,lower_face,16,3.52811,1.0,0.0
+loocv_rf_direct_hr_regression_kalman_ssm,4.mp4,165.202,111.0,120.0,115.5,49.702,45.202,False,LOOCV direct HR regression,pca,patch_r01_c05,9,3.35159,1.0,0.0
+loocv_rf_direct_hr_regression_kalman_ssm,5.mp4,154.746,130.0,140.0,135.0,19.746,14.746,False,LOOCV direct HR regression,g_minus_r,mid_face,9,3.29123,1.0,0.0
+loocv_rf_direct_hr_regression_kalman_ssm,6.mp4,164.941,90.0,90.0,90.0,74.941,74.941,False,LOOCV direct HR regression,pca,face_full,10,3.29169,1.0,0.0
+loocv_rf_direct_hr_regression_kalman_ssm,7.mp4,135.287,182.0,197.0,189.5,54.213,46.713,False,LOOCV direct HR regression,pca,face_full,9,3.09369,1.0,0.0
+loocv_rf_direct_hr_regression_kalman_ssm,8.mp4,170.429,108.0,113.0,110.5,59.929,57.429,False,LOOCV direct HR regression,pca,patch_r01_c02,9,3.57531,1.0,0.0
+loocv_rf_error_regressor_consensus_motion_harmonic_aware_viterbi,1.mp4,108.984,170.0,180.0,175.0,66.016,61.016,False,LOOCV error_regressor with consensus/motion priors,chrom,patch_r03_c01,9,-16.78018,1.0,22.22
+loocv_rf_error_regressor_consensus_motion_harmonic_aware_viterbi,3.mp4,139.746,190.0,230.0,210.0,70.254,50.254,False,LOOCV error_regressor with consensus/motion priors,ica,patch_r05_c01,16,-15.62487,1.0,43.75
+loocv_rf_error_regressor_consensus_motion_harmonic_aware_viterbi,4.mp4,183.692,111.0,120.0,115.5,68.192,63.692,False,LOOCV error_regressor with consensus/motion priors,g_minus_r,patch_r05_c03,9,-24.49516,1.5,77.78
+loocv_rf_error_regressor_consensus_motion_harmonic_aware_viterbi,5.mp4,89.648,130.0,140.0,135.0,45.352,40.352,False,LOOCV error_regressor with consensus/motion priors,green,patch_r05_c05,9,-1.52028,1.0,0.0
+loocv_rf_error_regressor_consensus_motion_harmonic_aware_viterbi,6.mp4,170.727,90.0,90.0,90.0,80.727,80.727,False,LOOCV error_regressor with consensus/motion priors,chrom,patch_r04_c05,10,-17.70103,1.5,70.0
+loocv_rf_error_regressor_consensus_motion_harmonic_aware_viterbi,7.mp4,196.876,182.0,197.0,189.5,7.376,0.0,True,LOOCV error_regressor with consensus/motion priors,g_minus_r,patch_r01_c04,9,-17.81429,1.0,44.44
+loocv_rf_error_regressor_consensus_motion_harmonic_aware_viterbi,8.mp4,88.33,108.0,113.0,110.5,22.17,19.67,False,LOOCV error_regressor with consensus/motion priors,green,upper_face,9,-1.60018,1.0,0.0
+loocv_rf_error_regressor_dog_panting_texture_harmonic_aware_viterbi,1.mp4,127.441,170.0,180.0,175.0,47.559,42.559,False,LOOCV error_regressor with dog panting/texture priors,pos,patch_r01_c02,9,-16.71974,1.0,22.22
+loocv_rf_error_regressor_dog_panting_texture_harmonic_aware_viterbi,3.mp4,136.451,190.0,230.0,210.0,73.549,53.549,False,LOOCV error_regressor with dog panting/texture priors,g_minus_r,patch_r03_c03,16,-15.4674,1.0,37.5
+loocv_rf_error_regressor_dog_panting_texture_harmonic_aware_viterbi,4.mp4,183.692,111.0,120.0,115.5,68.192,63.692,False,LOOCV error_regressor with dog panting/texture priors,chrom,patch_r01_c03,9,-23.60874,2.0,77.78
+loocv_rf_error_regressor_dog_panting_texture_harmonic_aware_viterbi,5.mp4,90.088,130.0,140.0,135.0,44.912,39.912,False,LOOCV error_regressor with dog panting/texture priors,green,patch_r05_c05,9,-1.34825,1.0,0.0
+loocv_rf_error_regressor_dog_panting_texture_harmonic_aware_viterbi,6.mp4,169.409,90.0,90.0,90.0,79.409,79.409,False,LOOCV error_regressor with dog panting/texture priors,chrom,patch_r02_c03,10,-18.25504,1.5,70.0
+loocv_rf_error_regressor_dog_panting_texture_harmonic_aware_viterbi,7.mp4,196.876,182.0,197.0,189.5,7.376,0.0,True,LOOCV error_regressor with dog panting/texture priors,chrom,patch_r02_c04,9,-17.69361,1.0,44.44
+loocv_rf_error_regressor_dog_panting_texture_harmonic_aware_viterbi,8.mp4,88.77,108.0,113.0,110.5,21.73,19.23,False,LOOCV error_regressor with dog panting/texture priors,green,patch_r02_c02,9,-1.70591,1.0,0.0
+loocv_rf_error_regressor_harmonic_tracked,1.mp4,86.133,170.0,180.0,175.0,88.867,83.867,False,LOOCV error_regressor,chrom,patch_r03_c02,9,-9.7895,1.0,22.22
+loocv_rf_error_regressor_harmonic_tracked,3.mp4,89.648,190.0,230.0,210.0,120.352,100.352,False,LOOCV error_regressor,g_minus_r,mid_face,16,-8.37981,1.0,0.0
+loocv_rf_error_regressor_harmonic_tracked,4.mp4,216.21,111.0,120.0,115.5,100.71,96.21,False,LOOCV error_regressor,ica,patch_r01_c05,9,-19.56173,2.0,100.0
+loocv_rf_error_regressor_harmonic_tracked,5.mp4,189.843,130.0,140.0,135.0,54.843,49.843,False,LOOCV error_regressor,pca,lower_face,9,-19.03203,1.5,100.0
+loocv_rf_error_regressor_harmonic_tracked,6.mp4,205.663,90.0,90.0,90.0,115.663,115.663,False,LOOCV error_regressor,pos,patch_r03_c02,10,-15.74451,1.5,100.0
+loocv_rf_error_regressor_harmonic_tracked,7.mp4,120.41,182.0,197.0,189.5,69.09,61.59,False,LOOCV error_regressor,green,patch_r05_c02,9,-20.3119,1.0,11.11
+loocv_rf_error_regressor_harmonic_tracked,8.mp4,193.14,108.0,113.0,110.5,82.64,80.14,False,LOOCV error_regressor,g_minus_r,patch_r04_c05,9,-24.54795,2.0,88.89
+loocv_ridge_error_regressor_harmonic_tracked,1.mp4,100.195,170.0,180.0,175.0,74.805,69.805,False,LOOCV error_regressor,pca,patch_r01_c03,9,-24.23054,0.5,100.0
+loocv_ridge_error_regressor_harmonic_tracked,3.mp4,123.267,190.0,230.0,210.0,86.733,66.733,False,LOOCV error_regressor,chrom,patch_r05_c02,16,-19.59234,1.5,100.0
+loocv_ridge_error_regressor_harmonic_tracked,4.mp4,126.562,111.0,120.0,115.5,11.062,6.562,False,LOOCV error_regressor,g_minus_r,mid_face,9,-34.3375,1.5,100.0
+loocv_ridge_error_regressor_harmonic_tracked,5.mp4,130.518,130.0,140.0,135.0,4.482,0.0,True,LOOCV error_regressor,chrom,patch_r03_c04,9,-31.00348,1.5,100.0
+loocv_ridge_error_regressor_harmonic_tracked,6.mp4,204.346,90.0,90.0,90.0,114.346,114.346,False,LOOCV error_regressor,g_minus_r,patch_r03_c05,10,-19.29015,1.0,0.0
+loocv_ridge_error_regressor_harmonic_tracked,7.mp4,108.984,182.0,197.0,189.5,80.516,73.016,False,LOOCV error_regressor,chrom,patch_r05_c05,9,-25.58085,0.5,100.0
+loocv_ridge_error_regressor_harmonic_tracked,8.mp4,203.906,108.0,113.0,110.5,93.406,90.906,False,LOOCV error_regressor,pos,patch_r04_c05,9,-31.26969,1.0,0.0
+oracle_existing_window_peak,1.mp4,174.902,170.0,180.0,175.0,0.098,0.0,True,label-leaked oracle,green,patch_r01_c04,1,1.0,1.0,0.0
+oracle_existing_window_peak,3.mp4,207.861,190.0,230.0,210.0,2.139,0.0,True,label-leaked oracle,ica,mid_face,1,1.0,1.0,0.0
+oracle_existing_window_peak,4.mp4,115.576,111.0,120.0,115.5,0.076,0.0,True,label-leaked oracle,pos,patch_r01_c04,1,1.0,1.0,0.0
+oracle_existing_window_peak,5.mp4,134.912,130.0,140.0,135.0,0.088,0.0,True,label-leaked oracle,g_minus_r,patch_r02_c03,1,1.0,1.0,0.0
+oracle_existing_window_peak,6.mp4,90.088,90.0,90.0,90.0,0.088,0.088,False,label-leaked oracle,green,patch_r01_c04,1,1.0,1.0,0.0
+oracle_existing_window_peak,7.mp4,189.404,182.0,197.0,189.5,0.096,0.0,True,label-leaked oracle,chrom,patch_r02_c05,1,1.0,1.0,0.0
+oracle_existing_window_peak,8.mp4,110.303,108.0,113.0,110.5,0.197,0.0,True,label-leaked oracle,g_minus_r,face_full,1,1.0,1.0,0.0
+oracle_harmonic_window_peak,1.mp4,174.902,170.0,180.0,175.0,0.098,0.0,True,label-leaked oracle,pca,face_full,1,1.0,2.0,100.0
+oracle_harmonic_window_peak,3.mp4,210.058,190.0,230.0,210.0,0.058,0.0,True,label-leaked oracle,green,upper_face,1,1.0,2.0,100.0
+oracle_harmonic_window_peak,4.mp4,115.576,111.0,120.0,115.5,0.076,0.0,True,label-leaked oracle,pos,patch_r01_c04,1,1.0,1.0,0.0
+oracle_harmonic_window_peak,5.mp4,134.912,130.0,140.0,135.0,0.088,0.0,True,label-leaked oracle,g_minus_r,patch_r02_c03,1,1.0,1.0,0.0
+oracle_harmonic_window_peak,6.mp4,90.088,90.0,90.0,90.0,0.088,0.088,False,label-leaked oracle,green,patch_r01_c04,1,1.0,1.0,0.0
+oracle_harmonic_window_peak,7.mp4,189.404,182.0,197.0,189.5,0.096,0.0,True,label-leaked oracle,chrom,patch_r02_c05,1,1.0,1.0,0.0
+oracle_harmonic_window_peak,8.mp4,110.303,108.0,113.0,110.5,0.197,0.0,True,label-leaked oracle,g_minus_r,face_full,1,1.0,1.0,0.0
+sqi_top_window_recheck,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,unsupervised signal-quality selector,g_minus_r,upper_face,9,5.99564,1.0,0.0
+sqi_top_window_recheck,3.mp4,99.316,190.0,230.0,210.0,110.684,90.684,False,unsupervised signal-quality selector,ica,lower_face,16,6.54332,1.0,0.0
+sqi_top_window_recheck,4.mp4,99.756,111.0,120.0,115.5,15.744,11.244,False,unsupervised signal-quality selector,pca,patch_r01_c05,9,6.81545,1.0,0.0
+sqi_top_window_recheck,5.mp4,98.877,130.0,140.0,135.0,36.123,31.123,False,unsupervised signal-quality selector,g_minus_r,mid_face,9,6.0863,1.0,0.0
+sqi_top_window_recheck,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,unsupervised signal-quality selector,pca,face_full,10,6.64931,1.0,0.0
+sqi_top_window_recheck,7.mp4,98.877,182.0,197.0,189.5,90.623,83.123,False,unsupervised signal-quality selector,pca,face_full,9,6.4789,1.0,0.0
+sqi_top_window_recheck,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,unsupervised signal-quality selector,pca,patch_r01_c02,9,7.29199,1.0,0.0
+sqi_tracked_recheck,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,unsupervised signal-quality selector,g_minus_r,upper_face,9,5.99564,1.0,0.0
+sqi_tracked_recheck,3.mp4,99.316,190.0,230.0,210.0,110.684,90.684,False,unsupervised signal-quality selector,ica,lower_face,16,6.53136,1.0,0.0
+sqi_tracked_recheck,4.mp4,99.756,111.0,120.0,115.5,15.744,11.244,False,unsupervised signal-quality selector,pca,patch_r01_c05,9,6.81545,1.0,0.0
+sqi_tracked_recheck,5.mp4,100.195,130.0,140.0,135.0,34.805,29.805,False,unsupervised signal-quality selector,pca,face_full,9,6.06224,1.0,0.0
+sqi_tracked_recheck,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,unsupervised signal-quality selector,pca,face_full,10,6.64931,1.0,0.0
+sqi_tracked_recheck,7.mp4,98.877,182.0,197.0,189.5,90.623,83.123,False,unsupervised signal-quality selector,pca,face_full,9,6.4789,1.0,0.0
+sqi_tracked_recheck,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,unsupervised signal-quality selector,pca,patch_r01_c02,9,7.29199,1.0,0.0

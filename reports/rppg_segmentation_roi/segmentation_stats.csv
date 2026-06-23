@@ -1,0 +1,8 @@
+video,samples,uniform_samples,windows,mask_detected_pct,median_mask_conf,median_mask_area_pct,classes
+1.mp4,957,956,9,100.0,0.905,25.47,dog
+3.mp4,1451,1451,16,100.0,0.913,19.27,"cat, dog"
+4.mp4,945,945,9,100.0,0.897,10.48,dog
+5.mp4,908,907,9,100.0,0.887,12.89,dog
+6.mp4,1035,1034,10,100.0,0.928,9.25,dog
+7.mp4,933,932,9,100.0,0.787,11.28,dog
+8.mp4,932,932,9,100.0,0.881,6.23,dog

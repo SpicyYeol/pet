@@ -1,0 +1,5 @@
+window_index,window_start_sec,fused_bpm,weighted_mean_bpm,view_count,min_view_bpm,max_view_bpm,view_spread_bpm,median_selector_score,views
+0,0.0,108.984,109.997,4,108.545,118.213,9.668,0.5733,"front,left,right,up"
+1,5.0,109.424,115.244,4,108.545,132.715,24.17,0.6567,"front,left,right,up"
+2,10.0,134.033,129.089,2,115.576,134.033,18.457,0.71,"front,up"
+3,15.0,140.625,140.625,1,140.625,140.625,0.0,0.7267,front

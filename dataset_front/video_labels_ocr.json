@@ -1,0 +1,82 @@
+[
+  {
+    "video": "1.mp4",
+    "path": "dataset_front/1.mp4",
+    "usable": true,
+    "bpm_min": 170,
+    "bpm_max": 180,
+    "bpm_target": 175.0,
+    "label_source": "ocr_reviewed",
+    "notes": "Monitor HR digits consistently read around 170-180 bpm."
+  },
+  {
+    "video": "2.mp4",
+    "path": "dataset_front/2.mp4",
+    "usable": false,
+    "bpm_min": null,
+    "bpm_max": null,
+    "bpm_target": null,
+    "label_source": "no_readable_monitor",
+    "notes": "No readable vital monitor in sampled frames."
+  },
+  {
+    "video": "3.mp4",
+    "path": "dataset_front/3.mp4",
+    "usable": true,
+    "bpm_min": 190,
+    "bpm_max": 230,
+    "bpm_target": 210.0,
+    "label_source": "ocr_reviewed",
+    "notes": "Readable monitor HR samples include high-190s through low-220s."
+  },
+  {
+    "video": "4.mp4",
+    "path": "dataset_front/4.mp4",
+    "usable": true,
+    "bpm_min": 111,
+    "bpm_max": 120,
+    "bpm_target": 115.5,
+    "label_source": "ocr_reviewed",
+    "notes": "Readable monitor HR samples cluster around 112-121 bpm."
+  },
+  {
+    "video": "5.mp4",
+    "path": "dataset_front/5.mp4",
+    "usable": true,
+    "bpm_min": 130,
+    "bpm_max": 140,
+    "bpm_target": 135.0,
+    "label_source": "ocr_reviewed",
+    "notes": "Readable monitor HR samples cluster around 130-140 bpm."
+  },
+  {
+    "video": "6.mp4",
+    "path": "dataset_front/6.mp4",
+    "usable": true,
+    "bpm_min": 90,
+    "bpm_max": 90,
+    "bpm_target": 90.0,
+    "label_source": "ocr_reviewed",
+    "notes": "Readable monitor HR samples are approximately 90 bpm."
+  },
+  {
+    "video": "7.mp4",
+    "path": "dataset_front/7.mp4",
+    "usable": true,
+    "bpm_min": 182,
+    "bpm_max": 197,
+    "bpm_target": 189.5,
+    "label_source": "ocr_reviewed",
+    "notes": "Readable monitor HR samples are approximately 182-197 bpm."
+  },
+  {
+    "video": "8.mp4",
+    "path": "dataset_front/8.mp4",
+    "usable": true,
+    "bpm_min": 108,
+    "bpm_max": 113,
+    "bpm_target": 110.5,
+    "label_source": "ocr_reviewed",
+    "notes": "Readable monitor HR samples are approximately 108-113 bpm."
+  }
+]

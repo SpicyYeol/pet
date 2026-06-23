@@ -1,0 +1,72 @@
+{
+  "1_left_ear_base_ica_f0": {
+    "fs": 10.0,
+    "bpm": 140.0,
+    "snr": 12.6,
+    "stem": "1",
+    "roi": "left_ear_base",
+    "method": "ica",
+    "start_frame": 0,
+    "rejection": 0.15
+  },
+  "3_nose_bridge_ica_f0": {
+    "fs": 10.0,
+    "bpm": 87.9,
+    "snr": 19.29,
+    "stem": "3",
+    "roi": "nose_bridge",
+    "method": "ica",
+    "start_frame": 0,
+    "rejection": 0.5
+  },
+  "4_right_ear_base_pca_f350": {
+    "fs": 10.0,
+    "bpm": 129.5,
+    "snr": 16.91,
+    "stem": "4",
+    "roi": "right_ear_base",
+    "method": "pca",
+    "start_frame": 350,
+    "rejection": 0.15
+  },
+  "5_right_ear_base_ica_f50": {
+    "fs": 10.0,
+    "bpm": 157.6,
+    "snr": 18.65,
+    "stem": "5",
+    "roi": "right_ear_base",
+    "method": "ica",
+    "start_frame": 50,
+    "rejection": 0.5
+  },
+  "6_nose_bridge_pos_f0": {
+    "fs": 10.0,
+    "bpm": 92.6,
+    "snr": 15.8,
+    "stem": "6",
+    "roi": "nose_bridge",
+    "method": "pos",
+    "start_frame": 0,
+    "rejection": 0.7
+  },
+  "7_nose_bridge_green_f0": {
+    "fs": 10.0,
+    "bpm": 95.5,
+    "snr": 19.76,
+    "stem": "7",
+    "roi": "nose_bridge",
+    "method": "green",
+    "start_frame": 0,
+    "rejection": 0.85
+  },
+  "8_right_ear_base_pos_f50": {
+    "fs": 10.0,
+    "bpm": 149.4,
+    "snr": 16.69,
+    "stem": "8",
+    "roi": "right_ear_base",
+    "method": "pos",
+    "start_frame": 50,
+    "rejection": 0.35
+  }
+}

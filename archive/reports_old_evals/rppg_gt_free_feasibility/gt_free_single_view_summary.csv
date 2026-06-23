@@ -1,0 +1,8 @@
+video,windows,median_selected_bpm,median_background_snr_ratio,background_margin_score,shuffle_drop_score,perturbation_stability_score,temporal_stability_score,temporal_median_step_bpm,face_quality_score,artifact_100bpm_window_share,evidence_score,status,rejection_reasons
+1.mp4,9,99.316,0.868,0.129,0.867,0.947,0.848,1.977,1.0,0.667,57.5,inconclusive,"background_peak_competes, 100bpm_artifact_risk"
+3.mp4,16,98.877,0.808,0.197,0.855,0.973,0.557,7.032,1.0,0.438,65.7,inconclusive,background_peak_competes
+4.mp4,9,99.756,0.685,0.345,0.912,0.973,0.964,0.439,1.0,1.0,65.8,inconclusive,100bpm_artifact_risk
+5.mp4,9,99.756,1.25,0.0,0.818,0.947,0.599,6.152,1.0,0.667,50.2,inconclusive,"background_peak_competes, 100bpm_artifact_risk"
+6.mp4,10,99.975,0.439,0.749,0.875,1.0,0.964,0.439,1.0,0.9,76.0,inconclusive,100bpm_artifact_risk
+7.mp4,9,98.438,0.573,0.507,0.82,0.973,0.848,1.978,1.0,0.667,66.9,inconclusive,100bpm_artifact_risk
+8.mp4,9,99.756,0.477,0.673,0.886,0.973,0.929,0.879,1.0,0.778,73.2,inconclusive,100bpm_artifact_risk

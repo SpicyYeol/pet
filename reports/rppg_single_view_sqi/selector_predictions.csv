@@ -1,0 +1,78 @@
+selector,video,pred_bpm,bpm_min,bpm_max,bpm_target,target_abs_error,range_error,within_range,source,selected_method,selected_region
+fixed_pos_face_full,1.mp4,113.818,170.0,180.0,175.0,61.182,56.182,False,pos+face_full,pos,face_full
+fixed_pos_face_full,3.mp4,102.393,190.0,230.0,210.0,107.607,87.607,False,pos+face_full,pos,face_full
+fixed_pos_face_full,4.mp4,102.393,111.0,120.0,115.5,13.107,8.607,False,pos+face_full,pos,face_full
+fixed_pos_face_full,5.mp4,111.182,130.0,140.0,135.0,23.818,18.818,False,pos+face_full,pos,face_full
+fixed_pos_face_full,6.mp4,92.725,90.0,90.0,90.0,2.725,2.725,False,pos+face_full,pos,face_full
+fixed_pos_face_full,7.mp4,91.846,182.0,197.0,189.5,97.654,90.154,False,pos+face_full,pos,face_full
+fixed_pos_face_full,8.mp4,101.074,108.0,113.0,110.5,9.426,6.926,False,pos+face_full,pos,face_full
+fixed_chrom_face_full,1.mp4,113.379,170.0,180.0,175.0,61.621,56.621,False,chrom+face_full,chrom,face_full
+fixed_chrom_face_full,3.mp4,100.635,190.0,230.0,210.0,109.365,89.365,False,chrom+face_full,chrom,face_full
+fixed_chrom_face_full,4.mp4,100.195,111.0,120.0,115.5,15.305,10.805,False,chrom+face_full,chrom,face_full
+fixed_chrom_face_full,5.mp4,100.635,130.0,140.0,135.0,34.365,29.365,False,chrom+face_full,chrom,face_full
+fixed_chrom_face_full,6.mp4,92.285,90.0,90.0,90.0,2.285,2.285,False,chrom+face_full,chrom,face_full
+fixed_chrom_face_full,7.mp4,101.074,182.0,197.0,189.5,88.426,80.926,False,chrom+face_full,chrom,face_full
+fixed_chrom_face_full,8.mp4,108.545,108.0,113.0,110.5,1.955,0.0,True,chrom+face_full,chrom,face_full
+sqi_top_window,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,best SQI candidate per window,g_minus_r,upper_face
+sqi_top_window,3.mp4,99.316,190.0,230.0,210.0,110.684,90.684,False,best SQI candidate per window,ica,lower_face
+sqi_top_window,4.mp4,99.756,111.0,120.0,115.5,15.744,11.244,False,best SQI candidate per window,pca,patch_r01_c05
+sqi_top_window,5.mp4,98.877,130.0,140.0,135.0,36.123,31.123,False,best SQI candidate per window,g_minus_r,mid_face
+sqi_top_window,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,best SQI candidate per window,pca,face_full
+sqi_top_window,7.mp4,98.877,182.0,197.0,189.5,90.623,83.123,False,best SQI candidate per window,pca,face_full
+sqi_top_window,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,best SQI candidate per window,pca,patch_r01_c02
+tracked_sqi,1.mp4,99.316,170.0,180.0,175.0,75.684,70.684,False,Viterbi path over SQI candidates,g_minus_r,upper_face
+tracked_sqi,3.mp4,99.316,190.0,230.0,210.0,110.684,90.684,False,Viterbi path over SQI candidates,ica,lower_face
+tracked_sqi,4.mp4,99.756,111.0,120.0,115.5,15.744,11.244,False,Viterbi path over SQI candidates,pca,patch_r01_c05
+tracked_sqi,5.mp4,100.195,130.0,140.0,135.0,34.805,29.805,False,Viterbi path over SQI candidates,pca,face_full
+tracked_sqi,6.mp4,100.195,90.0,90.0,90.0,10.195,10.195,False,Viterbi path over SQI candidates,pca,face_full
+tracked_sqi,7.mp4,98.877,182.0,197.0,189.5,90.623,83.123,False,Viterbi path over SQI candidates,pca,face_full
+tracked_sqi,8.mp4,100.195,108.0,113.0,110.5,10.305,7.805,False,Viterbi path over SQI candidates,pca,patch_r01_c02
+trained_peak_selector_current,1.mp4,174.902,170.0,180.0,175.0,0.098,0.0,True,trained on current OCR labels,chrom,patch_r02_c05
+trained_tracked_selector_current,1.mp4,175.781,170.0,180.0,175.0,0.781,0.0,True,trained on current OCR labels with temporal tracking,chrom,patch_r01_c03
+trained_peak_selector_current,3.mp4,197.754,190.0,230.0,210.0,12.246,0.0,True,trained on current OCR labels,pos,face_full
+trained_tracked_selector_current,3.mp4,199.072,190.0,230.0,210.0,10.928,0.0,True,trained on current OCR labels with temporal tracking,pos,face_full
+trained_peak_selector_current,4.mp4,112.5,111.0,120.0,115.5,3.0,0.0,True,trained on current OCR labels,pca,patch_r02_c05
+trained_tracked_selector_current,4.mp4,112.5,111.0,120.0,115.5,3.0,0.0,True,trained on current OCR labels with temporal tracking,pca,patch_r02_c05
+trained_peak_selector_current,5.mp4,134.033,130.0,140.0,135.0,0.967,0.0,True,trained on current OCR labels,chrom,patch_r03_c05
+trained_tracked_selector_current,5.mp4,135.352,130.0,140.0,135.0,0.352,0.0,True,trained on current OCR labels with temporal tracking,g_minus_r,patch_r04_c04
+trained_peak_selector_current,6.mp4,91.406,90.0,90.0,90.0,1.406,1.406,False,trained on current OCR labels,ica,patch_r02_c02
+trained_tracked_selector_current,6.mp4,90.527,90.0,90.0,90.0,0.527,0.527,False,trained on current OCR labels with temporal tracking,chrom,patch_r02_c02
+trained_peak_selector_current,7.mp4,188.525,182.0,197.0,189.5,0.975,0.0,True,trained on current OCR labels,chrom,patch_r03_c05
+trained_tracked_selector_current,7.mp4,190.723,182.0,197.0,189.5,1.223,0.0,True,trained on current OCR labels with temporal tracking,g_minus_r,patch_r04_c04
+trained_peak_selector_current,8.mp4,111.182,108.0,113.0,110.5,0.682,0.0,True,trained on current OCR labels,g_minus_r,patch_r02_c01
+trained_tracked_selector_current,8.mp4,111.182,108.0,113.0,110.5,0.682,0.0,True,trained on current OCR labels with temporal tracking,g_minus_r,patch_r02_c01
+supervised_peak_ranker_loocv,1.mp4,91.406,170.0,180.0,175.0,83.594,78.594,False,leave-one-video-out supervised peak ranker,chrom,face_full
+supervised_tracked_ranker_loocv,1.mp4,91.406,170.0,180.0,175.0,83.594,78.594,False,LOOCV supervised ranker with temporal tracking,pca,patch_r03_c04
+supervised_peak_ranker_loocv,3.mp4,110.303,190.0,230.0,210.0,99.697,79.697,False,leave-one-video-out supervised peak ranker,chrom,patch_r02_c05
+supervised_tracked_ranker_loocv,3.mp4,110.303,190.0,230.0,210.0,99.697,79.697,False,LOOCV supervised ranker with temporal tracking,pca,patch_r01_c03
+supervised_peak_ranker_loocv,4.mp4,107.666,111.0,120.0,115.5,7.834,3.334,False,leave-one-video-out supervised peak ranker,pca,patch_r04_c05
+supervised_tracked_ranker_loocv,4.mp4,108.105,111.0,120.0,115.5,7.395,2.895,False,LOOCV supervised ranker with temporal tracking,pca,patch_r04_c05
+supervised_peak_ranker_loocv,5.mp4,112.5,130.0,140.0,135.0,22.5,17.5,False,leave-one-video-out supervised peak ranker,pca,upper_face
+supervised_tracked_ranker_loocv,5.mp4,110.303,130.0,140.0,135.0,24.697,19.697,False,LOOCV supervised ranker with temporal tracking,pca,upper_face
+supervised_peak_ranker_loocv,6.mp4,110.742,90.0,90.0,90.0,20.742,20.742,False,leave-one-video-out supervised peak ranker,ica,patch_r01_c05
+supervised_tracked_ranker_loocv,6.mp4,108.105,90.0,90.0,90.0,18.105,18.105,False,LOOCV supervised ranker with temporal tracking,chrom,patch_r01_c05
+supervised_peak_ranker_loocv,7.mp4,111.621,182.0,197.0,189.5,77.879,70.379,False,leave-one-video-out supervised peak ranker,chrom,patch_r01_c02
+supervised_tracked_ranker_loocv,7.mp4,110.742,182.0,197.0,189.5,78.758,71.258,False,LOOCV supervised ranker with temporal tracking,g_minus_r,face_full
+supervised_peak_ranker_loocv,8.mp4,116.895,108.0,113.0,110.5,6.395,3.895,False,leave-one-video-out supervised peak ranker,pca,patch_r01_c02
+supervised_tracked_ranker_loocv,8.mp4,112.939,108.0,113.0,110.5,2.439,0.0,True,LOOCV supervised ranker with temporal tracking,ica,lower_face
+train_calibrated_fixed_loocv,1.mp4,96.24,170.0,180.0,175.0,78.76,73.76,False,leave-one-video-out best fixed method/region,chrom,patch_r04_c05
+train_calibrated_fixed_loocv,3.mp4,93.604,190.0,230.0,210.0,116.396,96.396,False,leave-one-video-out best fixed method/region,pos,patch_r02_c02
+train_calibrated_fixed_loocv,4.mp4,93.164,111.0,120.0,115.5,22.336,17.836,False,leave-one-video-out best fixed method/region,chrom,patch_r04_c05
+train_calibrated_fixed_loocv,5.mp4,101.514,130.0,140.0,135.0,33.486,28.486,False,leave-one-video-out best fixed method/region,chrom,patch_r01_c03
+train_calibrated_fixed_loocv,6.mp4,105.469,90.0,90.0,90.0,15.469,15.469,False,leave-one-video-out best fixed method/region,chrom,patch_r04_c01
+train_calibrated_fixed_loocv,7.mp4,95.361,182.0,197.0,189.5,94.139,86.639,False,leave-one-video-out best fixed method/region,pos,patch_r01_c02
+train_calibrated_fixed_loocv,8.mp4,94.043,108.0,113.0,110.5,16.457,13.957,False,leave-one-video-out best fixed method/region,chrom,patch_r05_c03
+oracle_method_region,1.mp4,127.002,170.0,180.0,175.0,47.998,42.998,False,label-leaked best method/region upper bound,pos,patch_r02_c05
+oracle_method_region,3.mp4,114.258,190.0,230.0,210.0,95.742,75.742,False,label-leaked best method/region upper bound,green,patch_r05_c02
+oracle_method_region,4.mp4,115.137,111.0,120.0,115.5,0.363,0.0,True,label-leaked best method/region upper bound,chrom,patch_r03_c03
+oracle_method_region,5.mp4,119.531,130.0,140.0,135.0,15.469,10.469,False,label-leaked best method/region upper bound,pos,patch_r03_c05
+oracle_method_region,6.mp4,90.088,90.0,90.0,90.0,0.088,0.088,False,label-leaked best method/region upper bound,g_minus_r,patch_r02_c02
+oracle_method_region,7.mp4,125.244,182.0,197.0,189.5,64.256,56.756,False,label-leaked best method/region upper bound,chrom,patch_r04_c05
+oracle_method_region,8.mp4,110.742,108.0,113.0,110.5,0.242,0.0,True,label-leaked best method/region upper bound,chrom,patch_r01_c03
+oracle_window_peak,1.mp4,174.902,170.0,180.0,175.0,0.098,0.0,True,label-leaked best window peak upper bound,green,patch_r01_c04
+oracle_window_peak,3.mp4,207.861,190.0,230.0,210.0,2.139,0.0,True,label-leaked best window peak upper bound,ica,mid_face
+oracle_window_peak,4.mp4,115.576,111.0,120.0,115.5,0.076,0.0,True,label-leaked best window peak upper bound,pos,patch_r01_c04
+oracle_window_peak,5.mp4,134.912,130.0,140.0,135.0,0.088,0.0,True,label-leaked best window peak upper bound,g_minus_r,patch_r02_c03
+oracle_window_peak,6.mp4,90.088,90.0,90.0,90.0,0.088,0.088,False,label-leaked best window peak upper bound,green,patch_r01_c04
+oracle_window_peak,7.mp4,189.404,182.0,197.0,189.5,0.096,0.0,True,label-leaked best window peak upper bound,chrom,patch_r02_c05
+oracle_window_peak,8.mp4,110.303,108.0,113.0,110.5,0.197,0.0,True,label-leaked best window peak upper bound,g_minus_r,face_full

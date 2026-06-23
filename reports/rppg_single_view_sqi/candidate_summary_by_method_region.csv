@@ -1,0 +1,175 @@
+method,region_id,region_label,region_kind,n,target_mae,target_rmse,range_mae,within_range_pct,median_quality_score
+g_minus_r,patch_r05_c05,Patch R5 C5,patch,7,43.128,57.337,36.771,0.0,4.555
+chrom,patch_r05_c03,Patch R5 C3,patch,7,43.128,55.935,36.771,0.0,3.965
+pos,patch_r05_c03,Patch R5 C3,patch,7,43.379,57.577,37.022,0.0,4.052
+chrom,patch_r04_c05,Patch R4 C5,patch,7,43.568,56.527,37.21,0.0,4.132
+chrom,patch_r01_c03,Patch R1 C3,patch,7,43.323,57.342,37.288,14.29,4.431
+chrom,patch_r04_c01,Patch R4 C1,patch,7,43.505,57.583,37.414,14.29,4.032
+green,patch_r05_c04,Patch R5 C4,patch,7,43.819,56.825,37.461,0.0,4.39
+pos,patch_r02_c02,Patch R2 C2,patch,7,44.013,61.23,37.656,0.0,4.204
+pos,patch_r01_c02,Patch R1 C2,patch,7,44.264,59.484,37.907,0.0,4.142
+pos,patch_r04_c01,Patch R4 C1,patch,7,44.195,59.279,38.104,14.29,4.256
+pos,patch_r02_c01,Patch R2 C1,patch,7,44.635,57.479,38.278,0.0,4.212
+chrom,patch_r02_c01,Patch R2 C1,patch,7,44.698,57.415,38.341,0.0,4.07
+chrom,patch_r03_c04,Patch R3 C4,patch,7,44.76,58.802,38.403,0.0,3.869
+chrom,face_full,Full face,roi,7,44.76,59.763,38.481,14.29,4.198
+pca,patch_r03_c04,Patch R3 C4,patch,7,44.886,59.976,38.529,0.0,4.807
+pos,mid_face,Mid face,roi,7,44.949,57.171,38.592,0.0,4.302
+pos,face_full,Full face,roi,7,45.074,60.585,38.717,0.0,4.146
+g_minus_r,patch_r02_c02,Patch R2 C2,patch,7,45.2,57.6,38.843,0.0,4.5
+chrom,patch_r02_c02,Patch R2 C2,patch,7,45.263,60.598,38.905,0.0,4.045
+ica,patch_r05_c03,Patch R5 C3,patch,7,45.325,59.606,38.968,0.0,4.648
+chrom,patch_r01_c02,Patch R1 C2,patch,7,45.395,59.944,39.037,0.0,4.212
+pos,patch_r03_c01,Patch R3 C1,patch,7,45.451,59.011,39.094,0.0,4.445
+chrom,patch_r05_c04,Patch R5 C4,patch,7,45.451,59.317,39.094,0.0,4.186
+g_minus_r,patch_r02_c05,Patch R2 C5,patch,7,45.514,59.027,39.156,0.0,4.292
+pca,patch_r05_c03,Patch R5 C3,patch,7,45.514,59.655,39.157,0.0,4.917
+pos,patch_r01_c04,Patch R1 C4,patch,7,45.514,61.568,39.157,0.0,4.188
+pos,patch_r02_c05,Patch R2 C5,patch,7,45.577,58.799,39.219,0.0,4.394
+pos,patch_r03_c04,Patch R3 C4,patch,7,45.765,59.394,39.408,0.0,3.9
+pos,patch_r05_c04,Patch R5 C4,patch,7,45.89,58.586,39.533,0.0,4.404
+green,patch_r03_c04,Patch R3 C4,patch,7,46.016,62.666,39.659,0.0,4.462
+pos,patch_r03_c05,Patch R3 C5,patch,7,46.016,60.281,39.659,0.0,4.152
+chrom,patch_r05_c05,Patch R5 C5,patch,7,46.142,60.428,39.784,0.0,4.171
+ica,patch_r05_c04,Patch R5 C4,patch,7,46.204,59.57,39.847,0.0,4.763
+chrom,patch_r02_c03,Patch R2 C3,patch,7,46.204,57.867,39.847,0.0,4.116
+g_minus_r,patch_r04_c05,Patch R4 C5,patch,7,46.142,62.412,39.862,14.29,4.231
+chrom,patch_r03_c01,Patch R3 C1,patch,7,45.828,58.987,39.873,14.29,4.298
+green,patch_r04_c05,Patch R4 C5,patch,7,46.267,59.057,39.91,0.0,4.312
+chrom,patch_r01_c04,Patch R1 C4,patch,7,46.393,61.457,40.036,0.0,4.134
+ica,patch_r05_c05,Patch R5 C5,patch,7,46.581,59.92,40.239,14.29,4.854
+chrom,patch_r05_c01,Patch R5 C1,patch,7,46.832,60.245,40.475,0.0,4.097
+chrom,patch_r03_c02,Patch R3 C2,patch,7,46.832,63.424,40.49,14.29,4.229
+ica,patch_r02_c02,Patch R2 C2,patch,7,46.895,59.593,40.538,0.0,4.718
+green,patch_r05_c03,Patch R5 C3,patch,7,46.895,60.485,40.538,0.0,4.451
+pos,patch_r01_c03,Patch R1 C3,patch,7,46.957,58.9,40.6,0.0,4.251
+g_minus_r,patch_r02_c03,Patch R2 C3,patch,7,47.02,59.076,40.663,0.0,4.582
+pca,patch_r04_c04,Patch R4 C4,patch,7,47.083,57.947,40.726,0.0,4.84
+chrom,lower_face,Lower face,roi,7,47.083,61.884,40.726,0.0,4.314
+ica,patch_r02_c05,Patch R2 C5,patch,7,47.209,60.416,40.852,0.0,4.905
+pos,patch_r02_c03,Patch R2 C3,patch,7,47.209,59.43,40.852,0.0,4.508
+g_minus_r,patch_r01_c04,Patch R1 C4,patch,7,47.209,60.23,40.852,0.0,4.368
+pca,patch_r01_c03,Patch R1 C3,patch,7,47.334,60.609,40.977,0.0,5.004
+g_minus_r,patch_r02_c01,Patch R2 C1,patch,7,47.334,59.204,40.977,0.0,4.612
+chrom,patch_r01_c01,Patch R1 C1,patch,7,47.397,60.274,41.04,0.0,4.508
+green,patch_r04_c01,Patch R4 C1,patch,7,47.46,59.519,41.103,0.0,4.462
+g_minus_r,patch_r03_c04,Patch R3 C4,patch,7,47.585,61.661,41.228,0.0,4.322
+g_minus_r,mid_face,Mid face,roi,7,47.586,60.224,41.228,0.0,4.958
+pca,patch_r04_c05,Patch R4 C5,patch,7,47.648,60.548,41.291,0.0,4.817
+ica,patch_r03_c04,Patch R3 C4,patch,7,47.648,62.758,41.291,0.0,4.748
+g_minus_r,patch_r05_c01,Patch R5 C1,patch,7,47.648,60.728,41.291,0.0,4.448
+pca,patch_r02_c02,Patch R2 C2,patch,7,47.711,59.628,41.354,0.0,4.918
+pos,patch_r01_c01,Patch R1 C1,patch,7,47.711,60.004,41.354,0.0,4.246
+pos,patch_r05_c01,Patch R5 C1,patch,7,47.711,60.591,41.354,0.0,4.088
+g_minus_r,patch_r01_c03,Patch R1 C3,patch,7,47.774,60.25,41.417,0.0,4.631
+green,patch_r01_c01,Patch R1 C1,patch,7,47.836,60.225,41.479,0.0,4.74
+green,patch_r05_c05,Patch R5 C5,patch,7,47.836,60.774,41.479,0.0,4.336
+pca,patch_r01_c05,Patch R1 C5,patch,7,47.837,61.172,41.479,0.0,5.402
+green,patch_r04_c04,Patch R4 C4,patch,7,47.899,58.82,41.542,0.0,4.505
+ica,patch_r02_c03,Patch R2 C3,patch,7,47.962,60.854,41.605,0.0,5.009
+ica,patch_r01_c03,Patch R1 C3,patch,7,47.962,62.44,41.605,0.0,4.899
+green,patch_r05_c01,Patch R5 C1,patch,7,47.962,60.255,41.605,0.0,4.372
+green,patch_r02_c05,Patch R2 C5,patch,7,48.087,60.997,41.73,0.0,4.231
+chrom,upper_face,Upper face,roi,7,48.15,62.127,41.793,0.0,4.758
+green,patch_r03_c01,Patch R3 C1,patch,7,48.213,62.042,41.856,0.0,4.622
+chrom,patch_r01_c05,Patch R1 C5,patch,7,48.213,62.106,41.856,0.0,4.376
+green,patch_r03_c05,Patch R3 C5,patch,7,48.213,61.232,41.856,0.0,4.312
+pca,patch_r02_c03,Patch R2 C3,patch,7,48.276,60.74,41.919,0.0,5.208
+green,patch_r01_c03,Patch R1 C3,patch,7,48.276,62.468,41.919,0.0,4.725
+g_minus_r,patch_r01_c05,Patch R1 C5,patch,7,48.276,60.559,41.919,0.0,4.516
+ica,patch_r03_c05,Patch R3 C5,patch,7,48.401,60.482,42.044,0.0,4.877
+g_minus_r,patch_r05_c03,Patch R5 C3,patch,7,48.401,61.302,42.044,0.0,4.118
+chrom,mid_face,Mid face,roi,7,48.401,60.817,42.044,0.0,4.063
+pos,lower_face,Lower face,roi,7,48.402,63.033,42.044,0.0,4.212
+ica,patch_r05_c02,Patch R5 C2,patch,7,48.464,61.824,42.107,0.0,4.783
+green,patch_r05_c02,Patch R5 C2,patch,7,48.464,57.324,42.107,0.0,4.288
+ica,face_full,Full face,roi,7,48.527,61.448,42.17,0.0,5.442
+green,patch_r02_c03,Patch R2 C3,patch,7,48.527,61.883,42.17,0.0,5.011
+pos,patch_r04_c03,Patch R4 C3,patch,7,48.652,59.535,42.295,0.0,4.291
+pos,upper_face,Upper face,roi,7,48.652,61.9,42.295,0.0,4.184
+green,patch_r01_c05,Patch R1 C5,patch,7,48.653,63.56,42.296,0.0,4.704
+pca,patch_r05_c05,Patch R5 C5,patch,7,48.715,62.065,42.358,0.0,4.787
+pca,patch_r03_c05,Patch R3 C5,patch,7,48.841,60.764,42.484,0.0,4.843
+green,patch_r02_c02,Patch R2 C2,patch,7,48.841,61.828,42.484,0.0,4.799
+g_minus_r,patch_r02_c04,Patch R2 C4,patch,7,48.841,62.455,42.484,0.0,4.408
+ica,patch_r01_c02,Patch R1 C2,patch,7,48.966,62.592,42.609,0.0,5.055
+g_minus_r,upper_face,Upper face,roi,7,48.966,61.199,42.609,0.0,4.782
+pca,patch_r02_c05,Patch R2 C5,patch,7,48.967,60.978,42.609,0.0,4.951
+green,patch_r01_c04,Patch R1 C4,patch,7,48.967,62.421,42.609,0.0,4.818
+ica,patch_r04_c05,Patch R4 C5,patch,7,49.092,61.427,42.735,0.0,4.755
+green,patch_r02_c04,Patch R2 C4,patch,7,49.092,62.304,42.735,0.0,4.398
+g_minus_r,face_full,Full face,roi,7,49.155,62.057,42.798,0.0,5.277
+g_minus_r,patch_r04_c01,Patch R4 C1,patch,7,49.155,61.45,42.798,0.0,4.447
+g_minus_r,patch_r05_c04,Patch R5 C4,patch,7,49.155,61.205,42.798,0.0,4.294
+pos,patch_r02_c04,Patch R2 C4,patch,7,49.155,60.673,42.798,0.0,4.216
+ica,patch_r01_c05,Patch R1 C5,patch,7,49.218,61.977,42.861,0.0,5.041
+pca,patch_r05_c01,Patch R5 C1,patch,7,49.28,61.951,42.923,0.0,4.799
+chrom,patch_r05_c02,Patch R5 C2,patch,7,49.281,60.893,42.924,0.0,4.233
+ica,mid_face,Mid face,roi,7,49.343,62.703,42.986,0.0,4.968
+pos,patch_r05_c05,Patch R5 C5,patch,7,49.035,63.419,43.001,14.29,4.237
+chrom,patch_r04_c03,Patch R4 C3,patch,7,49.343,63.011,43.001,14.29,4.327
+pca,upper_face,Upper face,roi,7,49.469,62.405,43.112,0.0,5.512
+g_minus_r,patch_r03_c05,Patch R3 C5,patch,7,49.531,60.457,43.174,0.0,4.447
+g_minus_r,lower_face,Lower face,roi,7,49.532,61.376,43.174,0.0,4.783
+chrom,patch_r02_c05,Patch R2 C5,patch,7,49.532,63.795,43.174,0.0,4.565
+g_minus_r,patch_r05_c02,Patch R5 C2,patch,7,49.532,60.605,43.174,0.0,4.108
+chrom,patch_r04_c04,Patch R4 C4,patch,7,49.406,64.526,43.189,14.29,4.12
+pca,patch_r05_c04,Patch R5 C4,patch,7,49.594,61.892,43.237,0.0,4.743
+green,upper_face,Upper face,roi,7,49.657,64.05,43.3,0.0,5.12
+pca,patch_r02_c01,Patch R2 C1,patch,7,49.657,62.429,43.3,0.0,4.839
+chrom,patch_r03_c05,Patch R3 C5,patch,7,49.657,61.932,43.3,0.0,4.181
+pca,face_full,Full face,roi,7,49.72,62.794,43.363,0.0,6.062
+pca,patch_r03_c01,Patch R3 C1,patch,7,49.72,63.951,43.363,0.0,5.086
+ica,patch_r01_c01,Patch R1 C1,patch,7,49.72,62.446,43.363,0.0,5.074
+g_minus_r,patch_r03_c02,Patch R3 C2,patch,7,49.72,64.238,43.363,0.0,4.752
+green,patch_r01_c02,Patch R1 C2,patch,7,49.72,62.664,43.363,0.0,4.65
+ica,upper_face,Upper face,roi,7,49.782,62.147,43.425,0.0,5.252
+ica,patch_r03_c03,Patch R3 C3,patch,7,49.783,63.438,43.425,0.0,5.005
+pos,patch_r05_c02,Patch R5 C2,patch,7,49.783,62.803,43.425,0.0,4.157
+g_minus_r,patch_r01_c01,Patch R1 C1,patch,7,49.783,64.387,43.426,0.0,4.263
+pos,patch_r01_c05,Patch R1 C5,patch,7,49.845,62.809,43.488,0.0,4.266
+pca,patch_r01_c02,Patch R1 C2,patch,7,49.908,63.156,43.551,0.0,5.201
+green,mid_face,Mid face,roi,7,49.908,63.789,43.551,0.0,4.997
+ica,patch_r02_c01,Patch R2 C1,patch,7,49.908,63.201,43.551,0.0,4.885
+ica,patch_r01_c04,Patch R1 C4,patch,7,49.908,63.264,43.551,0.0,4.789
+g_minus_r,patch_r04_c04,Patch R4 C4,patch,7,49.908,61.907,43.551,0.0,4.355
+ica,patch_r02_c04,Patch R2 C4,patch,7,49.971,62.885,43.614,0.0,4.926
+ica,patch_r03_c01,Patch R3 C1,patch,7,49.971,63.898,43.614,0.0,4.901
+ica,patch_r04_c04,Patch R4 C4,patch,7,49.971,61.818,43.614,0.0,4.707
+pca,mid_face,Mid face,roi,7,50.034,63.38,43.676,0.0,5.274
+pca,patch_r04_c03,Patch R4 C3,patch,7,50.096,62.857,43.739,0.0,4.892
+green,patch_r02_c01,Patch R2 C1,patch,7,50.097,62.491,43.739,0.0,4.576
+pca,patch_r02_c04,Patch R2 C4,patch,7,50.159,65.676,43.802,0.0,4.799
+g_minus_r,patch_r01_c02,Patch R1 C2,patch,7,50.159,62.926,43.802,0.0,4.645
+pca,patch_r01_c04,Patch R1 C4,patch,7,50.222,62.944,43.865,0.0,5.209
+green,patch_r04_c03,Patch R4 C3,patch,7,50.222,64.162,43.865,0.0,4.586
+chrom,patch_r04_c02,Patch R4 C2,patch,7,50.348,62.994,43.99,0.0,4.308
+pca,patch_r04_c01,Patch R4 C1,patch,7,50.348,63.203,43.991,0.0,4.921
+green,lower_face,Lower face,roi,7,50.41,64.321,44.053,0.0,4.594
+ica,patch_r04_c01,Patch R4 C1,patch,7,50.411,62.762,44.053,0.0,4.813
+ica,lower_face,Lower face,roi,7,50.662,64.074,44.304,0.0,5.211
+green,face_full,Full face,roi,7,50.85,64.316,44.493,0.0,5.005
+pca,patch_r05_c02,Patch R5 C2,patch,7,50.85,63.615,44.493,0.0,4.866
+green,patch_r03_c02,Patch R3 C2,patch,7,50.85,62.216,44.493,0.0,4.434
+g_minus_r,patch_r03_c01,Patch R3 C1,patch,7,51.038,65.608,44.681,0.0,4.605
+g_minus_r,patch_r04_c03,Patch R4 C3,patch,7,51.038,62.943,44.681,0.0,4.578
+ica,patch_r04_c02,Patch R4 C2,patch,7,51.164,63.099,44.807,0.0,4.9
+pos,patch_r03_c03,Patch R3 C3,patch,7,51.226,62.456,44.869,0.0,4.282
+pos,patch_r03_c02,Patch R3 C2,patch,7,51.289,64.757,44.932,0.0,4.553
+g_minus_r,patch_r03_c03,Patch R3 C3,patch,7,51.352,63.693,44.995,0.0,4.366
+ica,patch_r05_c01,Patch R5 C1,patch,7,51.415,64.887,45.058,0.0,4.992
+pca,patch_r04_c02,Patch R4 C2,patch,7,51.415,64.004,45.058,0.0,4.945
+pca,patch_r03_c02,Patch R3 C2,patch,7,51.478,67.186,45.121,0.0,5.139
+chrom,patch_r03_c03,Patch R3 C3,patch,7,50.912,65.499,45.146,14.29,3.959
+pca,patch_r01_c01,Patch R1 C1,patch,7,51.54,65.199,45.183,0.0,5.183
+pca,lower_face,Lower face,roi,7,51.666,64.762,45.309,0.0,5.143
+green,patch_r03_c03,Patch R3 C3,patch,7,51.666,62.917,45.309,0.0,4.361
+ica,patch_r03_c02,Patch R3 C2,patch,7,51.917,66.643,45.56,0.0,5.118
+ica,patch_r04_c03,Patch R4 C3,patch,7,51.917,63.488,45.56,0.0,4.964
+g_minus_r,patch_r04_c02,Patch R4 C2,patch,7,51.917,64.027,45.56,0.0,4.755
+green,patch_r04_c02,Patch R4 C2,patch,7,52.231,64.85,45.874,0.0,4.521
+pca,patch_r03_c03,Patch R3 C3,patch,7,52.796,65.267,46.439,0.0,4.871
+chrom,patch_r02_c04,Patch R2 C4,patch,7,52.796,62.978,46.439,0.0,4.424
+pos,patch_r04_c04,Patch R4 C4,patch,7,52.984,64.374,46.627,0.0,4.303
+pos,patch_r04_c05,Patch R4 C5,patch,7,53.047,65.115,46.69,0.0,4.099
+pos,patch_r04_c02,Patch R4 C2,patch,7,53.989,66.065,47.632,0.0,4.502

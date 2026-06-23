@@ -1,0 +1,5 @@
+view,pred_bpm,weighted_mean_bpm,median_bpm,iqr_bpm,windows,median_selector_score,top_method,top_region,detected_pct,median_box_conf,samples
+front,134.033,134.201,133.374,6.591,4,0.69,chrom,patch_r03_c05,91.83,0.879,600
+left,109.424,109.077,108.984,0.439,2,0.6333,chrom,face_full,61.33,0.285,600
+right,108.984,110.156,110.742,1.758,2,0.6367,green,patch_r01_c04,68.33,0.708,600
+up,110.303,111.494,110.303,3.515,3,0.6667,green,patch_r02_c03,76.33,0.383,600

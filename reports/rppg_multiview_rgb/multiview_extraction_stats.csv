@@ -1,0 +1,5 @@
+view,video,samples,effective_fps,detected_pct,median_box_conf,regions
+front,front.mp4,600,14.999,91.83,0.879,29
+left,left.mp4,600,14.991,61.33,0.285,29
+right,right.mp4,600,15.001,68.33,0.708,29
+up,up.mp4,600,15.001,76.33,0.383,29

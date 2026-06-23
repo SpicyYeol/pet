@@ -1,0 +1,12 @@
+selector,n,target_mae,target_rmse,range_mae,within_range_pct
+oracle_window_peak,7,0.397,0.815,0.013,85.71
+trained_tracked_selector_current,7,2.499,4.332,0.075,85.71
+trained_peak_selector_current,7,2.768,4.83,0.201,85.71
+oracle_method_region,7,32.023,47.567,26.579,28.57
+fixed_chrom_face_full,7,44.76,59.763,38.481,14.29
+supervised_tracked_ranker_loocv,7,44.955,58.711,38.607,14.29
+fixed_pos_face_full,7,45.074,60.585,38.717,0.0
+supervised_peak_ranker_loocv,7,45.52,58.592,39.163,0.0
+tracked_sqi,7,49.72,63.088,43.363,0.0
+sqi_top_window,7,49.908,63.194,43.551,0.0
+train_calibrated_fixed_loocv,7,53.863,66.272,47.506,0.0

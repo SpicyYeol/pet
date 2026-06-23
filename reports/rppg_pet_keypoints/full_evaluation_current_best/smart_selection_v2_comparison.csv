@@ -1,0 +1,7 @@
+video,target,naive_bpm,naive_err,old_fixedK_bpm,old_fixedK_err,v2_bpm,v2_err,v2_n_windows,v2_method
+1,175.0,203.3,28.3,203.3,28.3,201.0,26.0,14,score_weighted_median
+3,210.0,176.4,33.6,149.4,60.6,152.9,57.1,30,score_weighted_median
+5,135.0,211.5,76.5,211.5,76.5,211.5,76.5,14,weighted_median_in_strongest_cluster
+6,90.0,105.5,15.5,193.9,103.9,176.4,86.4,26,score_weighted_median
+7,189.5,102.5,87.0,155.9,33.6,155.3,34.2,12,score_weighted_median
+8,110.5,154.1,43.6,154.1,43.6,154.1,43.6,15,score_weighted_median

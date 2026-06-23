@@ -1,0 +1,23 @@
+# Normalize line endings: store LF in the repo, check out native on Windows.
+# 줄바꿈 정규화: 저장소에는 LF, 윈도우에서는 네이티브로 체크아웃.
+* text=auto
+
+# Force LF for code/text so cross-platform diffs stay clean.
+*.py    text eol=lf
+*.ts    text eol=lf
+*.tsx   text eol=lf
+*.js    text eol=lf
+*.json  text eol=lf
+*.css   text eol=lf
+*.html  text eol=lf
+*.md    text eol=lf
+*.csv   text eol=lf
+*.txt   text eol=lf
+
+# Treat these as binary (no diff / no eol conversion).
+*.jpg   binary
+*.png   binary
+*.pt    binary
+*.h5    binary
+*.npz   binary
+*.pptx  binary

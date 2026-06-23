@@ -1,0 +1,7 @@
+method,best_roi,range_mae,target_mae,within_range_pct,median_snr
+pos,face_full,37.587,43.944,0.0,11.535
+chrom,face_full,37.728,44.007,14.29,11.395
+g_minus_r,mid_face,41.228,47.586,0.0,18.777
+ica,face_full,41.354,47.711,0.0,29.538
+green,lower_face,42.484,48.841,0.0,14.742
+pca,upper_face,43.426,49.783,0.0,31.748

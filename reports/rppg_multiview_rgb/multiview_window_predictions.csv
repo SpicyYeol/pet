@@ -1,0 +1,12 @@
+view,video,window_index,window_start_sec,window_end_sec,region_id,region_label,region_kind,method,peak_rank,peak_bpm,snr,total_power_ratio,spectral_entropy,h2_ratio,half_ratio,valid_fraction,box_motion,color_cv,quality_score,trained_selector_score,score_norm,selector
+front,front.mp4,0,0.0,19.933,patch_r03_c05,Patch R3 C5,patch,chrom,2,118.213,7.28,0.010378,0.898997,0.087392,0.066948,0.9543,0.0,0.104748,3.356602,0.5133333333333333,3.6665781261760024,trained_tracked_selector_current
+front,front.mp4,1,5.0,24.933,patch_r02_c04,Patch R2 C4,patch,pos,2,132.715,5.33,0.009877,0.93613,0.02118,0.380196,0.9141,0.0,0.520689,2.9113,0.6533333333333333,4.895786190633193,trained_tracked_selector_current
+front,front.mp4,2,10.0,29.933,patch_r04_c02,Patch R4 C2,patch,pca,3,134.033,4.348,0.007299,0.920536,0.035679,0.039451,0.9706,0.0,0.456221,2.516667,0.7533333333333333,5.773791950959756,trained_tracked_selector_current
+front,front.mp4,3,15.0,34.933,patch_r05_c04,Patch R5 C4,patch,green,4,140.625,3.674,0.006926,0.923834,0.050266,0.150319,0.9227,0.0,0.604906,2.0844,0.7266666666666667,5.53965708153934,trained_tracked_selector_current
+left,left.mp4,0,0.0,19.933,face_full,Full face,roi,chrom,2,108.545,8.935,0.012919,0.902234,0.022313,0.242566,0.9825,0.0,0.025231,3.617474,0.6066666666666667,3.2615062240359443,trained_tracked_selector_current
+left,left.mp4,1,5.0,24.933,patch_r05_c04,Patch R5 C4,patch,green,4,109.424,12.117,0.009165,0.847469,0.011347,0.585521,1.0,0.0,0.0807,3.333069,0.66,3.618064869578136,trained_tracked_selector_current
+right,right.mp4,0,0.0,19.933,patch_r01_c04,Patch R1 C4,patch,pca,3,108.984,13.0,0.008397,0.818157,0.071977,0.04909,1.0,0.0,0.227926,3.732035,0.6866666666666666,5.6022801108060225,trained_tracked_selector_current
+right,right.mp4,1,5.0,24.933,patch_r01_c04,Patch R1 C4,patch,green,4,112.5,9.805,0.008816,0.860153,0.026449,0.108274,1.0,0.0,0.251524,3.186923,0.5866666666666667,4.669423069347992,trained_tracked_selector_current
+up,up.mp4,0,0.0,19.933,lower_face,Lower face,roi,pos,4,110.303,5.187,0.007974,0.907407,0.087033,0.436825,0.9995,0.0,0.125875,2.456157,0.54,3.70108741935378,trained_tracked_selector_current
+up,up.mp4,1,5.0,24.933,patch_r02_c03,Patch R2 C3,patch,green,3,108.545,11.062,0.009325,0.83785,0.008759,0.345669,1.0,0.0,0.209237,3.526774,0.7133333333333334,5.149339018231346,trained_tracked_selector_current
+up,up.mp4,2,10.0,29.933,patch_r03_c03,Patch R3 C3,patch,green,2,115.576,19.958,0.013974,0.839251,0.010044,0.295397,1.0,0.0,0.267069,4.517647,0.6666666666666666,4.759425126225847,trained_tracked_selector_current

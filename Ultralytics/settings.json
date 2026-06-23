@@ -1,0 +1,21 @@
+{
+  "settings_version": "0.0.6",
+  "datasets_dir": "C:\\Users\\wagon\\Downloads\\vet-ppg-multi-cam-telemetry-hud\\datasets",
+  "weights_dir": "weights",
+  "runs_dir": "runs",
+  "uuid": "13ce7e8c0e55c5b5e5b31e1a64eed6652e703c6c539b1bbd2c4de0bf556b6b0b",
+  "sync": true,
+  "api_key": "",
+  "openai_api_key": "",
+  "clearml": true,
+  "comet": true,
+  "dvc": true,
+  "hub": true,
+  "mlflow": true,
+  "neptune": true,
+  "raytune": true,
+  "tensorboard": false,
+  "wandb": false,
+  "vscode_msg": true,
+  "openvino_msg": true
+}

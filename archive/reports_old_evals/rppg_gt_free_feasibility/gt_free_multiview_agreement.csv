@@ -1,0 +1,5 @@
+window_index,window_start_sec,raw_view_count,accepted_view_count,raw_spread_bpm,accepted_spread_bpm,consensus_bpm,agreement,accepted_views,rejected_views,raw_values
+0,0.0,4,4,9.668,9.668,108.984,True,"front, left, right, up",none,"front:118.2, left:108.5, right:109.0, up:110.3"
+1,5.0,4,3,24.17,3.955,109.424,True,"left, right, up",front,"front:132.7, left:109.4, right:112.5, up:108.5"
+2,10.0,2,0,18.457,,,False,,"front, up","front:134.0, up:115.6"
+3,15.0,1,1,0.0,0.0,140.625,False,front,none,front:140.6

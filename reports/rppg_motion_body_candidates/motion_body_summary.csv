@@ -1,0 +1,11 @@
+selector,n,target_mae,target_rmse,range_mae,within_range_pct,body_window_share,keypoint_window_share,residual_window_share,artifact_100bpm_window_share,stable_window_share
+oracle_motion_body_window,7,20.967,34.33,16.106,42.86,33.33,56.25,62.5,0.0,100.0
+face_motion_residual_sqi,7,51.603,66.246,45.246,0.0,0.0,0.0,100.0,11.11,77.78
+keypoint_only_pet_state_sqi,7,52.294,67.581,45.937,0.0,0.0,100.0,88.89,0.0,100.0
+non_mouth_keypoint_sqi,7,52.608,68.235,46.251,0.0,0.0,100.0,90.0,0.0,88.89
+pet_state_keypoint_sqi,7,52.796,67.708,46.439,0.0,22.22,66.67,88.89,0.0,100.0
+stable_only_pet_state_sqi,7,52.859,67.796,46.502,0.0,25.0,44.44,88.89,0.0,100.0
+motion_body_sqi,7,54.303,68.057,47.946,0.0,30.0,55.56,88.89,0.0,93.75
+motion_reject_raw_sqi,7,55.119,68.917,48.762,0.0,22.22,44.44,0.0,0.0,88.89
+body_motion_residual_sqi,7,55.37,68.436,49.013,0.0,100.0,0.0,100.0,0.0,100.0
+body_only_motion_sqi,7,55.558,68.493,49.201,0.0,100.0,0.0,80.0,11.11,88.89

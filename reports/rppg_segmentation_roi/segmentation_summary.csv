@@ -1,0 +1,6 @@
+selector,n,target_mae,target_rmse,range_mae,within_range_pct,body_window_share,residual_window_share,stable_window_share,artifact_100bpm_window_share
+oracle_segmentation_window,7,23.773,36.013,18.68,42.86,77.78,100.0,77.78,0.0
+segmentation_non_face_sqi,7,42.883,57.819,36.526,0.0,100.0,100.0,100.0,0.0
+segmentation_body_sqi,7,42.946,58.247,36.589,0.0,100.0,100.0,100.0,0.0
+segmentation_sqi,7,43.7,59.799,37.343,0.0,55.56,100.0,88.89,6.25
+segmentation_stable_sqi,7,43.951,59.885,37.594,0.0,66.67,100.0,100.0,0.0

@@ -1,0 +1,6 @@
+{
+  "name": "VET-PPG Multi-Cam Telemetry HUD",
+  "description": "High-stakes veterinary and medical diagnostics using rPPG technology with multi-cam live HUD dashboard, historical telemetry, patient records, and system settings.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,25 @@
+{
+  "generatedAt": "2026-05-26T17:34:07",
+  "status": "started",
+  "device": "cpu",
+  "superanimal": "superanimal_quadruped",
+  "poseModel": "hrnet_w32",
+  "detector": "fasterrcnn_resnet50_fpn_v2",
+  "clip": {
+    "sourceVideo": "dataset_front\\5.mp4",
+    "clipPath": "reports\\rppg_pet_keypoints\\dlc_probe_5\\5_dlc_probe.mp4",
+    "sourceFps": 30.00621824897267,
+    "clipFps": 10.0,
+    "sourceSize": [
+      1080,
+      1296
+    ],
+    "clipSize": [
+      640,
+      768
+    ],
+    "startSec": 0.0,
+    "seconds": 30.0,
+    "framesWritten": 300
+  }
+}

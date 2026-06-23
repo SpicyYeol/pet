@@ -1,0 +1,9 @@
+video,path,usable,bpm_min,bpm_max,bpm_target,label_source,notes
+1.mp4,dataset_front/1.mp4,True,170,180,175.0,ocr_reviewed,Monitor HR digits consistently read around 170-180 bpm.
+2.mp4,dataset_front/2.mp4,False,,,,no_readable_monitor,No readable vital monitor in sampled frames.
+3.mp4,dataset_front/3.mp4,True,190,230,210.0,ocr_reviewed,Readable monitor HR samples include high-190s through low-220s.
+4.mp4,dataset_front/4.mp4,True,111,120,115.5,ocr_reviewed,Readable monitor HR samples cluster around 112-121 bpm.
+5.mp4,dataset_front/5.mp4,True,130,140,135.0,ocr_reviewed,Readable monitor HR samples cluster around 130-140 bpm.
+6.mp4,dataset_front/6.mp4,True,90,90,90.0,ocr_reviewed,Readable monitor HR samples are approximately 90 bpm.
+7.mp4,dataset_front/7.mp4,True,182,197,189.5,ocr_reviewed,Readable monitor HR samples are approximately 182-197 bpm.
+8.mp4,dataset_front/8.mp4,True,108,113,110.5,ocr_reviewed,Readable monitor HR samples are approximately 108-113 bpm.

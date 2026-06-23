@@ -1,0 +1,15 @@
+{
+  "generated_at": "2026-05-26T15:09:04.320886",
+  "video": "reports\\rppg_pet_keypoints\\dlc_full4\\4_dlc_probe.mp4",
+  "n_frames_analyzed": 630,
+  "n_anatomical_rois": 6,
+  "best_snr": 15.64,
+  "best_entry": {
+    "roi": "nose_bridge",
+    "method": "green",
+    "pred_bpm": 97.71,
+    "snr": 15.64,
+    "peak_power_ratio": 0.0047,
+    "n_samples": 630
+  }
+}
