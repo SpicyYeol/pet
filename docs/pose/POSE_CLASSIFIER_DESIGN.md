@@ -88,7 +88,7 @@ Per frame, use only keypoints with `conf >= MIN_CONF` (default 0.30); all normal
 |---|---|---|
 | `vertical_separation` | (평균 발 y) − (평균 척추 y), ÷ body_scale | 큼=기립, 작음=누움 / standing vs recumbent |
 | `back_curvature` | 척추 현(neck_base→tail_base)에서 back_middle의 부호있는 수직 편차 | +면 등이 위로 굽음=복통 / kyphosis = abdominal pain |
-| `spine_tilt` | 척추 현과 수평선의 각도 | 큼=앉음/상체 듦 / sitting |
+| `spine_tilt` | 척추 점들의 **PCA 주축** 각도(꼬리 가려도 동작) / PCA principal-axis angle of spine points (works even if tail is occluded) | 큼=앉음/상체 듦 / sitting |
 | `neck_extension` | dist(nose, neck_base) ÷ body_scale | 큼=목 앞으로 신전=기좌호흡 단서 |
 | `head_height` | (평균 척추 y) − (nose y), ÷ body_scale | 머리 들림/떨굼 / head up vs dropped |
 | `front_paw_spread` | 앞발 좌우 간격 ÷ body_scale | 큼=팔꿈치 벌림(기좌호흡) / elbow abduction |
@@ -170,6 +170,17 @@ Frame-level labels flicker → (1) rolling-mode smoothing over ±0.5 s, then
    Prioritize recall for emergency classes — a miss is worse than a false alarm.
 
 ---
+
+## 8.5 보정 로그 / Calibration log
+
+- **2026-06-23** — 오버레이 검증(`visualize_pose.py`)에서 **앉은 강아지가 기립으로 오판정**되는 것을
+  발견. 원인: `spine_tilt`가 neck_base+tail_base 둘 다 필요해 꼬리 가림 시 NaN. → 척추 점들의
+  **PCA 주축**으로 변경(부분만 보여도 동작). 임계값은 probe 클립 분포로 보정(`T_SPINE_TILT_SIT`:
+  기립 stem6 ≈ 14°, 앉음 stem3 ≈ 31° → **24°**). 결과: stem3 sitting 0%→59%, 거짓 복통 플래그 16%→3%.
+- Found via overlay verification that a sitting dog was scored as standing because
+  `spine_tilt` was NaN when `tail_base` was occluded. Switched to a PCA spine-axis
+  fit and set the threshold from the clip distribution (standing ≈14°, sitting ≈31°
+  → **24°**). Result: stem 3 sitting 0%→59%, false abdominal-pain flag 16%→3%.
 
 ## 9. 한계와 향후 / Limitations & next steps
 

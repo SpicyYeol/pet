@@ -44,7 +44,10 @@ MIN_VALID_KP = 6          # need at least this many valid keypoints / 최소 유
 T_STAND_SEP = 0.35        # >= this => clearly standing / 이상이면 기립
 T_RECUMBENT_SEP = 0.18    # <= this => lying down / 이하이면 누움
 
-T_SPINE_TILT_SIT = 35.0   # spine-vs-horizontal angle (deg) for "sitting" / 앉음 각도
+# Spine-vs-horizontal angle (deg) for "sitting". Calibrated on the probe clips:
+# a standing dog's back reads ~14 deg (stem 6), a sitting dog ~31+ deg (stem 3),
+# so ~24 separates them. spine_tilt is now a PCA fit, robust to tail occlusion.
+T_SPINE_TILT_SIT = 24.0
 T_BACK_ARCH = 0.12        # signed back curvature for hunch/abdominal pain / 등 굽음
 T_NECK_EXTEND = 1.15      # neck length ratio for orthopnea / 목 신전
 T_PAW_SPREAD = 0.55       # front-paw spread for elbow abduction / 앞발 벌림
@@ -178,12 +181,16 @@ def extract_features(frame: dict) -> Features:
     if nb is not None and tb is not None and bm is not None:
         f.back_curvature = _signed_perp(nb, tb, bm) / scale
 
-    # spine tilt vs horizontal
-    if nb is not None and tb is not None:
-        d = nb - tb
-        f.spine_tilt = abs(np.degrees(np.arctan2(d[1], d[0])))
-        if f.spine_tilt > 90:
-            f.spine_tilt = 180 - f.spine_tilt
+    # spine tilt vs horizontal — robust line fit through ALL confident spine
+    # points (PCA principal axis), so it still works when tail_base is occluded
+    # (the common cause of a sitting dog being missed). Needs >= 2 spine points.
+    spine_pts = [p for p in (_pt(frame, n) for n in SPINE) if p is not None]
+    if len(spine_pts) >= 2:
+        arr = np.array(spine_pts, dtype=float)
+        _, _, vt = np.linalg.svd(arr - arr.mean(axis=0), full_matrices=False)
+        dirv = vt[0]
+        ang = abs(np.degrees(np.arctan2(dirv[1], dirv[0])))
+        f.spine_tilt = 180 - ang if ang > 90 else ang
 
     # neck extension: nose-to-neck distance / scale
     if nose is not None and nb is not None:
