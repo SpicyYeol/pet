@@ -14,13 +14,14 @@ from dataclasses import dataclass
 import pandas as pd
 
 from ..core.analyzer import Analyzer, AnalyzerResult, register
+from ..core.baselines import resolve_ranges
 from ..core.refvitals import load_reference_vitals
 from ..core.session import Session
 
 
 @dataclass
 class TemperatureConfig:
-    # canine rectal-equivalent normal ~38.0-39.2 C
+    # fallback only; effective range comes from core.baselines (species/breed/patient)
     normal: tuple[float, float] = (38.0, 39.2)
     severe_high: float = 40.0
     severe_low: float = 37.0
@@ -46,18 +47,23 @@ class TemperatureAnalyzer(Analyzer):
                                f"{session.stem}.json with a 'temp_c' value (needs a thermal/IR camera)."}
             return AnalyzerResult(self.name, empty, summary, 0, [])
 
+        rng = resolve_ranges(session.stem)
+        normal = rng.get("temp_normal", cfg.normal)
+        severe_high = rng.get("temp_severe_high", cfg.severe_high)
+        severe_low = rng.get("temp_severe_low", cfg.severe_low)
+
         temp = float(temp)
         flags, score, reasons = {}, 0, []
-        if temp >= cfg.severe_high:
+        if temp >= severe_high:
             score = 2; flags["severe_hyperthermia"] = True
             reasons.append(f"severe hyperthermia ({temp:.1f} C)")
-        elif temp <= cfg.severe_low:
+        elif temp <= severe_low:
             score = 2; flags["severe_hypothermia"] = True
             reasons.append(f"severe hypothermia ({temp:.1f} C)")
-        elif temp > cfg.normal[1]:
+        elif temp > normal[1]:
             score = 1; flags["hyperthermia"] = True
             reasons.append(f"hyperthermia ({temp:.1f} C)")
-        elif temp < cfg.normal[0]:
+        elif temp < normal[0]:
             score = 1; flags["hypothermia"] = True
             reasons.append(f"hypothermia ({temp:.1f} C)")
 
@@ -65,6 +71,7 @@ class TemperatureAnalyzer(Analyzer):
             "temp_available": True,
             "temp_c": round(temp, 1),
             "source": ref.get("source", "unspecified"),
+            "baseline_source": rng["source"],
             "flags": flags,
             "behavioral_ews_subscore": score,
             "note": "Body temperature from a thermal/IR camera or reference (not RGB-derived).",

@@ -14,13 +14,14 @@ from dataclasses import dataclass
 import pandas as pd
 
 from ..core.analyzer import Analyzer, AnalyzerResult, register
+from ..core.baselines import resolve_ranges
 from ..core.refvitals import load_reference_vitals
 from ..core.session import Session
 
 
 @dataclass
 class Spo2Config:
-    normal_min: float = 95.0     # canine SpO2 normal >= 95%
+    normal_min: float = 95.0     # fallback; effective values from core.baselines
     mild_min: float = 90.0       # 90-94 = mild hypoxemia
     # < mild_min => severe hypoxemia
 
@@ -46,13 +47,17 @@ class Spo2Analyzer(Analyzer):
                                "oximeter or calibrated multi-wavelength imaging)."}
             return AnalyzerResult(self.name, empty, summary, 0, [])
 
+        rng = resolve_ranges(session.stem)
+        normal_min = rng.get("spo2_normal_min", cfg.normal_min)
+        mild_min = rng.get("spo2_mild_min", cfg.mild_min)
+
         spo2 = float(spo2)
         flags, score, reasons = {}, 0, []
-        if spo2 < cfg.mild_min:
+        if spo2 < mild_min:
             score = 3
             flags["severe_hypoxemia"] = True
             reasons.append(f"severe hypoxemia (SpO2 {spo2:.0f}%)")
-        elif spo2 < cfg.normal_min:
+        elif spo2 < normal_min:
             score = 1
             flags["hypoxemia"] = True
             reasons.append(f"hypoxemia (SpO2 {spo2:.0f}%)")

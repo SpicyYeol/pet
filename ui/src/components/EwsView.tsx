@@ -1,5 +1,5 @@
 import React from 'react';
-import { HeartPulse, Wind, Activity, Bone, Droplets, Thermometer, AlertTriangle, ShieldCheck } from 'lucide-react';
+import { HeartPulse, Wind, Activity, Bone, Droplets, Thermometer, Palette, AlertTriangle, ShieldCheck } from 'lucide-react';
 import { PETVITALS_EWS, EwsPatient } from '../generated/petvitalsEws';
 
 type Patient = EwsPatient;
@@ -36,7 +36,12 @@ const PatientCard: React.FC<{ p: Patient }> = ({ p }) => {
         <div>
           <p className="font-mono text-[10px] uppercase tracking-widest text-on-surface-variant/45">Patient / clip</p>
           <h3 className="font-headline text-xl font-bold text-on-surface">#{p.stem}</h3>
-          <p className="text-[10px] font-mono text-on-surface-variant/40">{p.durationSec}s window</p>
+          <p className="text-[10px] font-mono text-on-surface-variant/40">
+            {p.durationSec}s window{p.breedClass && p.breedClass !== 'default' ? ` · ${p.breedClass}` : ''}
+          </p>
+          {p.baselineSource && (
+            <p className="text-[9px] font-mono text-on-surface-variant/35">baseline: {p.baselineSource}</p>
+          )}
         </div>
         <div className={`flex flex-col items-center justify-center rounded-xl px-4 py-2 ${sev.bg} ${sev.ring} border`}>
           <Glyph className={`w-5 h-5 ${sev.text}`} />
@@ -51,6 +56,7 @@ const PatientCard: React.FC<{ p: Patient }> = ({ p }) => {
         <Metric icon={Droplets} label="SpO₂" value={p.vitals.spo2Pct} unit="%" />
         <Metric icon={Thermometer} label="Temp" value={p.vitals.tempC} unit="°C" />
         <Metric icon={Activity} label="HRV SDNN" value={p.vitals.hrvAvailable ? p.vitals.sdnnMs : null} unit="ms" />
+        <Metric icon={Palette} label="Mucous" value={p.vitals.mmColor} />
         <Metric icon={Bone} label="Posture" value={p.behavior.topPosture.replace(/_/g, ' ')} />
       </div>
 

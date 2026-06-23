@@ -1,0 +1,8 @@
+{
+  "stem": "8",
+  "species": "dog",
+  "breed_class": "default",
+  "breed_note": "Dachshund",
+  "context": "anesthesia/recovery (anesthesia machine visible in scene)",
+  "source": "observed_from_video"
+}

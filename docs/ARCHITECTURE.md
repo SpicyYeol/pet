@@ -139,6 +139,9 @@ sub-score automatically.
 | 섭식 (#3) | `analyzers/feeding.py` | ✅ v0 구강활동 프록시(머리숙임+턱움직임); 그릇 ROI는 향후 / oral-activity proxy, bowl ROI = future |
 | SpO₂ | `analyzers/spo2.py` | ✅ 외부 센서/레퍼런스 입력(`reports/manual_vitals/<stem>.json`) / external sensor input |
 | 체온 / temperature | `analyzers/temperature.py` | ✅ 열화상/레퍼런스 입력 / thermal-camera or reference input |
+| 종/품종/개체 baseline | `core/baselines.py` + `reports/patient_profiles/` | ✅ rppg·spo2·temperature가 사용 / drives the vital ranges |
+| 호흡 effort/패턴/무호흡 | `analyzers/respeffort.py` | ✅ 규칙성·apnea·상대진폭(신호품질 게이팅) / pattern, apnea, gated |
+| 점막색(관류) | `analyzers/mucous.py` | ✅ v0 창백/청색증/황달, 보정 안 됨·저신뢰 / uncalibrated, low-confidence |
 | 통합 EWS (#4) | `ews/fusion.py` + UI | ✅ 6개 분석기 융합, React `EwsView`에 표시 / fuses all six, shown in the UI |
 | pose ML 분류기 | `tools/train_pose_model.py` + `analyzers/pose.py` | 🟡 파이프라인 완성, 라벨 부족(LOCO 0.24)으로 규칙 기본 유지 / pipeline ready, data-limited |
 

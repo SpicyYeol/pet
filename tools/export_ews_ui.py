@@ -44,11 +44,14 @@ def build_record(stem: str) -> dict | None:
     feeding = by_name.get("feeding")
     spo2 = by_name.get("spo2")
     temp = by_name.get("temperature")
+    mucous = by_name.get("mucous")
     return {
         "stem": stem,
         "durationSec": session.duration_sec,
         "ews": ews["total_ews"],
         "severity": ews["severity"],
+        "baselineSource": rppg.summary.get("baseline_source") if rppg else None,
+        "breedClass": rppg.summary.get("breed_class") if rppg else None,
         "byAnalyzer": ews["by_analyzer"],
         "reasons": ews["reasons"],
         "vitals": {
@@ -59,6 +62,8 @@ def build_record(stem: str) -> dict | None:
             "hrvAvailable": bool(hrv.summary.get("hrv_available")) if hrv else False,
             "spo2Pct": spo2.summary.get("spo2_pct") if spo2 else None,
             "tempC": temp.summary.get("temp_c") if temp else None,
+            "mmColor": (mucous.summary.get("mm_color")
+                        if mucous and mucous.summary.get("usable_read") else None),
         },
         "behavior": {
             "topPosture": _top_posture(pose.summary) if pose else "n/a",
@@ -82,9 +87,11 @@ def main() -> None:
     types = (
         "export interface EwsPatient {\n"
         "  stem: string;\n  durationSec: number;\n  ews: number;\n  severity: string;\n"
+        "  baselineSource: string | null;\n  breedClass: string | null;\n"
         "  byAnalyzer: Record<string, number>;\n  reasons: string[];\n"
         "  vitals: { hrBpm: number | null; rrBpm: number | null; pantingIntensity: number | null;"
-        " sdnnMs: number | null; hrvAvailable: boolean; spo2Pct: number | null; tempC: number | null };\n"
+        " sdnnMs: number | null; hrvAvailable: boolean; spo2Pct: number | null; tempC: number | null;"
+        " mmColor: string | null };\n"
         "  behavior: { topPosture: string; meanActivity: number | null; oralEvents: number | null };\n"
         "  flags: string[];\n}\n\n"
         "export interface PetVitalsEws {\n  note: string;\n  analyzers: string[];\n"

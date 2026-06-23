@@ -296,7 +296,12 @@ output plumbing need no changes.
 | [`petvitals/core/analyzer.py`](petvitals/core/analyzer.py) | **Analyzer 인터페이스 + 결과 타입 + 레지스트리** / analyzer ABC + registry |
 | [`petvitals/analyzers/pose.py`](petvitals/analyzers/pose.py) | 자세/행동/활동 분석기 + `PoseConfig`(임계값) / posture analyzer |
 | [`petvitals/analyzers/rppg.py`](petvitals/analyzers/rppg.py) | **심박(HR)+호흡(RR)+헐떡임 분석기** / HR (cached pipeline) + RR + panting |
+| [`petvitals/analyzers/spo2.py`](petvitals/analyzers/spo2.py) · [`temperature.py`](petvitals/analyzers/temperature.py) | SpO₂·체온 (외부 센서/열화상 입력) / SpO₂ + temperature (sensor/thermal input) |
+| [`petvitals/analyzers/respeffort.py`](petvitals/analyzers/respeffort.py) | 호흡 패턴·무호흡·노력 / breathing pattern, apnea, effort |
+| [`petvitals/analyzers/mucous.py`](petvitals/analyzers/mucous.py) | 점막색(창백·청색증·황달) / mucous-membrane color (uncalibrated) |
+| [`petvitals/core/baselines.py`](petvitals/core/baselines.py) | 종/품종/개체별 정상범위 / species·breed·patient vital ranges |
 | [`petvitals/ews/fusion.py`](petvitals/ews/fusion.py) | 분석기 sub-score 통합 EWS (행동+생리) / combined early-warning (behavior + vitals) |
+| [`docs/CLINICAL_REQUIREMENTS.md`](docs/CLINICAL_REQUIREMENTS.md) | 수의 임상 요구사항·공백 / clinical requirements & gaps |
 | [`petvitals/viz/overlay.py`](petvitals/viz/overlay.py) | 자세 라벨+스켈레톤 영상 오버레이 / posture overlay renderer |
 | [`petvitals/cli.py`](petvitals/cli.py) | 통합 CLI (`run` / `viz` / `list`) / unified CLI |
 | [`tools/demo_rejection_anatomical_video4.py`](tools/demo_rejection_anatomical_video4.py) | rPPG 메인 파이프라인 (HR/RR) / main rPPG pipeline |

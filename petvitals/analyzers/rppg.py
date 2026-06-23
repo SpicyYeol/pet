@@ -25,6 +25,7 @@ import numpy as np
 import pandas as pd
 
 from ..core.analyzer import Analyzer, AnalyzerResult, register
+from ..core.baselines import resolve_ranges
 from ..core.session import Session
 
 _REPO_ROOT = Path(__file__).resolve().parents[2]
@@ -122,21 +123,23 @@ class RppgAnalyzer(Analyzer):
         }
 
     # ── EWS scoring ───────────────────────────────────────────────
-    def _score(self, hr: dict, rr: dict) -> tuple[dict, int, list[str]]:
+    def _score(self, hr: dict, rr: dict, rng: dict) -> tuple[dict, int, list[str]]:
         cfg = self.cfg
         flags, score, reasons = {}, 0, []
+        hr_normal, hr_severe = rng["hr_normal"], rng["hr_severe"]
+        rr_normal, rr_severe = rng["rr_normal"], rng["rr_severe"]
 
         hr_bpm = hr.get("hr_bpm")
         flags["hr_unavailable"] = hr_bpm is None
         if hr_bpm is not None:
-            if hr_bpm < cfg.hr_severe[0] or hr_bpm > cfg.hr_severe[1]:
+            if hr_bpm < hr_severe[0] or hr_bpm > hr_severe[1]:
                 score += 2
-                kind = "bradycardia" if hr_bpm < cfg.hr_severe[0] else "tachycardia"
+                kind = "bradycardia" if hr_bpm < hr_severe[0] else "tachycardia"
                 flags[f"severe_{kind}"] = True
                 reasons.append(f"severe {kind} (HR {hr_bpm} bpm)")
-            elif hr_bpm < cfg.hr_normal[0] or hr_bpm > cfg.hr_normal[1]:
+            elif hr_bpm < hr_normal[0] or hr_bpm > hr_normal[1]:
                 score += 1
-                kind = "bradycardia" if hr_bpm < cfg.hr_normal[0] else "tachycardia"
+                kind = "bradycardia" if hr_bpm < hr_normal[0] else "tachycardia"
                 flags[kind] = True
                 reasons.append(f"{kind} (HR {hr_bpm} bpm)")
 
@@ -145,14 +148,14 @@ class RppgAnalyzer(Analyzer):
         rr_usable = rr_bpm is not None and rr_conf >= cfg.rr_min_confidence
         flags["rr_low_confidence"] = rr_bpm is not None and not rr_usable
         if rr_usable:
-            if rr_bpm < cfg.rr_severe[0] or rr_bpm > cfg.rr_severe[1]:
+            if rr_bpm < rr_severe[0] or rr_bpm > rr_severe[1]:
                 score += 2
-                kind = "bradypnea" if rr_bpm < cfg.rr_severe[0] else "tachypnea"
+                kind = "bradypnea" if rr_bpm < rr_severe[0] else "tachypnea"
                 flags[f"severe_{kind}"] = True
                 reasons.append(f"severe {kind} (RR {rr_bpm} brpm)")
-            elif rr_bpm < cfg.rr_normal[0] or rr_bpm > cfg.rr_normal[1]:
+            elif rr_bpm < rr_normal[0] or rr_bpm > rr_normal[1]:
                 score += 1
-                kind = "bradypnea" if rr_bpm < cfg.rr_normal[0] else "tachypnea"
+                kind = "bradypnea" if rr_bpm < rr_normal[0] else "tachypnea"
                 flags[kind] = True
                 reasons.append(f"{kind} (RR {rr_bpm} brpm)")
 
@@ -166,7 +169,8 @@ class RppgAnalyzer(Analyzer):
     def analyze(self, session: Session) -> AnalyzerResult:
         hr = self._estimate_hr(session)
         rr = self._estimate_respiration(session)
-        flags, ews, reasons = self._score(hr, rr)
+        rng = resolve_ranges(session.stem)
+        flags, ews, reasons = self._score(hr, rr, rng)
 
         # per-frame respiratory proxy traces (handy for plots/overlays)
         chest = rr.pop("_chest_proxy", None)
@@ -180,8 +184,9 @@ class RppgAnalyzer(Analyzer):
             per_frame["facial_proxy"] = np.round(facial, 4)
 
         summary = {"duration_sec": session.duration_sec, **hr, **rr,
+                   "baseline_source": rng["source"], "breed_class": rng["breed_class"],
                    "flags": flags, "behavioral_ews_subscore": ews,
                    "note": "HR from cached anatomical pipeline; RR is a keypoint chest-motion proxy. "
-                           "Canine ranges are configurable defaults, not clinical thresholds."}
+                           "Ranges from species/breed/patient baseline (configurable), not clinical thresholds."}
         return AnalyzerResult(name=self.name, per_frame=per_frame, summary=summary,
                               ews_subscore=ews, ews_reasons=reasons)

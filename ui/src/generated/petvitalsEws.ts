@@ -5,9 +5,11 @@ export interface EwsPatient {
   durationSec: number;
   ews: number;
   severity: string;
+  baselineSource: string | null;
+  breedClass: string | null;
   byAnalyzer: Record<string, number>;
   reasons: string[];
-  vitals: { hrBpm: number | null; rrBpm: number | null; pantingIntensity: number | null; sdnnMs: number | null; hrvAvailable: boolean; spo2Pct: number | null; tempC: number | null };
+  vitals: { hrBpm: number | null; rrBpm: number | null; pantingIntensity: number | null; sdnnMs: number | null; hrvAvailable: boolean; spo2Pct: number | null; tempC: number | null; mmColor: string | null };
   behavior: { topPosture: string; meanActivity: number | null; oralEvents: number | null };
   flags: string[];
 }
@@ -23,7 +25,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
   "analyzers": [
     "feeding",
     "hrv",
+    "mucous",
     "pose",
+    "resp_effort",
     "rppg",
     "spo2",
     "temperature"
@@ -32,17 +36,23 @@ export const PETVITALS_EWS: PetVitalsEws = {
     {
       "stem": "1",
       "durationSec": 30.0,
-      "ews": 8,
+      "ews": 10,
       "severity": "critical",
+      "baselineSource": "breed:large",
+      "breedClass": "large",
       "byAnalyzer": {
         "feeding": 0,
         "hrv": 0,
+        "mucous": 0,
         "pose": 0,
+        "resp_effort": 2,
         "rppg": 3,
         "spo2": 3,
         "temperature": 2
       },
       "reasons": [
+        "[resp_effort] apnea-like pause (4.0s)",
+        "[resp_effort] irregular breathing (interval CV 0.66)",
         "[rppg] severe tachycardia (HR 201.0 bpm)",
         "[rppg] bradypnea (RR 8.1 brpm)",
         "[spo2] severe hypoxemia (SpO2 88%)",
@@ -55,7 +65,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "sdnnMs": 221.3,
         "hrvAvailable": true,
         "spo2Pct": 88.0,
-        "tempC": 40.4
+        "tempC": 40.4,
+        "mmColor": "pink"
       },
       "behavior": {
         "topPosture": "sitting",
@@ -63,7 +74,9 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "oralEvents": 2
       },
       "flags": [
+        "apnea",
         "bradypnea",
+        "irregular_breathing",
         "oral_activity_detected",
         "severe_hyperthermia",
         "severe_hypoxemia",
@@ -75,10 +88,14 @@ export const PETVITALS_EWS: PetVitalsEws = {
       "durationSec": 30.0,
       "ews": 0,
       "severity": "stable",
+      "baselineSource": "breed:brachycephalic",
+      "breedClass": "brachycephalic",
       "byAnalyzer": {
         "feeding": 0,
         "hrv": 0,
+        "mucous": 0,
         "pose": 0,
+        "resp_effort": 0,
         "rppg": 0,
         "spo2": 0,
         "temperature": 0
@@ -91,7 +108,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "sdnnMs": 255.3,
         "hrvAvailable": true,
         "spo2Pct": null,
-        "tempC": null
+        "tempC": null,
+        "mmColor": "pink"
       },
       "behavior": {
         "topPosture": "sitting",
@@ -99,23 +117,29 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "oralEvents": 5
       },
       "flags": [
-        "oral_activity_detected"
+        "oral_activity_detected",
+        "resp_pattern_low_confidence"
       ]
     },
     {
       "stem": "4",
       "durationSec": 63.0,
-      "ews": 2,
+      "ews": 3,
       "severity": "watch",
+      "baselineSource": "breed:brachycephalic",
+      "breedClass": "brachycephalic",
       "byAnalyzer": {
         "feeding": 0,
         "hrv": 0,
+        "mucous": 0,
         "pose": 0,
+        "resp_effort": 1,
         "rppg": 2,
         "spo2": 0,
         "temperature": 0
       },
       "reasons": [
+        "[resp_effort] irregular breathing (interval CV 0.87)",
         "[rppg] severe tachycardia (HR 188.1 bpm)"
       ],
       "vitals": {
@@ -125,7 +149,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "sdnnMs": 221.7,
         "hrvAvailable": true,
         "spo2Pct": null,
-        "tempC": null
+        "tempC": null,
+        "mmColor": "pink"
       },
       "behavior": {
         "topPosture": "sitting",
@@ -133,6 +158,7 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "oralEvents": 1
       },
       "flags": [
+        "irregular_breathing",
         "oral_activity_detected",
         "severe_tachycardia"
       ]
@@ -140,17 +166,23 @@ export const PETVITALS_EWS: PetVitalsEws = {
     {
       "stem": "5",
       "durationSec": 30.0,
-      "ews": 2,
+      "ews": 3,
       "severity": "watch",
+      "baselineSource": "species:dog",
+      "breedClass": "default",
       "byAnalyzer": {
         "feeding": 0,
         "hrv": 0,
+        "mucous": 0,
         "pose": 0,
+        "resp_effort": 1,
         "rppg": 2,
         "spo2": 0,
         "temperature": 0
       },
       "reasons": [
+        "[mucous] mucous membranes appear injected (uncalibrated, verify)",
+        "[resp_effort] irregular breathing (interval CV 0.60)",
         "[rppg] severe tachycardia (HR 211.5 bpm)"
       ],
       "vitals": {
@@ -160,7 +192,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "sdnnMs": 203.0,
         "hrvAvailable": true,
         "spo2Pct": null,
-        "tempC": null
+        "tempC": null,
+        "mmColor": "injected"
       },
       "behavior": {
         "topPosture": "sitting",
@@ -168,6 +201,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "oralEvents": 2
       },
       "flags": [
+        "irregular_breathing",
+        "mucous_injected",
         "oral_activity_detected",
         "severe_tachycardia"
       ]
@@ -175,17 +210,22 @@ export const PETVITALS_EWS: PetVitalsEws = {
     {
       "stem": "6",
       "durationSec": 30.0,
-      "ews": 3,
-      "severity": "watch",
+      "ews": 4,
+      "severity": "concern",
+      "baselineSource": "species:dog",
+      "breedClass": "default",
       "byAnalyzer": {
         "feeding": 0,
         "hrv": 0,
+        "mucous": 0,
         "pose": 0,
+        "resp_effort": 1,
         "rppg": 3,
         "spo2": 0,
         "temperature": 0
       },
       "reasons": [
+        "[resp_effort] irregular breathing (interval CV 0.50)",
         "[rppg] severe tachycardia (HR 185.7 bpm)",
         "[rppg] bradypnea (RR 8.1 brpm)"
       ],
@@ -196,7 +236,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "sdnnMs": 206.3,
         "hrvAvailable": true,
         "spo2Pct": null,
-        "tempC": null
+        "tempC": null,
+        "mmColor": "pink"
       },
       "behavior": {
         "topPosture": "standing_normal",
@@ -205,6 +246,7 @@ export const PETVITALS_EWS: PetVitalsEws = {
       },
       "flags": [
         "bradypnea",
+        "irregular_breathing",
         "oral_activity_detected",
         "severe_tachycardia"
       ]
@@ -212,17 +254,22 @@ export const PETVITALS_EWS: PetVitalsEws = {
     {
       "stem": "7",
       "durationSec": 30.0,
-      "ews": 1,
-      "severity": "stable",
+      "ews": 2,
+      "severity": "watch",
+      "baselineSource": "breed:toy",
+      "breedClass": "toy",
       "byAnalyzer": {
         "feeding": 0,
         "hrv": 0,
+        "mucous": 0,
         "pose": 0,
+        "resp_effort": 1,
         "rppg": 1,
         "spo2": 0,
         "temperature": 0
       },
       "reasons": [
+        "[resp_effort] irregular breathing (interval CV 0.92)",
         "[rppg] bradypnea (RR 8.5 brpm)"
       ],
       "vitals": {
@@ -232,7 +279,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "sdnnMs": 204.8,
         "hrvAvailable": true,
         "spo2Pct": null,
-        "tempC": null
+        "tempC": null,
+        "mmColor": "pink"
       },
       "behavior": {
         "topPosture": "sitting",
@@ -241,23 +289,30 @@ export const PETVITALS_EWS: PetVitalsEws = {
       },
       "flags": [
         "bradypnea",
+        "irregular_breathing",
         "oral_activity_detected"
       ]
     },
     {
       "stem": "8",
       "durationSec": 30.0,
-      "ews": 0,
+      "ews": 1,
       "severity": "stable",
+      "baselineSource": "species:dog",
+      "breedClass": "default",
       "byAnalyzer": {
         "feeding": 0,
         "hrv": 0,
+        "mucous": 0,
         "pose": 0,
+        "resp_effort": 1,
         "rppg": 0,
         "spo2": 0,
         "temperature": 0
       },
-      "reasons": [],
+      "reasons": [
+        "[resp_effort] irregular breathing (interval CV 0.71)"
+      ],
       "vitals": {
         "hrBpm": 145.3,
         "rrBpm": 16.7,
@@ -265,7 +320,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "sdnnMs": 246.6,
         "hrvAvailable": true,
         "spo2Pct": 98.0,
-        "tempC": 38.6
+        "tempC": 38.6,
+        "mmColor": "pink"
       },
       "behavior": {
         "topPosture": "sitting",
@@ -273,6 +329,7 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "oralEvents": 3
       },
       "flags": [
+        "irregular_breathing",
         "oral_activity_detected"
       ]
     }

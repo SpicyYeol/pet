@@ -10,5 +10,8 @@ from . import hrv  # noqa: F401
 from . import feeding  # noqa: F401
 from . import spo2  # noqa: F401
 from . import temperature  # noqa: F401
+from . import respeffort  # noqa: F401
+from . import mucous  # noqa: F401
 
-__all__ = ["pose", "rppg", "hrv", "feeding", "spo2", "temperature"]
+__all__ = ["pose", "rppg", "hrv", "feeding", "spo2", "temperature",
+           "respeffort", "mucous"]
