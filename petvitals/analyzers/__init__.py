@@ -6,5 +6,7 @@ then add one import line below.
 
 from . import pose  # noqa: F401
 from . import rppg  # noqa: F401
+from . import hrv  # noqa: F401
+from . import feeding  # noqa: F401
 
-__all__ = ["pose", "rppg"]
+__all__ = ["pose", "rppg", "hrv", "feeding"]

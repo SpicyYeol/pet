@@ -17,6 +17,7 @@ import FeasibilityView from './components/FeasibilityView';
 import HistoryView from './components/HistoryView';
 import PatientsView from './components/PatientsView';
 import SettingsView from './components/SettingsView';
+import EwsView from './components/EwsView';
 
 import { Patient, SessionRecord, SystemSettings } from './types';
 import { INITIAL_PATIENTS, INITIAL_SESSIONS, DEFAULT_SETTINGS } from './data';
@@ -62,6 +63,11 @@ export default function App() {
         return {
           title: 'SPATIAL FUSION HUD',
           subtitle: 'MULTI-NODE_NETWORK v3.0 status: active',
+        };
+      case 'ews':
+        return {
+          title: 'COMBINED EARLY-WARNING SCORE',
+          subtitle: 'BEHAVIOR + VITALS FUSION_PETVITALS',
         };
       case 'feasibility':
         return {
@@ -143,6 +149,10 @@ export default function App() {
               systemSettings={settings}
               onAddSession={handleAddSession}
             />
+          )}
+
+          {activeTab === 'ews' && (
+            <EwsView />
           )}
 
           {activeTab === 'feasibility' && (

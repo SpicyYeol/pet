@@ -135,9 +135,10 @@ sub-score automatically.
 | 자세 (#1) | `analyzers/pose.py` | ✅ 구현됨 / done |
 | 활동·부동 (#2) | `pose` 내 통합 / inside pose | ✅ (mean_activity, immobile span) |
 | HR/RR (rPPG) | `analyzers/rppg.py` | ✅ HR=캐시된 해부학 파이프라인 결과, RR=키포인트 흉부운동 / HR from cached pipeline, RR from keypoints |
-| 섭식 (#3) | `analyzers/feeding.py` | 🔜 위 §5 패턴 / use §5 pattern |
-| IR 체온·SpO₂·HRV | `analyzers/*.py` | 🔜 동일 패턴 / same pattern |
-| 통합 EWS (#4) | `ews/fusion.py` | ✅ pose + rppg 융합 동작 / fuses pose + rppg |
+| HRV | `analyzers/hrv.py` | ✅ 캐시된 BVP 맥파에서 SDNN/RMSSD / SDNN/RMSSD from cached BVP pulse |
+| 섭식 (#3) | `analyzers/feeding.py` | ✅ v0 구강활동 프록시(머리숙임+턱움직임); 그릇 ROI는 향후 / oral-activity proxy, bowl ROI = future |
+| IR 체온·SpO₂ | `analyzers/*.py` | 🔜 동일 패턴 / same pattern |
+| 통합 EWS (#4) | `ews/fusion.py` + UI | ✅ pose+rppg+hrv+feeding 융합, React `EwsView`에 표시 / fuses all four, shown in the UI |
 
 ---
 

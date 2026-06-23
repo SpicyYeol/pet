@@ -422,10 +422,15 @@ assets into **behavior + vitals signals**:
    ```bash
    python -m petvitals run --stem 1   # pose + rppg + 통합 EWS / all analyzers + fused EWS
    ```
-4. **행동+생리 통합 EWS / Combined early-warning score** ✅ 첫 융합 — 자세(행동) + HR/RR(생리)가
-   하나의 EWS로 합쳐짐. 예: stem 1 → HR 201(빈맥)+RR 8(서호흡) → EWS "watch".
-   (향후 HRV·SpO₂·IR 체온 추가 시 자동 합류 / future vitals join automatically.)
-5. **섭식 이벤트 감지 / Feeding-event detection** — 그릇 ROI + 머리 위치(±저울). 🔜
+4. **HRV 분석기 / HRV analyzer** ✅ — 캐시된 rPPG 맥파에서 SDNN/RMSSD 산출 ([`petvitals/analyzers/hrv.py`](petvitals/analyzers/hrv.py)).
+5. **섭식/구강활동 분석기 / Feeding (oral-activity) analyzer** ✅ v0 — 머리 숙임+턱 움직임 프록시 ([`petvitals/analyzers/feeding.py`](petvitals/analyzers/feeding.py)). 그릇 ROI는 향후.
+6. **행동+생리 통합 EWS / Combined early-warning score** ✅ — 자세·HR·RR·HRV·구강활동이 하나의 EWS로 융합되어
+   **React UI의 "Vitals EWS" 탭**에 환자별 카드로 표시됨. 예: stem 1 → HR 201(빈맥)+RR 8(서호흡) → EWS "watch".
+   ```bash
+   python tools/export_ews_ui.py     # 분석기 실행 → ui/src/generated/petvitalsEws.ts 생성
+   cd ui && npm run dev              # "Vitals EWS" 탭에서 확인 / see the "Vitals EWS" tab
+   ```
+   (향후 SpO₂·IR 체온 추가 시 자동 합류 / future vitals join automatically.)
 
 > 카메라로 추가 가능한 활력 신호: IR 열화상 체온, 호흡 노력성/무호흡, HRV, 비접촉 SpO₂, 점막색, 다중 카메라 PTT(혈압 대용).
 > Other camera-feasible vitals: IR body temperature, respiratory effort/apnea, HRV,

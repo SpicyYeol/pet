@@ -3,9 +3,10 @@ import {
   LayoutDashboard, 
   History, 
   Contact, 
-  Settings, 
+  Settings,
   Activity,
-  BarChart3
+  BarChart3,
+  HeartPulse
 } from 'lucide-react';
 
 interface SidebarProps {
@@ -21,6 +22,7 @@ export default function Sidebar({
 }: SidebarProps) {
   const navItems = [
     { id: 'dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'ews', label: 'Vitals EWS', icon: HeartPulse },
     { id: 'feasibility', label: 'Feasibility', icon: BarChart3 },
     { id: 'history', label: 'History', icon: History },
     { id: 'patients', label: 'Patient Records', icon: Contact },
