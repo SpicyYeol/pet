@@ -182,6 +182,32 @@ Frame-level labels flicker → (1) rolling-mode smoothing over ±0.5 s, then
   fit and set the threshold from the clip distribution (standing ≈14°, sitting ≈31°
   → **24°**). Result: stem 3 sitting 0%→59%, false abdominal-pain flag 16%→3%.
 
+## 8.6 일괄 오버레이 검증 (7개 클립) / Batch overlay verification (7 clips)
+
+**2026-06-23**, `visualize_pose.py`로 7개 probe 클립의 샘플 프레임을 눈으로 검증한 결과:
+
+| stem | 실제 자세 / actual | 라벨 / label | 판정 |
+|------|------|------|:---:|
+| 3 | 앉음 (불독) | SITTING | ✅ |
+| 4 | 앉음 (시츄) | SITTING | ✅ |
+| 6 | 기립 (정면) | STANDING | ✅ |
+| 7 | 기립 (키포인트 0개) | UNCERTAIN | ✅ (방어적 정상) |
+| 1 | **누움/흉와위 (대형견)** | STANDING | ❌ 누움 미검출 |
+| 8 | **누움 (닥스훈트, 몸 가림)** | SITTING | ❌ 누움 미검출 |
+| 5 | **기립 (닥스훈트, 머리 듦)** | SITTING | ❌ 기립/앉음 모호 |
+
+**핵심 결론 / Key conclusion**: 명확한 케이스(정면 기립, 분명한 앉음)는 잘 맞지만, **단일 시점 휴리스틱의
+본질적 한계**가 드러남:
+1. **누움(recumbency) 검출 불가** — 누운 개도 등이 발보다 높으면 sep가 커서 기립/앉음으로 보임.
+   바닥 기준면(ground plane) 없이는 2D만으로 구분이 어렵다.
+2. **기립 vs 앉음 모호** — 닥스훈트처럼 등이 길고 머리를 들면 척추가 대각선(~55°)이 되어 앉음과 겹침.
+   (PCA 선형성으로는 구분 불가 — stem 5의 척추는 오히려 더 곧음.)
+
+**시사점 / Implication**: 휴리스틱은 한계 수익(diminishing returns)에 도달. 다음은 **소량 라벨링 +
+경량 ML 분류기**(동일 feature 재사용) 또는 **다각도 융합**이 정답. Heuristic tuning has hit its
+single-view ceiling; the right next step is labeling + a small ML classifier (reusing the
+same features) and/or multi-view fusion — not more thresholds.
+
 ## 9. 한계와 향후 / Limitations & next steps
 
 - v0는 **단일 시점·휴리스틱** → 측와위/엎드림, 기좌호흡 판정은 근사치.
