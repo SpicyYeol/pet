@@ -56,6 +56,9 @@ reports/**/*.png
 reports/**/*.jpg
 *.pptx
 PET_RPPG_Deploy.zip
+# Generated pose-classifier demo outputs (regenerate with tools/pose_classifier.py)
+# 자세 분류기 생성 산출물 (재생성 가능)
+reports/pose_*/
 # Note: presentation_images/ is intentionally tracked (referenced as docs).
 # 참고: presentation_images/ 는 문서 자산으로 의도적으로 추적합니다.
 

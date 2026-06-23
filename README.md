@@ -349,6 +349,27 @@ A. 용량 때문에 git에서 제외했습니다. 별도로 전달받아 해당 
 
 ---
 
+## 🧭 다음 단계 / Roadmap
+
+HR·RR만으로는 ICU 모니터링에 부족하므로, 같은 키포인트·카메라 자산을 **행동·활력 신호로 확장**하는 작업을 진행 중입니다.
+HR+RR alone are too thin for ICU monitoring, so we are extending the same keypoint/camera
+assets into **behavior + vitals signals**:
+
+1. **자세 분류기 / Posture classifier** ✅ 프로토타입 — 기존 DLC 키포인트로 기립·앉음·엎드림·측와위·복통·기좌호흡·발작을 판정.
+   설계: [`docs/pose/POSE_CLASSIFIER_DESIGN.md`](docs/pose/POSE_CLASSIFIER_DESIGN.md) · 코드: [`tools/pose_classifier.py`](tools/pose_classifier.py)
+   ```bash
+   python tools/pose_classifier.py --stem 3   # → reports/pose_3/{pose_per_frame.csv, pose_session_summary.json}
+   ```
+2. **활동량·부동 추적 / Activity & immobility** — 같은 키포인트로 욕창 위험·기력저하 모니터링 (프로토타입에 포함).
+3. **섭식 이벤트 감지 / Feeding-event detection** — 그릇 ROI + 머리 위치(±저울).
+4. **행동+생리 통합 EWS / Combined early-warning score** — 위 신호 + HR/RR/HRV/SpO₂/IR 체온 융합.
+
+> 카메라로 추가 가능한 활력 신호: IR 열화상 체온, 호흡 노력성/무호흡, HRV, 비접촉 SpO₂, 점막색, 다중 카메라 PTT(혈압 대용).
+> Other camera-feasible vitals: IR body temperature, respiratory effort/apnea, HRV,
+> contactless SpO₂, mucous-membrane color, multi-cam pulse-transit-time (BP proxy).
+
+---
+
 ## ⚠️ 유의사항 / Important caveats
 
 - 정답 라벨은 **영상 단위 OCR 값**이며 동기화된 ECG/PPG가 아닙니다.
