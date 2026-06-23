@@ -295,7 +295,8 @@ output plumbing need no changes.
 | [`petvitals/core/geometry.py`](petvitals/core/geometry.py) | 스케일 불변 기하 (body_scale, PCA 척추각 등) / scale-invariant geometry |
 | [`petvitals/core/analyzer.py`](petvitals/core/analyzer.py) | **Analyzer 인터페이스 + 결과 타입 + 레지스트리** / analyzer ABC + registry |
 | [`petvitals/analyzers/pose.py`](petvitals/analyzers/pose.py) | 자세/행동/활동 분석기 + `PoseConfig`(임계값) / posture analyzer |
-| [`petvitals/ews/fusion.py`](petvitals/ews/fusion.py) | 분석기 sub-score 통합 EWS / combined early-warning score |
+| [`petvitals/analyzers/rppg.py`](petvitals/analyzers/rppg.py) | **심박(HR)+호흡(RR)+헐떡임 분석기** / HR (cached pipeline) + RR + panting |
+| [`petvitals/ews/fusion.py`](petvitals/ews/fusion.py) | 분석기 sub-score 통합 EWS (행동+생리) / combined early-warning (behavior + vitals) |
 | [`petvitals/viz/overlay.py`](petvitals/viz/overlay.py) | 자세 라벨+스켈레톤 영상 오버레이 / posture overlay renderer |
 | [`petvitals/cli.py`](petvitals/cli.py) | 통합 CLI (`run` / `viz` / `list`) / unified CLI |
 | [`tools/demo_rejection_anatomical_video4.py`](tools/demo_rejection_anatomical_video4.py) | rPPG 메인 파이프라인 (HR/RR) / main rPPG pipeline |
@@ -417,8 +418,14 @@ assets into **behavior + vitals signals**:
    python tools/visualize_pose.py --stem 3    # 라벨+스켈레톤 오버레이 영상/프레임 / annotated video + frames for eyeball check
    ```
 2. **활동량·부동 추적 / Activity & immobility** — 같은 키포인트로 욕창 위험·기력저하 모니터링 (프로토타입에 포함).
-3. **섭식 이벤트 감지 / Feeding-event detection** — 그릇 ROI + 머리 위치(±저울).
-4. **행동+생리 통합 EWS / Combined early-warning score** — 위 신호 + HR/RR/HRV/SpO₂/IR 체온 융합.
+3. **심박·호흡 분석기 (rPPG) / HR + RR analyzer** ✅ — HR은 캐시된 해부학 파이프라인 결과, RR·헐떡임은 키포인트에서 산출.
+   ```bash
+   python -m petvitals run --stem 1   # pose + rppg + 통합 EWS / all analyzers + fused EWS
+   ```
+4. **행동+생리 통합 EWS / Combined early-warning score** ✅ 첫 융합 — 자세(행동) + HR/RR(생리)가
+   하나의 EWS로 합쳐짐. 예: stem 1 → HR 201(빈맥)+RR 8(서호흡) → EWS "watch".
+   (향후 HRV·SpO₂·IR 체온 추가 시 자동 합류 / future vitals join automatically.)
+5. **섭식 이벤트 감지 / Feeding-event detection** — 그릇 ROI + 머리 위치(±저울). 🔜
 
 > 카메라로 추가 가능한 활력 신호: IR 열화상 체온, 호흡 노력성/무호흡, HRV, 비접촉 SpO₂, 점막색, 다중 카메라 PTT(혈압 대용).
 > Other camera-feasible vitals: IR body temperature, respiratory effort/apnea, HRV,

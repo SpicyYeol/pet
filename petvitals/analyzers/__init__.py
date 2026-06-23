@@ -5,5 +5,6 @@ then add one import line below.
 """
 
 from . import pose  # noqa: F401
+from . import rppg  # noqa: F401
 
-__all__ = ["pose"]
+__all__ = ["pose", "rppg"]

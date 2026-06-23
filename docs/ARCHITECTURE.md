@@ -134,10 +134,10 @@ sub-score automatically.
 |------|------|------|
 | 자세 (#1) | `analyzers/pose.py` | ✅ 구현됨 / done |
 | 활동·부동 (#2) | `pose` 내 통합 / inside pose | ✅ (mean_activity, immobile span) |
+| HR/RR (rPPG) | `analyzers/rppg.py` | ✅ HR=캐시된 해부학 파이프라인 결과, RR=키포인트 흉부운동 / HR from cached pipeline, RR from keypoints |
 | 섭식 (#3) | `analyzers/feeding.py` | 🔜 위 §5 패턴 / use §5 pattern |
-| HR/RR (rPPG) | `analyzers/rppg.py` | 🔜 기존 `tools/demo_rejection_anatomical_video4.py`를 래핑 / wrap the legacy pipeline |
 | IR 체온·SpO₂·HRV | `analyzers/*.py` | 🔜 동일 패턴 / same pattern |
-| 통합 EWS (#4) | `ews/fusion.py` | ✅ 골격 완성, 분석기 추가 시 자동 확장 / skeleton ready |
+| 통합 EWS (#4) | `ews/fusion.py` | ✅ pose + rppg 융합 동작 / fuses pose + rppg |
 
 ---
 

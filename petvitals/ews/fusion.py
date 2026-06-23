@@ -34,5 +34,7 @@ def fuse_ews(results: Iterable[AnalyzerResult]) -> dict:
         "severity": _band(total),
         "by_analyzer": breakdown,
         "reasons": reasons,
-        "note": "Behavioral-only until physiological analyzers (HR/RR/SpO2/IR) are added.",
+        "fused_from": sorted(breakdown),
+        "note": "Combined early-warning score. Higher = more concerning; "
+                "ranges/thresholds are configurable defaults, not clinical cutoffs.",
     }

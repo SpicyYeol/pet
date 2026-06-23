@@ -65,19 +65,34 @@ def cmd_run(args) -> None:
     print(f"[run] wrote outputs to {out_dir}")
 
 
+_METRIC_LABELS = [
+    ("hr_bpm", "heart rate (bpm)"), ("hr_snr", "  HR SNR"),
+    ("rr_bpm", "respiration (brpm)"), ("rr_confidence", "  RR confidence"),
+    ("panting_rate", "panting rate (bpm)"), ("panting_intensity", "panting intensity"),
+    ("mean_activity", "mean activity"), ("longest_immobile_sec", "longest immobile (s)"),
+]
+
+
 def _print_summary(name, res) -> None:
     s = res.summary
+    dur = s.get("duration_sec", "")
     print("\n" + "=" * 56)
-    print(f"  {name.upper()} SUMMARY  ({s.get('duration_sec', '?')}s)")
+    print(f"  {name.upper()} SUMMARY  ({dur}s)")
     print("=" * 56)
     frac = s.get("posture_time_fraction", {})
     for k, v in sorted(frac.items(), key=lambda kv: -kv[1]):
         print(f"  {k:26s} {v*100:5.1f}%  {'#' * int(round(v * 30))}")
-    if "mean_activity" in s:
-        print("-" * 56)
-        print(f"  mean activity         : {s['mean_activity']}")
-        print(f"  longest immobile span : {s['longest_immobile_sec']} s")
-        print(f"  {name} EWS sub-score   : {res.ews_subscore}/3")
+    shown = False
+    for key, label in _METRIC_LABELS:
+        if key in s and s[key] is not None:
+            if not shown and frac:
+                print("-" * 56)
+            shown = True
+            print(f"  {label:22s}: {s[key]}")
+    active = [k for k, v in s.get("flags", {}).items() if v]
+    if active:
+        print(f"  flags                 : {', '.join(active)}")
+    print(f"  {name} EWS sub-score   : {res.ews_subscore}/3")
 
 
 def cmd_viz(args) -> None:
