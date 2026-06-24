@@ -10,6 +10,11 @@
 2. **`petvitals` 패키지** — 공통 입력(영상 + DLC 키포인트)을 임상 신호와 통합 EWS로 바꾸는
    모듈형 플러그인 분석 프레임워크. Streamlit 대시보드로 표시.
 
+<p align="center">
+  <img src="docs/img/pose_demo.gif" width="360" alt="자세 오버레이 데모"><br>
+  <em>자세 오버레이 실시간 데모(<code>petvitals viz</code>): DLC 스켈레톤 + 자세 분류 + 프레임별 지표.</em>
+</p>
+
 ---
 
 ## 무엇을 / 왜
@@ -64,11 +69,12 @@
 설계 + "분석기 추가" 가이드: [`docs/ko/architecture.md`](docs/ko/architecture.md).
 
 <p align="center">
-  <img src="docs/img/ews_overview.png" width="520" alt="환자별 통합 EWS">
-  <img src="docs/img/pose_overlay.jpg" width="250" alt="자세 오버레이">
+  <img src="docs/img/dashboard.png" width="560" alt="대시보드 환자 상세">
 </p>
-<p align="center"><em>좌: 환자별 통합 EWS(행동+생리), 대시보드에 표시. 우: 자세 오버레이
-(<code>petvitals viz</code>) — 스켈레톤 + 라벨 + 프레임별 지표.</em></p>
+<p align="center">
+  <img src="docs/img/ews_overview.png" width="520" alt="환자별 통합 EWS">
+</p>
+<p align="center"><em>대시보드 환자 상세 뷰와 환자별 EWS 개요(행동+생리), 실제 분석기 출력으로 생성.</em></p>
 
 ---
 

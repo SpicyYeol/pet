@@ -11,6 +11,11 @@ This repo has two parts:
    shared inputs (video + DLC keypoints) into clinical signals and a combined EWS,
    shown in a Streamlit dashboard.
 
+<p align="center">
+  <img src="docs/img/pose_demo.gif" width="360" alt="live posture overlay demo"><br>
+  <em>Live posture overlay (<code>petvitals viz</code>): DLC skeleton + classified posture + per-frame readout.</em>
+</p>
+
 ---
 
 ## What & why
@@ -70,11 +75,13 @@ capability is one file + one import. Current analyzers:
 Design + "add an analyzer" guide: [`docs/en/architecture.md`](docs/en/architecture.md).
 
 <p align="center">
-  <img src="docs/img/ews_overview.png" width="520" alt="combined EWS per patient">
-  <img src="docs/img/pose_overlay.jpg" width="250" alt="posture overlay">
+  <img src="docs/img/dashboard.png" width="560" alt="dashboard patient detail">
 </p>
-<p align="center"><em>Left: combined EWS per patient (behavior + vitals), shown in the dashboard.
-Right: posture overlay (<code>petvitals viz</code>) — skeleton + label + per-frame readout.</em></p>
+<p align="center">
+  <img src="docs/img/ews_overview.png" width="520" alt="combined EWS per patient">
+</p>
+<p align="center"><em>Dashboard patient-detail view and the per-patient EWS overview
+(behavior + vitals), reproduced from real analyzer output.</em></p>
 
 ---
 
