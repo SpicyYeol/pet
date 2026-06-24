@@ -38,6 +38,42 @@ def cmd_list(_args) -> None:
         print(f"  {name:12s} {desc}")
 
 
+def _run_on_session(session, names, out_dir, tag="run") -> None:
+    out_dir.mkdir(parents=True, exist_ok=True)
+    print(f"[{tag}] stem={session.stem}  frames={session.n_frames}  fps~{session.fps}")
+    results = []
+    for name in names:
+        res = get_analyzer(name).analyze(session)
+        results.append(res)
+        res.per_frame.to_csv(out_dir / f"{name}_per_frame.csv", index=False)
+        (out_dir / f"{name}_session_summary.json").write_text(
+            json.dumps(res.summary, indent=2, ensure_ascii=False), encoding="utf-8")
+        _print_summary(name, res)
+    ews = fuse_ews(results)
+    (out_dir / "ews_summary.json").write_text(
+        json.dumps(ews, indent=2, ensure_ascii=False), encoding="utf-8")
+    print("-" * 56)
+    print(f"  COMBINED EWS: {ews['total_ews']}  ({ews['severity']})")
+    for why in ews["reasons"]:
+        print(f"    - {why}")
+    print(f"[{tag}] wrote outputs to {out_dir}")
+
+
+def cmd_analyze(args) -> None:
+    """Raw video -> keypoints (DLC if needed) -> analyzers -> EWS."""
+    from .pipeline import session_from_video
+    video = Path(args.video)
+    out_dir = Path(args.out) if args.out else Path(f"reports/analyze_{video.stem}")
+    print(f"[analyze] video={video}")
+    try:
+        session = session_from_video(video, keypoints=args.keypoints,
+                                     out_dir=out_dir, device=args.device)
+    except (RuntimeError, FileNotFoundError) as e:
+        print(f"\n[analyze] cannot proceed:\n{e}")
+        raise SystemExit(1)
+    _run_on_session(session, args.analyzers or available(), out_dir, tag="analyze")
+
+
 def cmd_run(args) -> None:
     session = _load_session(args)
     names = args.analyzers or available()
@@ -135,6 +171,15 @@ def build_parser() -> argparse.ArgumentParser:
     pr.add_argument("--analyzers", nargs="*", default=None,
                     help=f"Subset of analyzers (default: all = {available()})")
     pr.set_defaults(func=cmd_run)
+
+    pa = sub.add_parser("analyze", help="Raw video -> keypoints -> analyzers -> EWS")
+    pa.add_argument("video", help="Path to an mp4")
+    pa.add_argument("--keypoints", type=Path, default=None,
+                    help="Use this normalized keypoints CSV instead of generating (skips DLC)")
+    pa.add_argument("--device", default="cpu", help="DLC device for generation (cpu/cuda)")
+    pa.add_argument("--analyzers", nargs="*", default=None)
+    pa.add_argument("--out", type=Path, default=None)
+    pa.set_defaults(func=cmd_analyze)
 
     pv = sub.add_parser("viz", help="Render posture overlay video/frames")
     _add_source_args(pv, with_video=True)

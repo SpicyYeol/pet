@@ -97,9 +97,15 @@ python tools/analyze_video.py --stem 3 --dog_aware --relax_rejection
 ### petvitals 분석기 + EWS
 ```bash
 python -m petvitals list                 # 분석기 목록
-python -m petvitals run  --stem 1        # 전체 분석기 + 통합 EWS
+python -m petvitals run  --stem 1        # 전체 분석기 + 통합 EWS (사전계산 키포인트)
 python -m petvitals viz  --stem 3        # 자세 오버레이 영상/프레임
+
+# 새 영상 엔드투엔드 (영상 → 키포인트 → 분석기 → EWS):
+python -m petvitals analyze clip.mp4                       # 키포인트 생성 (DeepLabCut 환경 필요)
+python -m petvitals analyze clip.mp4 --keypoints kp.csv    # DLC 생략, 기존 키포인트 사용
 ```
+> 키포인트 생성은 DeepLabCut SuperAnimal(무거움·GPU)이 필요 — DLC 환경에서 실행하거나 `--keypoints`로
+> 기존 키포인트를 넘기세요. 분석기/EWS 단계는 그 의존성이 없습니다.
 
 ### 대시보드 (Streamlit)
 ```bash

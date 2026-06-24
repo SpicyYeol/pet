@@ -105,9 +105,15 @@ python tools/analyze_video.py --stem 3 --dog_aware --relax_rejection
 ### petvitals analyzers + EWS
 ```bash
 python -m petvitals list                 # list analyzers
-python -m petvitals run  --stem 1        # all analyzers + fused EWS
+python -m petvitals run  --stem 1        # all analyzers + fused EWS (precomputed keypoints)
 python -m petvitals viz  --stem 3        # posture overlay video/frames
+
+# End-to-end on a NEW clip (video -> keypoints -> analyzers -> EWS):
+python -m petvitals analyze clip.mp4                       # generates keypoints (needs DeepLabCut env)
+python -m petvitals analyze clip.mp4 --keypoints kp.csv    # skip DLC, use existing keypoints
 ```
+> Keypoint generation needs DeepLabCut SuperAnimal (heavy, GPU) — run it in the DLC
+> environment, or pass `--keypoints`. The analyzer/EWS half has no such dependency.
 
 ### Dashboard (Streamlit)
 ```bash
