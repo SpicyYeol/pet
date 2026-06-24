@@ -61,6 +61,8 @@ PET_RPPG_Deploy.zip
 reports/pose_*/
 # Note: presentation_images/ is intentionally tracked (referenced as docs).
 # 참고: presentation_images/ 는 문서 자산으로 의도적으로 추적합니다.
+# Local R&D proposal-deck workspace (build_deck.js says "not for git")
+proposal/
 
 # ──────────────────────────────────────────────────────────────
 # OS / editor cruft  /  OS · 에디터 잔여 파일
