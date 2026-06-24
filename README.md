@@ -22,6 +22,13 @@ artifact. The approach: anatomical thin-fur ROIs from SuperAnimal keypoints +
 panting-subtraction/cardiac-amplification (A+B) + a data-driven per-zone ROI
 selector. Details: [`docs/research/`](docs/research/).
 
+<p align="center">
+  <img src="presentation_images/3_frame120_keypoints_kr.jpg" width="380" alt="DLC keypoints">
+  <img src="presentation_images/3_frame120_chosen_rois_kr_with_quality.jpg" width="380" alt="adaptive ROI selection">
+</p>
+<p align="center"><em>SuperAnimal keypoints (left) → the adaptive selector picks thin-fur ROIs
+(right: nose_bridge + throat) for a brachycephalic dog. Monitor reads ~218 bpm.</em></p>
+
 > ⚠️ Research prototype — **not a medical device, not clinically validated.** All
 > thresholds are configurable defaults, not clinical cutoffs.
 
@@ -44,6 +51,11 @@ Metric = mean absolute error (bpm, lower = better).
 Full table: [`docs/research/PERFORMANCE_EVOLUTION_TABLE.md`](docs/research/PERFORMANCE_EVOLUTION_TABLE.md).
 These are coarse video-level labels — prototype method-selection, not clinical validation.
 
+<p align="center">
+  <img src="docs/img/bvp_waveforms.png" width="430" alt="extracted BVP pulse waveforms">
+</p>
+<p align="center"><em>Recovered rPPG pulse (BVP) waveforms per clip from the best anatomical ROI.</em></p>
+
 ---
 
 ## The `petvitals` framework
@@ -56,6 +68,13 @@ capability is one file + one import. Current analyzers:
 `mucous` (membrane color). Ranges come from species/breed/patient baselines.
 
 Design + "add an analyzer" guide: [`docs/en/architecture.md`](docs/en/architecture.md).
+
+<p align="center">
+  <img src="docs/img/ews_overview.png" width="520" alt="combined EWS per patient">
+  <img src="docs/img/pose_overlay.jpg" width="250" alt="posture overlay">
+</p>
+<p align="center"><em>Left: combined EWS per patient (behavior + vitals), shown in the dashboard.
+Right: posture overlay (<code>petvitals viz</code>) — skeleton + label + per-frame readout.</em></p>
 
 ---
 

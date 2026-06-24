@@ -19,6 +19,13 @@
 아티팩트에 고착됩니다. 해결: SuperAnimal 키포인트 기반 해부학적 얇은 털 ROI + 헐떡임 제거/심박
 증폭(A+B) + 데이터 기반 존별 ROI 선택. 상세: [`docs/research/`](docs/research/).
 
+<p align="center">
+  <img src="presentation_images/3_frame120_keypoints_kr.jpg" width="380" alt="DLC 키포인트">
+  <img src="presentation_images/3_frame120_chosen_rois_kr_with_quality.jpg" width="380" alt="적응형 ROI 선택">
+</p>
+<p align="center"><em>SuperAnimal 키포인트(좌) → 적응형 선택기가 얇은 털 ROI(우: 콧등 + 목)를 선택.
+단두종, 모니터 표시 약 218 bpm.</em></p>
+
 > ⚠️ 연구 프로토타입 — **의료기기 아님, 임상 검증 안 됨.** 모든 임계값은 임상 컷오프가 아닌 설정값.
 
 ---
@@ -39,6 +46,11 @@
 전체 표: [`docs/research/PERFORMANCE_EVOLUTION_TABLE.md`](docs/research/PERFORMANCE_EVOLUTION_TABLE.md).
 영상 단위 근사 라벨이므로 임상 검증이 아닌 방법 선택 근거.
 
+<p align="center">
+  <img src="docs/img/bvp_waveforms.png" width="430" alt="추출된 BVP 맥파">
+</p>
+<p align="center"><em>최적 해부학 ROI에서 복원한 클립별 rPPG 맥파(BVP) 파형.</em></p>
+
 ---
 
 ## `petvitals` 프레임워크
@@ -50,6 +62,13 @@
 `spo2` · `temperature` · `resp_effort`(패턴/무호흡) · `mucous`(점막색). 범위는 종/품종/개체 baseline 기반.
 
 설계 + "분석기 추가" 가이드: [`docs/ko/architecture.md`](docs/ko/architecture.md).
+
+<p align="center">
+  <img src="docs/img/ews_overview.png" width="520" alt="환자별 통합 EWS">
+  <img src="docs/img/pose_overlay.jpg" width="250" alt="자세 오버레이">
+</p>
+<p align="center"><em>좌: 환자별 통합 EWS(행동+생리), 대시보드에 표시. 우: 자세 오버레이
+(<code>petvitals viz</code>) — 스켈레톤 + 라벨 + 프레임별 지표.</em></p>
 
 ---
 
