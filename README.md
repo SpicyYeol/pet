@@ -61,6 +61,14 @@ These are coarse video-level labels — prototype method-selection, not clinical
 </p>
 <p align="center"><em>Recovered rPPG pulse (BVP) waveforms per clip from the best anatomical ROI.</em></p>
 
+**Preliminary agreement (honest):** an oracle selector matches the monitor HR to
+**±2 bpm** (the signal *is* recoverable), but the honest leave-one-video-out selector
+gives **MAE ~45 bpm** with a −38 bias that worsens on fast hearts. The signal is
+present; robust automatic selection is the open, **data-limited** problem. Full
+analysis: [`docs/research/PRELIMINARY_VALIDATION.md`](docs/research/PRELIMINARY_VALIDATION.md).
+
+<p align="center"><img src="docs/img/bland_altman.png" width="640" alt="Bland-Altman: oracle vs held-out"></p>
+
 ---
 
 ## The `petvitals` framework

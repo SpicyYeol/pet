@@ -56,6 +56,13 @@
 </p>
 <p align="center"><em>최적 해부학 ROI에서 복원한 클립별 rPPG 맥파(BVP) 파형.</em></p>
 
+**예비 일치도(정직하게):** 정답을 아는 oracle 선택기는 모니터 HR과 **±2 bpm** 일치(신호는 복원 가능)
+하지만, 라벨을 안 보는 leave-one-video-out 선택기는 **MAE ~45 bpm**, 편향 −38(고심박에서 악화)입니다.
+**신호는 있으나 자동 선택이 미해결**인 데이터 한계 문제입니다. 전체 분석:
+[`docs/research/PRELIMINARY_VALIDATION.md`](docs/research/PRELIMINARY_VALIDATION.md).
+
+<p align="center"><img src="docs/img/bland_altman.png" width="640" alt="Bland-Altman: oracle vs held-out"></p>
+
 ---
 
 ## `petvitals` 프레임워크
