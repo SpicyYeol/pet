@@ -69,6 +69,28 @@ its error grows with true HR (right panel): it collapses toward the well-known
 Failure concentrates on **high-HR clips** (toy/large/some brachycephalic), exactly the
 clinically important fast-heart regime.
 
+## 4b. Aiming at the oracle: why the gap is hard (and data-limited)
+
+The oracle (0.4 bpm) proves the correct HR is *present* in the candidate pool, so the
+right goal is to close the selection gap on held-out data. A quick test of whether
+**generic label-free signal quality** can do this: a fixed-weight SQI (no training, so
+leakage-free by construction) combining SNR, low spectral entropy, harmonic ratio,
+valid-fraction, motion penalty, a ~100-bpm artifact penalty, and cross-candidate
+consensus.
+
+Result: **MAE 49.5 bpm — no better than the supervised LOOCV**, and every selection
+**collapses to ~100 bpm** (e.g. targets 175/210/189 → 100/100/99). The ~100-bpm motion/
+panting artifact is *more* periodic, higher-SNR, and more agreed-upon across candidates
+than the true cardiac peak — so generic quality metrics actively prefer it.
+
+**Implication**: the gap is **not** closable by better generic SQI. It needs features /
+priors that specifically *discriminate cardiac from artifact* — multi-view agreement
+(`dataset_multi`: true HR agrees across cameras, artifact does not), physiological/state
+priors (breed-aware expected range), pulsatile-morphology features — and, to learn and
+validate that discriminator out-of-sample, **labeled data**. This is the concrete,
+quantified reason the data collection below is the critical path. (Aiming to *fit* the
+oracle with label supervision on n=7 is the overfit trap — see `trained_*_current`, §2.)
+
 ## 5. Limitations
 
 - **n = 7**, single site, **monitor labels (not synchronized ECG/PPG)**, video-level only.
