@@ -55,6 +55,9 @@ Metric = mean absolute error (bpm, lower = better).
 
 Full table: [`docs/research/PERFORMANCE_EVOLUTION_TABLE.md`](docs/research/PERFORMANCE_EVOLUTION_TABLE.md).
 These are coarse video-level labels — prototype method-selection, not clinical validation.
+**These evolution numbers are dev-set/in-sample (optimistic)** — e.g. the 37.5 row trained
+on videos 3/6/7 and reports the mean *including* them. For the honest held-out picture see
+the preliminary agreement below (it is a *different* pipeline, not the held-out version of 37.5).
 
 <p align="center">
   <img src="docs/img/bvp_waveforms.png" width="430" alt="extracted BVP pulse waveforms">

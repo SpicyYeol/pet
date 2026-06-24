@@ -50,6 +50,8 @@
 
 전체 표: [`docs/research/PERFORMANCE_EVOLUTION_TABLE.md`](docs/research/PERFORMANCE_EVOLUTION_TABLE.md).
 영상 단위 근사 라벨이므로 임상 검증이 아닌 방법 선택 근거.
+**이 진화 표 수치는 dev-set/in-sample(낙관적)** 입니다 — 예: 37.5 행은 영상 3/6/7로 학습 후 그 3/6/7을
+*포함한* 평균입니다. 정직한 held-out은 아래 예비 일치도 참고(그건 *다른* 파이프라인이며, 37.5의 held-out 버전이 아님).
 
 <p align="center">
   <img src="docs/img/bvp_waveforms.png" width="430" alt="추출된 BVP 맥파">

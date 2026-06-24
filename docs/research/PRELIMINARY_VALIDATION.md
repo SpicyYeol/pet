@@ -16,13 +16,28 @@ collecting synchronized reference data.
 ## 2. Method
 
 - **Reference**: video-level monitor BPM (coarse, OCR-reviewed), n = 7 usable clips.
-- **Estimators** (from `reports/rppg_single_view_sqi/selector_predictions.csv`):
+- **Estimators** — all from **one internally-consistent experiment**, the single-view
+  SQI candidate study (`reports/rppg_single_view_sqi/selector_predictions.csv`): the
+  same candidate pool, differing only in how a candidate is chosen.
   - **Oracle** (`oracle_window_peak`) — *label-leaked upper bound*: picks the candidate
     closest to truth. Measures whether the correct HR is **recoverable** at all.
   - **Held-out** (`supervised_peak_ranker_loocv`) — **leave-one-video-out CV**: the
     honest generalization estimate for automatic selection.
   - (Not reported as performance: `trained_*_current`, MAE ≈ 2.5 bpm, is **overfit** —
     trained and tested on the same 7 clips. Cited only as a caution.)
+
+> **Why this oracle/LOOCV pair is the right comparison, and what it is *not*.**
+> Both come from the *same* candidate pool, so oracle-vs-LOOCV isolates exactly one
+> variable — candidate selection — which is the honest, like-for-like comparison.
+> It is **not** the optimistic-vs-honest version of the README's "dog-specific
+> weights v1 → MAE 37.5" row. That number is a **different pipeline** (anatomical
+> thin-fur ROIs + a learned global RGB weight) and a **different, optimistic
+> protocol**: the weights were trained on windows from videos 3/6/7 and then the
+> 7-video mean (which *includes* 3/6/7) was reported — i.e. partly in-sample. Its
+> own worklog notes the gain "does not transfer to unseen windows," Video 7 swings
+> between 21.3 and 62.9 depending on window choice, and the v2 retrain regressed to
+> 70.3. So **37.5 and 45.5 are not comparable** (different system, different, more
+> optimistic evaluation, n=7 high variance) — do not read 45.5 as a regression from 37.5.
 - **Agreement**: mean absolute error (MAE), RMSE, Bland–Altman bias and 95% limits of
   agreement (LoA = bias ± 1.96·SD), within-monitor-range %. Stratified by breed class
   (`reports/patient_profiles/`).
