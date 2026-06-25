@@ -60,6 +60,9 @@ def build_dataset(labels: pd.DataFrame):
 def main() -> None:
     ap = argparse.ArgumentParser(description="Train pose ML classifier (weak labels)")
     ap.add_argument("--labels", type=Path, default=_ROOT / "reports/pose_training/labels.csv")
+    ap.add_argument("--external", type=Path, default=None,
+                    help="Augment with external pose features CSV (from tools/ingest_animal_pose.py). "
+                         "Uses column 'posture' if present, else 'proposed_posture' (weak).")
     args = ap.parse_args()
 
     from sklearn.ensemble import RandomForestClassifier
@@ -72,6 +75,20 @@ def main() -> None:
     X, y, groups = build_dataset(labels)
     if len(X) == 0:
         print("[train] no data; aborting"); return
+
+    if args.external and args.external.exists():
+        ext = pd.read_csv(args.external)
+        lab_col = "posture" if "posture" in ext.columns else "proposed_posture"
+        ext = ext[ext[lab_col].notna() & (ext[lab_col] != "uncertain")]
+        if len(ext):
+            Xe = np.array([[row.get(c, np.nan) for c in FEATURE_COLUMNS]
+                           for _, row in ext.iterrows()], dtype=float)
+            X = np.vstack([X, Xe])
+            y = np.concatenate([y, ext[lab_col].astype(str).values])
+            groups = np.concatenate([groups, ["external_" + str(s).split("_")[0]
+                                              for s in ext.get("species", ["ext"] * len(ext))]])
+            print(f"[train] + {len(ext)} external instances from {args.external.name} "
+                  f"(label='{lab_col}')")
 
     medians = {c: float(np.nanmedian(X[:, i])) for i, c in enumerate(FEATURE_COLUMNS)}
     imp = SimpleImputer(strategy="median").fit(X)

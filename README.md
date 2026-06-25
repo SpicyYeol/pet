@@ -159,7 +159,7 @@ and must be collected with synchronized reference devices** — see
 | Dataset | What it gives | Improves (EWS) | Usable now |
 |---|---|---|---|
 | **DLC SuperAnimal / Quadruped-80K** | the keypoint model we use | all keypoint-derived sub-scores | ✅ in use |
-| **APT-36K** | video + keypoints + tracking (30 species) | posture classifier, activity | ✅ |
+| **APT-36K / AP-10K** | video/image + keypoints (17-kp COCO) | posture classifier (ingest wired) | ✅ adapter [built](docs/research/EXTERNAL_POSE_DATA.md) |
 | **AnimalKingdom / MammalNet** | animal behavior/action video | behavior sub-scores | ✅ |
 | **Animal Pose / StanfordExtra** | dog/cat keypoints | species-specific fine-tune | ✅ |
 | **Stanford Dogs / Tsinghua Dogs / Oxford-IIIT Pet** | breed labels | **breed baseline → all vital thresholds** | ✅ (used below) |

@@ -148,7 +148,7 @@ archive/          대체된 실험 & 옛 리포트 문서
 | 데이터셋 | 주는 것 | 영향(EWS) | 지금 사용 |
 |---|---|---|---|
 | **DLC SuperAnimal / Quadruped-80K** | 우리가 쓰는 키포인트 모델 | 키포인트 기반 sub-score 전체 | ✅ 사용중 |
-| **APT-36K** | 영상+키포인트+트래킹(30종) | 자세 분류·활동 | ✅ |
+| **APT-36K / AP-10K** | 영상/이미지+키포인트(17-kp COCO) | 자세 분류(인제스트 구현) | ✅ 어댑터 [구현](docs/research/EXTERNAL_POSE_DATA.md) |
 | **AnimalKingdom / MammalNet** | 동물 행동/동작 영상 | 행동 sub-score | ✅ |
 | **Animal Pose / StanfordExtra** | 개·고양이 키포인트 | 종 특화 fine-tune | ✅ |
 | **Stanford/Tsinghua Dogs · Oxford-IIIT Pet** | 품종 라벨 | **품종 baseline → 모든 생리 임계값** | ✅ (아래 적용) |
