@@ -148,6 +148,40 @@ archive/          superseded experiments & old report docs
 
 ---
 
+## Datasets & data sources
+
+What public data can improve, and what must be collected. **The behavioral/keypoint
+half and breed individualization are coverable from public datasets; the
+physiological vitals (HR/RR/HRV/SpO₂/temperature) have no usable public animal data
+and must be collected with synchronized reference devices** — see
+[`docs/research/PRELIMINARY_VALIDATION.md`](docs/research/PRELIMINARY_VALIDATION.md).
+
+| Dataset | What it gives | Improves (EWS) | Usable now |
+|---|---|---|---|
+| **DLC SuperAnimal / Quadruped-80K** | the keypoint model we use | all keypoint-derived sub-scores | ✅ in use |
+| **APT-36K** | video + keypoints + tracking (30 species) | posture classifier, activity | ✅ |
+| **AnimalKingdom / MammalNet** | animal behavior/action video | behavior sub-scores | ✅ |
+| **Animal Pose / StanfordExtra** | dog/cat keypoints | species-specific fine-tune | ✅ |
+| **Stanford Dogs / Tsinghua Dogs / Oxford-IIIT Pet** | breed labels | **breed baseline → all vital thresholds** | ✅ (used below) |
+| **DogFLW / CatFLW (+ grimace scales)** | facial landmarks + pain | new **pain** sub-score | ✅ |
+| dog accelerometer (IMU) sets | activity ground truth | activity/immobility validation | ✅ |
+| human rPPG (UBFC, PURE, MMPD…) | video + synced HR | HR-extraction transfer only | △ transfer |
+| **animal rPPG / ECG / vitals** | synced HR/RR/SpO₂ for animals | HR/RR/HRV/SpO₂/temp scoring | 🔴 **none — collect** |
+
+**Where to collect the missing piece**: synchronized **video + ECG (gold standard)
+± pulse oximeter + continuous temperature** in veterinary clinics — ICU/anesthesia
+recovery, cardiology (home SRR), across breeds/coat colors and the high-HR regime.
+
+**Already applied here**: [`tools/build_breed_map.py`](tools/build_breed_map.py) pulls the
+120-breed Stanford-Dogs/ImageNet taxonomy (MIT) → [`petvitals/core/breeds.py`](petvitals/core/breeds.py)
+(breed → size/skull class), so a patient profile can give a free-text `breed` (e.g.
+"French Bulldog") and [`core/baselines.py`](petvitals/core/baselines.py) auto-resolves the
+breed-adjusted HR/RR/temperature ranges used by the EWS.
+
+> Verify each dataset's license before use (research-only / CC / etc.).
+
+---
+
 ## Documentation
 
 | Topic | EN | KO |

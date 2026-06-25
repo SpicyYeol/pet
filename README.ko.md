@@ -139,6 +139,36 @@ archive/          대체된 실험 & 옛 리포트 문서
 
 ---
 
+## 데이터 & 공개 데이터셋
+
+공개 데이터로 개선되는 것과 직접 수집해야 하는 것. **행동/키포인트 절반과 품종 개체화는 공개셋으로
+커버되지만, 생리 바이탈(HR/RR/HRV/SpO₂/체온)은 쓸 만한 공개 동물 데이터가 없어 동기화 reference로
+직접 수집해야 합니다** — [`docs/research/PRELIMINARY_VALIDATION.md`](docs/research/PRELIMINARY_VALIDATION.md) 참고.
+
+| 데이터셋 | 주는 것 | 영향(EWS) | 지금 사용 |
+|---|---|---|---|
+| **DLC SuperAnimal / Quadruped-80K** | 우리가 쓰는 키포인트 모델 | 키포인트 기반 sub-score 전체 | ✅ 사용중 |
+| **APT-36K** | 영상+키포인트+트래킹(30종) | 자세 분류·활동 | ✅ |
+| **AnimalKingdom / MammalNet** | 동물 행동/동작 영상 | 행동 sub-score | ✅ |
+| **Animal Pose / StanfordExtra** | 개·고양이 키포인트 | 종 특화 fine-tune | ✅ |
+| **Stanford/Tsinghua Dogs · Oxford-IIIT Pet** | 품종 라벨 | **품종 baseline → 모든 생리 임계값** | ✅ (아래 적용) |
+| **DogFLW / CatFLW (+ grimace)** | 얼굴 랜드마크 + 통증 | 신규 **통증** sub-score | ✅ |
+| 개 가속도(IMU) 셋 | 활동 정답 | 활동/부동 검증 | ✅ |
+| 인체 rPPG(UBFC·PURE·MMPD…) | 영상+동기 HR | HR 추출 전이용만 | △ |
+| **동물 rPPG / ECG / 바이탈** | 동물 동기 HR/RR/SpO₂ | HR/RR/HRV/SpO₂/체온 | 🔴 **없음 — 수집** |
+
+**부족분 수집처**: 수의병원에서 **영상 + ECG(표준) ± 펄스옥시미터 + 연속 체온** 동기 측정 —
+입원/마취회복·심장(재택 SRR)·다양한 품종/코트색·고심박 구간.
+
+**이미 적용함**: [`tools/build_breed_map.py`](tools/build_breed_map.py)가 Stanford-Dogs/ImageNet
+120품종 분류체계(MIT)를 수집 → [`petvitals/core/breeds.py`](petvitals/core/breeds.py)(품종→체구/두개 클래스).
+이제 환자 프로파일에 자유 텍스트 `breed`(예: "French Bulldog")만 넣으면
+[`core/baselines.py`](petvitals/core/baselines.py)가 품종 보정된 HR/RR/체온 범위를 자동 결정해 EWS에 반영합니다.
+
+> 각 데이터셋 라이선스(연구용/CC 등)는 사용 전 반드시 확인.
+
+---
+
 ## 문서
 
 | 주제 | EN | KO |

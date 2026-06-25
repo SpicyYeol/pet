@@ -19,6 +19,8 @@ import json
 from pathlib import Path
 from typing import Optional
 
+from .breeds import classify_breed
+
 _REPO_ROOT = Path(__file__).resolve().parents[2]
 _PROFILE_DIR = _REPO_ROOT / "reports/patient_profiles"
 
@@ -35,6 +37,7 @@ _BREED_CLASS = {
     "giant":          {"hr": (50, 130)},
     "large":          {"hr": (55, 140)},
     "sighthound":     {"hr": (50, 120)},
+    "chondrodystrophic": {"hr": (70, 170)},   # dachshund/corgi/basset (small-bodied)
     "default":        {},
 }
 SPO2_NORMAL_MIN = 95.0
@@ -64,6 +67,8 @@ def resolve_ranges(stem: str) -> dict:
     source = f"species:{species}"
 
     breed_class = (profile.get("breed_class") or "").lower()
+    if not breed_class and profile.get("breed"):
+        breed_class = classify_breed(profile["breed"])   # free-text breed -> class
     if species == "dog" and breed_class in _BREED_CLASS and breed_class != "default":
         base.update(_BREED_CLASS[breed_class])
         source = f"breed:{breed_class}"
