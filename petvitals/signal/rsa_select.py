@@ -17,6 +17,11 @@ import numpy as np
 from .ihr import instantaneous_hr, rsa_coupling
 
 _ROOT = Path(__file__).resolve().parents[2]
+
+# thin-fur anatomical ROIs (+ panting-prone mouth ROIs as controls the selector rejects).
+# NOTE: A+B extraction (multi-kp zones + panting subtraction) was tested and *regressed*
+# the RSA selector (MAE 30.8 -> 48.9) — it attenuated the high-HR pulse — so the simple
+# single-keypoint extraction below is the production choice. See RSA_SELECTOR_DESIGN §4c.
 ROIS = ["throat_base", "left_earbase", "right_earbase", "nose", "upper_jaw",
         "lower_jaw", "mouth_end_left", "mouth_end_right"]
 
@@ -48,7 +53,6 @@ def _methods(R, G, B):
 
 def _extract_rgb(video_path, kps_df, rois, rad=8):
     import cv2
-    import pandas as pd
     cen = {r: {} for r in rois}
     for r in rois:
         g = kps_df[(kps_df.keypoint == r) & (kps_df.confidence > 0.3)]
@@ -86,7 +90,7 @@ def estimate_hr_rsa(session, hr_band=(70.0, 220.0)) -> dict:
         kps = pd.read_csv(session.keypoints_path)
         n = int(kps["frame_index"].nunique())
         rgb, fs = _extract_rgb(session.video_path, kps, ROIS)
-        resp = drp.compute_thoracic_breathing_proxy(kps, n)
+        resp = drp.compute_thoracic_breathing_proxy(kps, n)      # RSA target (thoracic)
         rrate, _ = drp.estimate_thoracic_breathing_rate(resp, fs)
         rr_hz = rrate / 60.0 if np.isfinite(rrate) and rrate > 0 else None
     except Exception as e:

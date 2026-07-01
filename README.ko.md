@@ -67,8 +67,8 @@
 
 생리 기반 prior(체중 알로메트리 HR, 발열 보정, 휴식/모션 게이팅, Poincaré/RSA HRV, 청색증-Hb 주의)를
 반영했습니다. **RSA 심박-호흡 선택기**(라벨-프리 심박-아티팩트 판별)는 probe 클립에서 검증됨:
-**HR MAE 81.8 → 30.8 bpm (SNR 대비)**, in-sample 37.5보다도 낮음. opt-in으로 사용 가능
-(`RppgConfig(use_rsa_selector=True)`). 상세:
+**held-out HR MAE 30.8 vs 기존 캐시 파이프라인 53.6** (6/7 승)이라 **이제 기본값**입니다
+(영상 없으면 캐시로 폴백, 둘 다 병기). A+B 추출은 오히려 악화(48.9)라 단순 추출 사용. 상세:
 [`PHYSIOLOGY_FEATURES.md`](docs/research/PHYSIOLOGY_FEATURES.md) ·
 [`RSA_SELECTOR_DESIGN.md`](docs/research/RSA_SELECTOR_DESIGN.md).
 

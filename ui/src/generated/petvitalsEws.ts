@@ -53,13 +53,13 @@ export const PETVITALS_EWS: PetVitalsEws = {
       "reasons": [
         "[resp_effort] apnea-like pause (4.0s)",
         "[resp_effort] irregular breathing (interval CV 0.66)",
-        "[rppg] severe tachycardia (HR 201.0 bpm)",
+        "[rppg] severe tachycardia (HR 194.0 bpm)",
         "[rppg] bradypnea (RR 8.1 brpm)",
         "[spo2] severe hypoxemia (SpO2 88%)",
         "[temperature] severe hyperthermia (40.4 C)"
       ],
       "vitals": {
-        "hrBpm": 201.0,
+        "hrBpm": 194.0,
         "rrBpm": 8.1,
         "pantingIntensity": 1.0,
         "sdnnMs": 221.3,
@@ -86,8 +86,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
     {
       "stem": "3",
       "durationSec": 30.0,
-      "ews": 0,
-      "severity": "stable",
+      "ews": 2,
+      "severity": "watch",
       "baselineSource": "breed:brachycephalic",
       "breedClass": "brachycephalic",
       "byAnalyzer": {
@@ -96,13 +96,15 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "mucous": 0,
         "pose": 0,
         "resp_effort": 0,
-        "rppg": 0,
+        "rppg": 2,
         "spo2": 0,
         "temperature": 0
       },
-      "reasons": [],
+      "reasons": [
+        "[rppg] severe tachycardia (HR 186.0 bpm)"
+      ],
       "vitals": {
-        "hrBpm": 149.4,
+        "hrBpm": 186.0,
         "rrBpm": 28.3,
         "pantingIntensity": 1.0,
         "sdnnMs": 255.3,
@@ -118,14 +120,15 @@ export const PETVITALS_EWS: PetVitalsEws = {
       },
       "flags": [
         "oral_activity_detected",
-        "resp_pattern_low_confidence"
+        "resp_pattern_low_confidence",
+        "severe_tachycardia"
       ]
     },
     {
       "stem": "4",
       "durationSec": 63.0,
-      "ews": 3,
-      "severity": "watch",
+      "ews": 1,
+      "severity": "stable",
       "baselineSource": "breed:brachycephalic",
       "breedClass": "brachycephalic",
       "byAnalyzer": {
@@ -134,16 +137,15 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "mucous": 0,
         "pose": 0,
         "resp_effort": 1,
-        "rppg": 2,
+        "rppg": 0,
         "spo2": 0,
         "temperature": 0
       },
       "reasons": [
-        "[resp_effort] irregular breathing (interval CV 0.87)",
-        "[rppg] severe tachycardia (HR 188.1 bpm)"
+        "[resp_effort] irregular breathing (interval CV 0.87)"
       ],
       "vitals": {
-        "hrBpm": 188.1,
+        "hrBpm": 100.0,
         "rrBpm": 10.4,
         "pantingIntensity": 1.0,
         "sdnnMs": 221.7,
@@ -160,14 +162,14 @@ export const PETVITALS_EWS: PetVitalsEws = {
       "flags": [
         "irregular_breathing",
         "oral_activity_detected",
-        "severe_tachycardia"
+        "waxing_waning_breathing"
       ]
     },
     {
       "stem": "5",
       "durationSec": 30.0,
-      "ews": 3,
-      "severity": "watch",
+      "ews": 1,
+      "severity": "stable",
       "baselineSource": "species:dog",
       "breedClass": "default",
       "byAnalyzer": {
@@ -176,17 +178,16 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "mucous": 0,
         "pose": 0,
         "resp_effort": 1,
-        "rppg": 2,
+        "rppg": 0,
         "spo2": 0,
         "temperature": 0
       },
       "reasons": [
         "[mucous] mucous membranes appear injected (uncalibrated, verify)",
-        "[resp_effort] irregular breathing (interval CV 0.60)",
-        "[rppg] severe tachycardia (HR 211.5 bpm)"
+        "[resp_effort] irregular breathing (interval CV 0.60)"
       ],
       "vitals": {
-        "hrBpm": 211.5,
+        "hrBpm": 150.0,
         "rrBpm": 11.4,
         "pantingIntensity": 1.0,
         "sdnnMs": 203.0,
@@ -204,14 +205,14 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "irregular_breathing",
         "mucous_injected",
         "oral_activity_detected",
-        "severe_tachycardia"
+        "waxing_waning_breathing"
       ]
     },
     {
       "stem": "6",
       "durationSec": 30.0,
-      "ews": 4,
-      "severity": "concern",
+      "ews": 2,
+      "severity": "watch",
       "baselineSource": "species:dog",
       "breedClass": "default",
       "byAnalyzer": {
@@ -220,17 +221,16 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "mucous": 0,
         "pose": 0,
         "resp_effort": 1,
-        "rppg": 3,
+        "rppg": 1,
         "spo2": 0,
         "temperature": 0
       },
       "reasons": [
         "[resp_effort] irregular breathing (interval CV 0.50)",
-        "[rppg] severe tachycardia (HR 185.7 bpm)",
         "[rppg] bradypnea (RR 8.1 brpm)"
       ],
       "vitals": {
-        "hrBpm": 185.7,
+        "hrBpm": 98.0,
         "rrBpm": 8.1,
         "pantingIntensity": 1.0,
         "sdnnMs": 206.3,
@@ -248,13 +248,13 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "bradypnea",
         "irregular_breathing",
         "oral_activity_detected",
-        "severe_tachycardia"
+        "waxing_waning_breathing"
       ]
     },
     {
       "stem": "7",
       "durationSec": 30.0,
-      "ews": 2,
+      "ews": 3,
       "severity": "watch",
       "baselineSource": "breed:toy",
       "breedClass": "toy",
@@ -264,16 +264,17 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "mucous": 0,
         "pose": 0,
         "resp_effort": 1,
-        "rppg": 1,
+        "rppg": 2,
         "spo2": 0,
         "temperature": 0
       },
       "reasons": [
         "[resp_effort] irregular breathing (interval CV 0.92)",
+        "[rppg] bradycardia (HR 70.0 bpm)",
         "[rppg] bradypnea (RR 8.5 brpm)"
       ],
       "vitals": {
-        "hrBpm": 147.7,
+        "hrBpm": 70.0,
         "rrBpm": 8.5,
         "pantingIntensity": 1.0,
         "sdnnMs": 204.8,
@@ -288,9 +289,11 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "oralEvents": 8
       },
       "flags": [
+        "bradycardia",
         "bradypnea",
         "irregular_breathing",
-        "oral_activity_detected"
+        "oral_activity_detected",
+        "waxing_waning_breathing"
       ]
     },
     {
@@ -314,7 +317,7 @@ export const PETVITALS_EWS: PetVitalsEws = {
         "[resp_effort] irregular breathing (interval CV 0.71)"
       ],
       "vitals": {
-        "hrBpm": 145.3,
+        "hrBpm": 96.0,
         "rrBpm": 16.7,
         "pantingIntensity": 1.0,
         "sdnnMs": 246.6,
@@ -330,7 +333,8 @@ export const PETVITALS_EWS: PetVitalsEws = {
       },
       "flags": [
         "irregular_breathing",
-        "oral_activity_detected"
+        "oral_activity_detected",
+        "waxing_waning_breathing"
       ]
     }
   ]

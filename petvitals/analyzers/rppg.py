@@ -43,9 +43,11 @@ class RppgConfig:
     rr_severe: tuple[float, float] = (6.0, 60.0)
     rr_min_confidence: float = 0.30  # below this, RR is treated as unavailable
     strong_panting_intensity: float = 3.0
-    # opt-in: RSA-selected HR (fresh extraction; needs video+keypoints). Default off so
-    # the validated cached-pipeline HR remains the default until RSA is production-tuned.
-    use_rsa_selector: bool = False
+    # RSA-selected HR (fresh extraction; needs video+keypoints). Default ON: held-out
+    # dev-set MAE 30.8 vs 53.6 for the cached pipeline (wins 6/7 clips). Falls back to the
+    # cached HR when a video is unavailable or extraction fails; both are reported.
+    # (Known regression: stem 7 — a confident-but-wrong respiratory-band pick; n=7.)
+    use_rsa_selector: bool = True
 
 
 @register

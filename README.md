@@ -75,8 +75,9 @@ analysis: [`docs/research/PRELIMINARY_VALIDATION.md`](docs/research/PRELIMINARY_
 Physiology-grounded priors (allometric HR by body mass, fever adjustment, rest/motion
 gating, Poincaré/RSA HRV, cyanosis-Hb caveat) are wired in. The **RSA cardio-respiratory
 selector** — a label-free cardiac-vs-artifact discriminator — is validated on the probe
-clips: **HR MAE 81.8 → 30.8 bpm vs SNR selection** (below the in-sample 37.5), available
-opt-in (`RppgConfig(use_rsa_selector=True)`). See
+clips: **held-out HR MAE 30.8 vs 53.6 bpm** for the prior cached pipeline (wins 6/7),
+so it is **now the default** (falls back to cached HR when no video; both reported).
+Note: A+B extraction was tested and *regressed* it (48.9), so the simple extraction is used. See
 [`PHYSIOLOGY_FEATURES.md`](docs/research/PHYSIOLOGY_FEATURES.md) and
 [`RSA_SELECTOR_DESIGN.md`](docs/research/RSA_SELECTOR_DESIGN.md).
 

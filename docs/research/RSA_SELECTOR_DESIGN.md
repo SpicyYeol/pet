@@ -101,6 +101,25 @@ should be better. Caveat: crude extraction (no A+B panting subtraction), n=7 —
 
 **Direction confirmed → proceed to production integration (§5, §7).**
 
+## 4c. A+B extraction test + promotion decision
+
+Hypothesis: combining the project's **A+B** extraction (multi-keypoint anatomical zones +
+panting-proxy subtraction) with RSA selection would raise absolute performance. **It did
+not** — held-out MAE *regressed* 30.8 → **48.9**: A+B won big on the over-estimated clips
+(4/5/6/8) but broke the high-HR clips (1/3/7 → under-estimated), i.e. the panting
+subtraction / multi-kp zones attenuated the true high-HR pulse. So the **simple
+single-keypoint extraction + RSA is the production choice** (`petvitals/signal/rsa_select.py`).
+
+**Held-out re-eval (`tools/eval_rsa_holdout.py`)**: RSA (simple) **MAE 30.8** vs the prior
+default (cached pipeline + physiology gating) **53.6** — a 43% reduction, winning 6/7 clips.
+→ **Promoted to default** (`RppgConfig.use_rsa_selector=True`); falls back to the cached HR
+when no video/extraction, and reports both (`hr_bpm` = RSA, `hr_cached_bpm`).
+
+**Known regression / caveat**: stem 7 (145→70, a *confident-but-wrong* respiratory-band
+pick, coupling 0.52 — higher than several correct picks, so a coupling gate can't catch it;
+likely a RIIV-like respiratory artifact the frequency-domain metric didn't fully reject).
+n=7 dev set, crude extraction — a real external ECG cohort is still the validation path.
+
 ## 5. Integration & validation
 
 1. Add `rsa_coupling` as a feature in the candidate table.
