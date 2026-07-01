@@ -19,16 +19,20 @@ documented hooks for when the data/inputs exist.
 plausibility moved MAE **~58 → 53.6 bpm** — a real but modest gain (mostly stems 1/3/7/8).
 The core artifact overestimation on some clips persists → see below.
 
-## The big remaining lever (not yet wired) 🔜
+## The big remaining lever — RSA selector (core built 🧪, extraction pending 🔜)
 
 **RSA-based cardio-respiratory coupling as a cardiac-vs-artifact *selector*.**
 Physiology: in dogs the true heart rate is modulated at the respiratory frequency
 (strong RSA); the ~100-bpm motion/panting artifact is not. Scoring each candidate by
-how much its instantaneous-HR series is modulated at the measured RR would give a
+how much its instantaneous-HR series is modulated at the measured RR gives a
 **label-free discriminator** that generic SQI lacks — the exact gap in
-[`PRELIMINARY_VALIDATION.md`](PRELIMINARY_VALIDATION.md) §4b. It needs per-candidate
-instantaneous-HR time series (not the single per-window BPM we currently cache), so it
-is a signal-extraction change, not a drop-in.
+[`PRELIMINARY_VALIDATION.md`](PRELIMINARY_VALIDATION.md) §4b.
+
+The **core algorithm is now built and verified** ([`petvitals/signal/ihr.py`](../../petvitals/signal/ihr.py):
+smooth iHR via spectrogram+Viterbi+sub-bin interpolation, then RSA coupling; synthetic
+self-test separates cardiac+RSA 0.78 vs flat/artifact 0.36). What remains is the
+**signal-extraction change** to emit per-candidate wideband instantaneous-HR (not the
+single per-window BPM we cache today). Full spec: [`RSA_SELECTOR_DESIGN.md`](RSA_SELECTOR_DESIGN.md).
 
 ## Other documented hooks 🔜
 
