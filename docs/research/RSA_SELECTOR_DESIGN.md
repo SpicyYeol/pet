@@ -77,6 +77,30 @@ combination is what recovers it. Alternatives considered: Hilbert instantaneous 
   RR (not any band peak) and combining with existing SQI.
 - **Window length / cost**: needs several breaths; compute only for top-K survivors.
 
+## 4b. Directional validation on real data ✅ (it works)
+
+`tools/validate_rsa_selector.py` does a lightweight fresh extraction (green / g−r /
+CHROM on small keypoint ROIs, incl. panting-prone mouth ROIs) → per-candidate iHR +
+RSA coupling (respiration = thoracic chest proxy) → selects HR, on all 7 clips.
+This is a **fixed rule, no training** (so it is honest held-out for the selector).
+
+| selection rule | MAE (bpm) |
+|---|---|
+| by SNR (what generic quality does) | **81.8** |
+| by RSA coupling | **45.9** |
+| **by RSA coupling + physiological plausibility (70–220 bpm)** | **30.8** |
+| oracle (upper bound) | 10.1 |
+
+Findings: (1) RSA coupling ~halves the error vs SNR — **SNR is actively misleading
+here** (the ~100-bpm artifact has the highest SNR), so naive SNR+RSA blending regresses
+back toward the artifact. (2) A physiological (allometric) plausibility gate removes
+sub-harmonic mis-picks and takes it to **30.8** — better than the in-sample 37.5. (3) It
+works even on *anesthetized* dogs (RSA is blunted under anesthesia) → awake animals
+should be better. Caveat: crude extraction (no A+B panting subtraction), n=7 — the
+*relative* SNR-vs-RSA comparison is fair; absolute numbers will differ in production.
+
+**Direction confirmed → proceed to production integration (§5, §7).**
+
 ## 5. Integration & validation
 
 1. Add `rsa_coupling` as a feature in the candidate table.

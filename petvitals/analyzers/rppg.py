@@ -43,6 +43,9 @@ class RppgConfig:
     rr_severe: tuple[float, float] = (6.0, 60.0)
     rr_min_confidence: float = 0.30  # below this, RR is treated as unavailable
     strong_panting_intensity: float = 3.0
+    # opt-in: RSA-selected HR (fresh extraction; needs video+keypoints). Default off so
+    # the validated cached-pipeline HR remains the default until RSA is production-tuned.
+    use_rsa_selector: bool = False
 
 
 @register
@@ -186,6 +189,11 @@ class RppgAnalyzer(Analyzer):
     def analyze(self, session: Session) -> AnalyzerResult:
         rng = resolve_ranges(session.stem)
         hr = self._estimate_hr(session, rng)
+        if self.cfg.use_rsa_selector:
+            from ..signal.rsa_select import estimate_hr_rsa
+            rsa = estimate_hr_rsa(session)
+            if rsa.get("hr_bpm"):
+                hr = {**hr, "hr_cached_bpm": hr.get("hr_bpm"), "hr_selector": "rsa", **rsa}
         rr = self._estimate_respiration(session)
         flags, ews, reasons = self._score(hr, rr, rng)
 

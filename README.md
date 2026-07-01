@@ -73,9 +73,12 @@ analysis: [`docs/research/PRELIMINARY_VALIDATION.md`](docs/research/PRELIMINARY_
 <p align="center"><img src="docs/img/bland_altman.png" width="640" alt="Bland-Altman: oracle vs held-out"></p>
 
 Physiology-grounded priors (allometric HR by body mass, fever adjustment, rest/motion
-gating, Poincaré/RSA HRV, cyanosis-Hb caveat) are wired in — rest-gating + allometric
-plausibility already nudged HR MAE ~58 → 53.6 bpm. Details + the remaining RSA-selector
-lever: [`docs/research/PHYSIOLOGY_FEATURES.md`](docs/research/PHYSIOLOGY_FEATURES.md).
+gating, Poincaré/RSA HRV, cyanosis-Hb caveat) are wired in. The **RSA cardio-respiratory
+selector** — a label-free cardiac-vs-artifact discriminator — is validated on the probe
+clips: **HR MAE 81.8 → 30.8 bpm vs SNR selection** (below the in-sample 37.5), available
+opt-in (`RppgConfig(use_rsa_selector=True)`). See
+[`PHYSIOLOGY_FEATURES.md`](docs/research/PHYSIOLOGY_FEATURES.md) and
+[`RSA_SELECTOR_DESIGN.md`](docs/research/RSA_SELECTOR_DESIGN.md).
 
 ---
 
