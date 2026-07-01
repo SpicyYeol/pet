@@ -16,6 +16,18 @@ SQIs, evaluated leave-one-clip-out, gives **MAE 44.7 bpm — worse than the RSA 
 generalize; the physiology-grounded rule does. (A deeper MLP/net would overfit *more*, not
 less, at this scale.)
 
+## What we've validated (3 DL experiments)
+
+| # | Experiment | Result | Verdict |
+|---|---|---|---|
+| 1 | **Learned selector** — RandomForest fusing 9 physiological SQIs, leave-one-clip-out | MAE **44.7** vs RSA hand-rule 30.8; still misses stem 7 | ❌ at n=7 the rule generalizes better than the learned model (quantifies the data need) |
+| 2 | **Self-supervised rPPG POC** — tiny temporal CNN, label-free losses (band-limit + sparsity + **multi-view consistency**) on the 4-view `dataset_multi` | band-limit loss 0.54→0.01; **cross-view HR spread 26→16 bpm** vs raw green | ✅ label-free DL works; the multi-view consistency signal is exploitable |
+| 3 | **Physiology ⊕ DL fusion** — add differentiable **RSA + harmonic** priors as self-sup losses | **RSA envelope coupling 0.61→0.80**; slight trade-off vs multi-view; harmonic barely engages | ✅ mechanism proven (the classical RSA breakthrough becomes a training loss); needs weight tuning + data |
+
+Scripts: `tools/{eval_learned_selector,selfsup_rppg_poc}.py`. Details:
+[`SELFSUP_RPPG_DESIGN`](SELFSUP_RPPG_DESIGN.md). Common thread: **the methods work; the data
+does not yet** — every path converges on the synchronized/unlabeled dog-video corpus.
+
 ## DL options mapped to feasibility
 
 | Approach | What it is | Blocker | When it wins |
@@ -30,13 +42,14 @@ Note: keypoints already come from a deep net (**DLC SuperAnimal**), and detectio
 net (**YOLO**) — the perception front-end is DL; the gap is the *label-scarce* HR/behavior heads.
 
 ## Recommended DL path (in order)
-1. **Self-supervised rPPG POC** on our (unlabeled) dog clips + `dataset_multi` — the only DL
-   that needs no HR labels. Priors: temporal periodicity, cross-ROI/cross-view consistency,
-   frequency-band constraints. Cross-check against the RSA selector.
-2. **rPPG-Toolbox integration** as a wrapped analyzer (torch is already a dependency): run
-   pretrained nets for a domain-gap baseline, then fine-tune once a labeled cohort exists.
-3. **Learned multi-feature selector** (GBM/MLP on the 9 SQIs) — infrastructure is ready
-   (`tools/eval_learned_selector.py`); activate when the labeled clip count grows.
+1. **Self-supervised rPPG POC** — ✅ done (band-limit + multi-view consistency losses;
+   cross-view spread 26→16) and ✅ fused with RSA/harmonic physiology priors (coupling
+   0.61→0.80). Next: loss-weight tuning + a larger unlabeled corpus; add temporal/spatial
+   consistency; scale the model to a 3D-CNN/transformer.
+2. **rPPG-Toolbox integration** — 🔜 wrap pretrained nets (DeepPhys/PhysNet/PhysFormer) for a
+   domain-gap baseline (torch already a dependency), then fine-tune once a labeled cohort exists.
+3. **Learned multi-feature selector** — ✅ tested (`tools/eval_learned_selector.py`): 44.7 vs
+   30.8, data-limited at n=7; re-activate as the labeled clip count grows.
 
 ## Takeaway
 DL is the end-state, not the current best. Our physiology results (RSA breakthrough,
