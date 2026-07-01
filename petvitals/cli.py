@@ -107,6 +107,7 @@ _METRIC_LABELS = [
     ("panting_rate", "panting rate (bpm)"), ("panting_intensity", "panting intensity"),
     ("mean_hr_bpm", "HRV mean HR (bpm)"), ("n_beats", "HRV beats"),
     ("sdnn_ms", "HRV SDNN (ms)"), ("rmssd_ms", "HRV RMSSD (ms)"),
+    ("sd1_ms", "HRV SD1/RSA (ms)"), ("pnn50_pct", "HRV pNN50 (%)"),
     ("oral_activity_fraction", "oral activity frac"), ("oral_events", "oral events"),
     ("mean_activity", "mean activity"), ("longest_immobile_sec", "longest immobile (s)"),
 ]

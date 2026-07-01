@@ -85,7 +85,12 @@ class HrvAnalyzer(Analyzer):
             return AnalyzerResult(self.name, per_frame, summary, 0, [])
 
         sdnn = float(np.std(ibi_ms))
-        rmssd = float(np.sqrt(np.mean(np.diff(ibi_ms) ** 2))) if len(ibi_ms) > 1 else float("nan")
+        d = np.diff(ibi_ms)
+        rmssd = float(np.sqrt(np.mean(d ** 2))) if len(d) else float("nan")
+        # Poincaré: SD1 = short-term (vagal / RSA-mediated), SD2 = long-term
+        sd1 = float(np.sqrt(0.5) * np.std(d)) if len(d) else float("nan")
+        sd2 = float(np.sqrt(max(2 * sdnn ** 2 - sd1 ** 2, 0.0)))
+        pnn50 = float(100.0 * np.mean(np.abs(d) > 50.0)) if len(d) else float("nan")
         mean_hr = float(60000.0 / np.mean(ibi_ms))
         low_conf = snr < cfg.min_snr
         flags["hrv_low_confidence"] = bool(low_conf)
@@ -106,9 +111,14 @@ class HrvAnalyzer(Analyzer):
             "mean_hr_bpm": round(mean_hr, 1),
             "sdnn_ms": round(sdnn, 1),
             "rmssd_ms": round(rmssd, 1) if np.isfinite(rmssd) else None,
+            "sd1_ms": round(sd1, 1) if np.isfinite(sd1) else None,
+            "sd2_ms": round(sd2, 1) if np.isfinite(sd2) else None,
+            "pnn50_pct": round(pnn50, 1) if np.isfinite(pnn50) else None,
+            "rsa_index_ms": round(sd1, 1) if np.isfinite(sd1) else None,
             "flags": flags,
             "behavioral_ews_subscore": score,
             "note": "HRV from a short, single-window rPPG pulse — research-grade proxy, "
-                    "not clinical. EWS contribution is gated on beat count + SNR.",
+                    "not clinical. SD1 (=RSA/short-term vagal) is prominent in dogs; loss of "
+                    "RSA/HRV is associated with cardiac disease/pain. EWS gated on beats + SNR.",
         }
         return AnalyzerResult(self.name, per_frame, summary, score, reasons)

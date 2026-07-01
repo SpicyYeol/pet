@@ -43,6 +43,20 @@ _BREED_CLASS = {
 SPO2_NORMAL_MIN = 95.0
 SPO2_MILD_MIN = 90.0
 
+# typical adult body mass (kg) per class -> allometric resting-HR prior.
+# HR scales with mass: HR ~ 241 * M^-0.25 (Stahl mammalian allometry), which
+# reproduces "small dogs faster, giants slower". Used as a soft selection prior.
+_CLASS_MASS_KG = {
+    "toy": 3.0, "brachycephalic": 12.0, "chondrodystrophic": 9.0, "default": 18.0,
+    "large": 30.0, "sighthound": 26.0, "giant": 55.0,
+}
+_CAT_MASS_KG = 4.0
+
+
+def allometric_hr_center(mass_kg: float) -> float:
+    """Physiological resting-HR center from body mass (241 * M^-0.25)."""
+    return 241.0 * (max(mass_kg, 0.5) ** -0.25)
+
 
 def _widen(lo: float, hi: float, frac: float = 0.18):
     span = hi - lo
@@ -87,6 +101,18 @@ def resolve_ranges(stem: str) -> dict:
         note.append(f"RR around resting {rr:.0f}")
         source = "patient_baseline"
 
+    # allometric HR prior center (+ fever tachycardia adjustment, ~10 bpm/°C)
+    mass = profile.get("weight_kg")
+    if mass is None:
+        mass = _CAT_MASS_KG if species == "cat" else _CLASS_MASS_KG.get(breed_class, 18.0)
+    hr_center = allometric_hr_center(float(mass))
+    if "hr_resting" in bl:
+        hr_center = float(bl["hr_resting"])
+    temp_meas = (profile.get("temp_c")
+                 or (load_profile(stem) or {}).get("temp_c"))
+    if temp_meas is not None:
+        hr_center += max(0.0, float(temp_meas) - base["temp"][1]) * 10.0  # fever tachycardia
+
     return {
         "hr_normal": tuple(base["hr"]),
         "hr_severe": _widen(*base["hr"]),
@@ -97,6 +123,7 @@ def resolve_ranges(stem: str) -> dict:
         "temp_severe_low": round(base["temp"][0] - 1.0, 1),
         "spo2_normal_min": SPO2_NORMAL_MIN,
         "spo2_mild_min": SPO2_MILD_MIN,
+        "hr_prior_center": round(hr_center, 1),   # allometric/physiological expected HR
         "source": source,
         "species": species,
         "breed_class": breed_class or "default",

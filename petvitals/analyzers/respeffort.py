@@ -87,6 +87,9 @@ class RespEffortAnalyzer(Analyzer):
         intervals = np.diff(peaks) / fs            # seconds between breaths
         rate = 60.0 / float(np.median(intervals))
         cv = float(np.std(intervals) / np.mean(intervals)) if np.mean(intervals) else 0.0
+        # breath-amplitude variability (waxing/waning; Cheyne-Stokes cue over long records)
+        pa = np.abs(x[peaks])
+        amp_cv = float(np.std(pa) / np.mean(pa)) if len(pa) and np.mean(pa) else 0.0
         med = float(np.median(intervals))
         longest_pause = float(np.max(intervals))
         # regularity of the OTHER breaths (excluding the single longest gap)
@@ -102,6 +105,7 @@ class RespEffortAnalyzer(Analyzer):
             "interval_cv": round(cv, 2),
             "longest_pause_sec": round(longest_pause, 1),
             "relative_amplitude": round(amp, 4),
+            "amplitude_cv": round(amp_cv, 2),
         }
 
         # signal-quality gate: implausible rate or wildly varying intervals -> the
@@ -125,6 +129,8 @@ class RespEffortAnalyzer(Analyzer):
             score += 1
             flags["irregular_breathing"] = True
             reasons.append(f"irregular breathing (interval CV {cv:.2f})")
+        if amp_cv >= 0.6:   # observational only; Cheyne-Stokes needs a longer record
+            flags["waxing_waning_breathing"] = True
 
         base["flags"] = flags
         base["behavioral_ews_subscore"] = min(3, score)

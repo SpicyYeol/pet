@@ -130,11 +130,18 @@ class MucousAnalyzer(Analyzer):
         label, abnormal = self._classify(H, S, V)
 
         flags, score, reasons = {}, 0, []
+        physio = ""
         # very conservative: only score cyanosis, and only when read is usable
         if usable and label == "cyanotic":
             score = 3
             flags["cyanosis_suspected"] = True
             reasons.append("suspected cyanosis (bluish mucous membranes) — verify, uncalibrated")
+            # physiology: cyanosis needs >=5 g/dL deoxy-Hb -> may UNDER-report in anemia
+            physio = "cyanosis requires adequate hemoglobin; anemia can mask hypoxemia."
+        elif usable and label == "pale":
+            flags["mucous_pale"] = True
+            reasons.append("pale mucous membranes (possible anemia/poor perfusion; uncalibrated)")
+            physio = "if pale/anemic, cyanosis may be absent despite hypoxemia — check SpO2."
         elif usable and abnormal:
             flags[f"mucous_{label}"] = True
             reasons.append(f"mucous membranes appear {label} (uncalibrated, verify)")
@@ -146,6 +153,7 @@ class MucousAnalyzer(Analyzer):
             "confidence_frac": round(conf_frac, 2),
             "median_hsv": [round(H, 1), round(S, 1), round(V, 1)],
             "n_pixels": int(len(px)),
+            "physiology_note": physio,
             "flags": flags,
             "behavioral_ews_subscore": score,
             "note": "Uncalibrated, lighting-sensitive color estimate from the mouth/tongue ROI. "

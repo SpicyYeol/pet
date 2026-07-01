@@ -65,6 +65,10 @@
 
 <p align="center"><img src="docs/img/bland_altman.png" width="640" alt="Bland-Altman: oracle vs held-out"></p>
 
+생리 기반 prior(체중 알로메트리 HR, 발열 보정, 휴식/모션 게이팅, Poincaré/RSA HRV, 청색증-Hb 주의)를
+반영했습니다 — 휴식 게이팅+알로메트리 타당성으로 HR MAE가 이미 ~58 → 53.6 bpm로 개선. 상세 및 남은
+RSA-선택기 레버: [`docs/research/PHYSIOLOGY_FEATURES.md`](docs/research/PHYSIOLOGY_FEATURES.md).
+
 ---
 
 ## `petvitals` 프레임워크

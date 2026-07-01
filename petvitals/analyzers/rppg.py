@@ -67,13 +67,13 @@ class RppgAnalyzer(Analyzer):
                 return c
         return None
 
-    def _estimate_hr(self, session: Session) -> dict:
+    def _estimate_hr(self, session: Session, rng: dict | None = None) -> dict:
         cfg = self.cfg
         path = self._hr_csv_for(session)
         if path is None:
             return {"hr_bpm": None, "hr_source": None, "hr_windows_kept": 0}
         df = pd.read_csv(path)
-        for col in ("raw_bpm", "snr"):
+        for col in ("raw_bpm", "snr", "motion"):
             if col in df.columns:
                 df[col] = pd.to_numeric(df[col], errors="coerce")
         kept = df
@@ -88,6 +88,21 @@ class RppgAnalyzer(Analyzer):
         kept = kept.dropna(subset=["raw_bpm", "snr"])
         if not len(kept):
             return {"hr_bpm": None, "hr_source": str(path.relative_to(_REPO_ROOT)), "hr_windows_kept": 0}
+
+        # physiology 1 — rest gating: HR/RR are stablest at rest (cf. sleeping RR).
+        rest_gated = False
+        if "motion" in kept.columns and kept["motion"].notna().sum() >= cfg.hr_top_k * 2:
+            low = kept[kept["motion"] <= kept["motion"].median()]
+            if len(low) >= cfg.hr_top_k:
+                kept, rest_gated = low, True
+        # physiology 2 — allometric plausibility: drop candidates far from the
+        # mass-based expected HR (fever-adjusted). Never empties the set.
+        prior = (rng or {}).get("hr_prior_center")
+        if prior:
+            plaus = kept[(kept["raw_bpm"] >= 0.5 * prior) & (kept["raw_bpm"] <= 2.0 * prior)]
+            if len(plaus) >= cfg.hr_top_k:
+                kept = plaus
+
         top = kept.sort_values("snr", ascending=False).head(cfg.hr_top_k)
         return {
             "hr_bpm": round(float(np.median(top["raw_bpm"])), 1),
@@ -95,6 +110,8 @@ class RppgAnalyzer(Analyzer):
             "hr_roi": str(top.iloc[0].get("roi", "")),
             "hr_method": str(top.iloc[0].get("method", "")),
             "hr_windows_kept": int(len(kept)),
+            "hr_rest_gated": rest_gated,
+            "hr_prior_center": prior,
             "hr_source": str(path.relative_to(_REPO_ROOT)),
         }
 
@@ -167,9 +184,9 @@ class RppgAnalyzer(Analyzer):
 
     # ── public API ────────────────────────────────────────────────
     def analyze(self, session: Session) -> AnalyzerResult:
-        hr = self._estimate_hr(session)
-        rr = self._estimate_respiration(session)
         rng = resolve_ranges(session.stem)
+        hr = self._estimate_hr(session, rng)
+        rr = self._estimate_respiration(session)
         flags, ews, reasons = self._score(hr, rr, rng)
 
         # per-frame respiratory proxy traces (handy for plots/overlays)
