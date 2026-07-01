@@ -55,6 +55,28 @@ end-to-end and label-free.
 - Next: add temporal/spatial consistency + the physiology priors (RSA/harmonic) as losses;
   cross-check the learned HR against the RSA selector as the corpus grows.
 
+## Fusing the two approaches — physiology priors as self-sup losses
+
+Added two differentiable **physiology-prior losses** (fusing the classical breakthrough with
+the DL path):
+- **harmonic**: reward a 2nd harmonic (periodic non-sinusoidal pulse), from the spectrum.
+- **RSA**: reward respiratory-band modulation of the pulse *amplitude envelope* (Hilbert) =
+  cardio-respiratory coupling — the same physiology as the RSA selector, now a training loss.
+
+**Result** (baseline vs +physio, same POC):
+
+| metric | baseline | +physio | reading |
+|---|---|---|---|
+| RSA envelope coupling | 0.61 | **0.80** | ✅ physio loss works — pulse gains RSA structure |
+| harmonic presence | 0.009 | 0.013 | barely engages (2nd harmonic often beyond band/Nyquist at high HR on tiny data) |
+| cross-view spread | 18.4 | 22.0 bpm | slight trade-off vs multi-view at fixed equal weights |
+
+**Takeaway**: the fusion is mechanically proven — the RSA loss is differentiable and
+measurably increases cardio-respiratory coupling. But at fixed equal weights on 40 s / 1
+session the physio terms compete with multi-view consistency and the harmonic term doesn't
+develop; **loss weighting + a larger unlabeled corpus** are needed to get a net win. Same
+conclusion as everywhere: the method works, the data does not yet.
+
 ## Where it sits
 This is the label-free DL path from [`DL_ROADMAP`](DL_ROADMAP.md). The physiology results
 (RSA, harmonic/LF priors) can be added as extra losses/inductive bias. Real generalization
