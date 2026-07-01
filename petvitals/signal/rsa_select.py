@@ -15,6 +15,7 @@ from pathlib import Path
 import numpy as np
 
 from .ihr import instantaneous_hr, rsa_coupling
+from .sqi import riiv_rr, rsa_amplitude, vasomotion_index
 
 _ROOT = Path(__file__).resolve().parents[2]
 
@@ -97,7 +98,7 @@ def estimate_hr_rsa(session, hr_band=(70.0, 220.0)) -> dict:
         return {"error": f"{type(e).__name__}: {e}"}
 
     import pandas as pd
-    cands = []
+    cands = []; ex = []
     for r, series in rgb.items():
         arr = np.asarray(series, float)
         if np.isnan(arr).mean() > 0.4:
@@ -119,11 +120,22 @@ def estimate_hr_rsa(session, hr_band=(70.0, 220.0)) -> dict:
             if c["rsa_coupling"] is None:
                 continue
             cands.append((r, mname, bpm, snr, c["rsa_coupling"]))
+            ex.append((sig, ihr, ifs, G))
     if not cands:
         return {}
     df = pd.DataFrame(cands, columns=["roi", "method", "bpm", "snr", "rsa"])
     plaus = df[(df.bpm >= hr_band[0]) & (df.bpm <= hr_band[1])]
     pick = (plaus if len(plaus) else df).sort_values("rsa", ascending=False).iloc[0]
-    return {"hr_bpm": round(float(pick.bpm), 1), "hr_rsa_coupling": round(float(pick.rsa), 3),
-            "hr_roi": pick.roi, "hr_method": f"rsa:{pick.method}",
-            "n_candidates": int(len(df)), "rr_bpm_thoracic": round(float(rrate), 1)}
+    sig, ihr, ifs, G = ex[int(pick.name)]
+
+    # derived physiological signals on the selected pulse
+    riiv, _ = riiv_rr(sig, fs)
+    rr_agree = (abs(riiv - rrate) <= 6.0) if (riiv and np.isfinite(rrate)) else None
+    out = {"hr_bpm": round(float(pick.bpm), 1), "hr_rsa_coupling": round(float(pick.rsa), 3),
+           "hr_roi": pick.roi, "hr_method": f"rsa:{pick.method}",
+           "n_candidates": int(len(df)), "rr_bpm_thoracic": round(float(rrate), 1),
+           "rr_bpm_riiv": round(float(riiv), 1) if riiv else None,   # independent (pulse-derived) RR
+           "rr_agreement": rr_agree,                                 # thoracic vs RIIV agree (<=6 brpm)
+           "rsa_amplitude_bpm": round(rsa_amplitude(ihr, ifs, rr_hz), 1),  # vagal-tone index
+           "vasomotion_index": round(vasomotion_index(G, fs), 3)}    # microcirculation (myogenic band)
+    return out

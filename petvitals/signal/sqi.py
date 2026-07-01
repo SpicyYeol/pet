@@ -61,6 +61,47 @@ def lf_coupling(ihr, ihr_fs, band=(0.04, 0.15)) -> float:
     return float(P[sel].sum() / (P.sum() + 1e-9))
 
 
+def riiv_rr(sig, fs, rr_band=(0.15, 1.5)):
+    """Respiration from the pulse itself: breathing modulates rPPG *amplitude* (RIIV).
+    Returns (rr_bpm, quality) from the peak of the amplitude-envelope spectrum in the
+    RR band — an independent RR estimate to cross-check the keypoint chest proxy."""
+    from scipy.signal import hilbert
+    s = np.asarray(sig, float)
+    env = np.abs(hilbert(s - s.mean())); env = env - env.mean()
+    P = np.abs(np.fft.rfft(env * np.hanning(len(env)))) ** 2
+    f = np.fft.rfftfreq(len(env), 1 / fs)
+    sel = (f >= rr_band[0]) & (f <= rr_band[1])
+    if not sel.any():
+        return None, 0.0
+    fb, Pb = f[sel], P[sel]; k = int(np.argmax(Pb))
+    return float(fb[k] * 60), float(Pb[k] / (Pb.mean() + 1e-9))
+
+
+def rsa_amplitude(ihr, ihr_fs, rr_hz=None, rr_band=(0.2, 0.9)) -> float:
+    """RSA magnitude = the HR swing (bpm) at the respiratory frequency = a vagal-tone
+    index (reduced in cardiac disease/pain/deep anesthesia)."""
+    m = np.asarray(ihr, float)
+    if len(m) < 6:
+        return 0.0
+    m = m - m.mean()
+    band = (max(rr_band[0], rr_hz - 0.1), min(rr_band[1], rr_hz + 0.1)) if rr_hz else rr_band
+    F = np.fft.rfft(m); f = np.fft.rfftfreq(len(m), 1 / ihr_fs)
+    F[(f < band[0]) | (f > band[1])] = 0
+    y = np.fft.irfft(F, len(m))
+    return float(np.percentile(y, 95) - np.percentile(y, 5))
+
+
+def vasomotion_index(dc_sig, fs, band=(0.05, 0.15)) -> float:
+    """Myogenic-band (~0.05-0.15 Hz) oscillation fraction of the ROI baseline/DC =
+    microcirculation vasomotion. (Short clips capture only the myogenic band; the
+    slower endothelial/neurogenic bands need minutes.)"""
+    s = np.asarray(dc_sig, float); s = s - s.mean()
+    P = np.abs(np.fft.rfft(s * np.hanning(len(s)))) ** 2
+    f = np.fft.rfftfreq(len(s), 1 / fs)
+    tot = P[(f >= 0.01) & (f <= 1.5)].sum() + 1e-9
+    return float(P[(f >= band[0]) & (f <= band[1])].sum() / tot)
+
+
 def multisite_phase(bpm, roi_sigs, fs) -> float:
     """Power-weighted phase resultant across ROIs at the candidate frequency. A real
     pulse appears coherently in several vascular ROIs; a local artifact does not."""

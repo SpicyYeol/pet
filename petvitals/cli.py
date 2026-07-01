@@ -104,6 +104,8 @@ def cmd_run(args) -> None:
 _METRIC_LABELS = [
     ("hr_bpm", "heart rate (bpm)"), ("hr_snr", "  HR SNR"),
     ("rr_bpm", "respiration (brpm)"), ("rr_confidence", "  RR confidence"),
+    ("rr_bpm_riiv", "RR RIIV/pulse (brpm)"), ("rsa_amplitude_bpm", "RSA amplitude (bpm)"),
+    ("vasomotion_index", "vasomotion index"),
     ("panting_rate", "panting rate (bpm)"), ("panting_intensity", "panting intensity"),
     ("mean_hr_bpm", "HRV mean HR (bpm)"), ("n_beats", "HRV beats"),
     ("sdnn_ms", "HRV SDNN (ms)"), ("rmssd_ms", "HRV RMSSD (ms)"),

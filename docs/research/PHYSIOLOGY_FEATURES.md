@@ -45,6 +45,20 @@ selector (MAE 30.8); PLV/LF are **complementary** — they alone fix RSA's stem-
 doesn't beat RSA on n=7, so these are shipped as inputs for a future *learned*
 multi-feature selector (needs labeled data).
 
+## New clinical signals surfaced (RIIV / RSA amplitude / vasomotion) ✅ v0
+
+Derived from the RSA-selected pulse and reported in the rppg summary
+([`petvitals/signal/sqi.py`](../../petvitals/signal/sqi.py), `tools/eval_riiv_vaso.py`):
+- **RIIV → RR** (`rr_bpm_riiv`): respiration from the pulse's *amplitude* modulation — an
+  independent RR estimate that cross-checks the keypoint chest proxy (`rr_agreement`).
+  Moderate agreement (mean |Δ| ≈ 10 brpm) — a confidence signal, not tightly validated.
+- **RSA amplitude** (`rsa_amplitude_bpm`): HR swing at the respiratory rate = a vagal-tone
+  index (↓ in cardiac disease / pain / deep anesthesia). Values are inflated by the crude
+  iHR noise here — directional only.
+- **Vasomotion** (`vasomotion_index`): myogenic-band (~0.05-0.15 Hz) oscillation of the ROI
+  baseline = microcirculation. Short clips capture only the myogenic band; needs a
+  reference to validate. New signal, no EWS contribution.
+
 ## Tested and does not work here ❌
 
 - **Ballistocardiography (BCG)** — cardiac recoil as an *independent* (motion, not color)
