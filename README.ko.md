@@ -183,6 +183,7 @@ archive/          대체된 실험 & 옛 리포트 문서
 | 아키텍처 & 확장 | [en](docs/en/architecture.md) | [ko](docs/ko/architecture.md) |
 | 임상 요구사항 | [en](docs/en/clinical-requirements.md) | [ko](docs/ko/clinical-requirements.md) |
 | 자세 분류기 | [en](docs/en/pose-classifier.md) | [ko](docs/ko/pose-classifier.md) |
+| 생리 기반 돌파 (RSA) | [en](docs/en/physiology-breakthrough.md) | [ko](docs/ko/physiology-breakthrough.md) |
 | rPPG 연구/파이프라인 | [`docs/research/`](docs/research/) | (KR 가이드 포함) |
 
 ---

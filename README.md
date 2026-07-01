@@ -198,6 +198,7 @@ breed-adjusted HR/RR/temperature ranges used by the EWS.
 | Architecture & extending | [en](docs/en/architecture.md) | [ko](docs/ko/architecture.md) |
 | Clinical requirements | [en](docs/en/clinical-requirements.md) | [ko](docs/ko/clinical-requirements.md) |
 | Pose classifier | [en](docs/en/pose-classifier.md) | [ko](docs/ko/pose-classifier.md) |
+| Physiology breakthrough (RSA) | [en](docs/en/physiology-breakthrough.md) | [ko](docs/ko/physiology-breakthrough.md) |
 | rPPG research / pipeline | [`docs/research/`](docs/research/) | (KR guide included) |
 
 ---
