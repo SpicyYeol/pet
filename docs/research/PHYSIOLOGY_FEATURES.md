@@ -34,6 +34,17 @@ self-test separates cardiac+RSA 0.78 vs flat/artifact 0.36). What remains is the
 **signal-extraction change** to emit per-candidate wideband instantaneous-HR (not the
 single per-window BPM we cache today). Full spec: [`RSA_SELECTOR_DESIGN.md`](RSA_SELECTOR_DESIGN.md).
 
+## Pulse-vs-artifact SQI library 🧪 ([`petvitals/signal/sqi.py`](../../petvitals/signal/sqi.py))
+
+Seven physiological features a real cardiac pulse has and an artifact lacks: RSA
+coupling, waveform skewness, periodicity, perfusion index (AC/DC), **harmonic
+phase-locking (PLV)**, **Mayer/LF (~0.1 Hz) coupling**, multi-site phase consistency.
+Ablation (`tools/eval_physio_sqi.py`, RSA_SELECTOR_DESIGN §4d): RSA is the best single
+selector (MAE 30.8); PLV/LF are **complementary** — they alone fix RSA's stem-7 failure
+(a respiratory artifact with RSA coupling but no harmonic structure). Naive fusion
+doesn't beat RSA on n=7, so these are shipped as inputs for a future *learned*
+multi-feature selector (needs labeled data).
+
 ## Other documented hooks 🔜
 
 - **Pulse transit time (PTT) → blood pressure** and multi-site pulse consistency — needs

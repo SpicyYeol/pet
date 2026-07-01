@@ -120,6 +120,39 @@ pick, coupling 0.52 — higher than several correct picks, so a coupling gate ca
 likely a RIIV-like respiratory artifact the frequency-domain metric didn't fully reject).
 n=7 dev set, crude extraction — a real external ECG cohort is still the validation path.
 
+## 4d. Physiological SQI ablation (tools/eval_physio_sqi.py)
+
+Tried every feasible pulse-vs-artifact physiological feature as a selector
+([`petvitals/signal/sqi.py`](../../petvitals/signal/sqi.py)): RSA coupling, waveform
+skewness, autocorrelation periodicity, perfusion index (AC/DC), **harmonic
+phase-locking (PLV)**, **Mayer/LF (~0.1 Hz) coupling**, and multi-site phase
+consistency.
+
+Single-feature held-out MAE (lower = better):
+
+| feature | MAE | note |
+|---|---|---|
+| **RSA coupling** | **30.8** | best single selector |
+| LF / Mayer coupling | 41.7 | |
+| harmonic PLV | 46.1 | |
+| perfusion index | 46.8 | |
+| multi-site phase | 54.3 | |
+| periodicity / skew / SNR | 61-63 | weak |
+
+**Key finding — complementarity.** RSA fails on stem 7 (picks a 70-bpm respiratory
+artifact), but **PLV and LF *individually* recover it** (168 bpm, err 21 vs 119) —
+i.e. that artifact has RSA-band coupling yet **lacks harmonic structure and Mayer
+coupling**, exactly as a smooth respiratory oscillation should. The features are
+genuinely complementary.
+
+**But naive fusion does not beat RSA** on n=7: products / z-sums / "PLV-veto → RSA" all
+regress (each feature is best on *different* clips; averaging → mediocre; stem 7's
+artifact passes a median PLV/LF veto). Hand-tuning a fusion on 7 clips would overfit.
+
+**Conclusion**: RSA stays the default selector; the SQI features are shipped as a
+reusable library and are the natural inputs for a **learned multi-feature selector**,
+which needs a labeled multi-clip dataset — another concrete pull toward data collection.
+
 ## 5. Integration & validation
 
 1. Add `rsa_coupling` as a feature in the candidate table.
