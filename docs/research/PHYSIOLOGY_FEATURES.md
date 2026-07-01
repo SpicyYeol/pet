@@ -45,6 +45,16 @@ selector (MAE 30.8); PLV/LF are **complementary** — they alone fix RSA's stem-
 doesn't beat RSA on n=7, so these are shipped as inputs for a future *learned*
 multi-feature selector (needs labeled data).
 
+## Tested and does not work here ❌
+
+- **Ballistocardiography (BCG)** — cardiac recoil as an *independent* (motion, not color)
+  HR channel to cross-check rPPG. Tested on 10 fps DLC keypoints (MAE ~73) and on the
+  30 fps originals via sub-pixel phase-correlation of a torso ROI (locks onto ~72-82 bpm
+  regardless of target = gross body/respiratory motion). The recoil is too small vs a
+  freely-moving, anesthetized, hand-held dog's gross motion. Would need torso
+  stabilization + motion source-separation, or a contact/radar BCG sensor.
+  ([`tools/eval_bcg.py`](../../tools/eval_bcg.py))
+
 ## Other documented hooks 🔜
 
 - **Pulse transit time (PTT) → blood pressure** and multi-site pulse consistency — needs
